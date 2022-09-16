@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "sass": "sass --watch ./sass/main.scss:./public/css/style.css"
-
   },
   "repository": {
     "type": "git",
@@ -16,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Magma73/Projet-6-Plateforme-photographes-Fisheye/issues"
   },
-  "homepage": "https://github.com/Magma73/Projet-6-Plateforme-photographes-Fisheye#readme"
+  "homepage": "https://github.com/Magma73/Projet-6-Plateforme-photographes-Fisheye#readme",
+  "devDependencies": {
+    "sass": "^1.54.9"
+  }
 }
