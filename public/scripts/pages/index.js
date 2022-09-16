@@ -1,6 +1,6 @@
 async function getPhotographers() {
   try {
-    const response = await fetch("./data/photographers.json");
+    const response = await fetch("../data/photographers.json");
     if (response.status === 200) {
       const dataPhotographers = await response.json();
       const photographers = dataPhotographers.photographers;
