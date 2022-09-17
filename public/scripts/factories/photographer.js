@@ -5,10 +5,13 @@ function photographerFactory(data) {
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
-        article.className = 'card__photographer';
+        article.className = 'card__content';
 
         const div1 = document.createElement( 'div' );
-        div1.className = 'card__heading__img';
+        div1.className = 'card__photographer';
+
+        const header = document.createElement( 'header' );
+        header.className = 'card__header';
 
         const a = document.createElement( 'a' );
         a.className = 'card__link';
@@ -24,29 +27,35 @@ function photographerFactory(data) {
         h2.className = 'card__title';
         h2.textContent = name;
 
-        const div2 = document.createElement( 'div' );
-        div2.className = 'card__body';
+        const body = document.createElement( 'section' );
+        body.className = 'card__body';
 
         const h3 = document.createElement( 'h3' );
         h3.className = 'card__location';
         h3.textContent = city;
 
         const p1 = document.createElement( 'p' );
-        p1.className = 'card__text';
+        p1.className = 'card__tagline';
         p1.textContent = tagline;
 
         const p2 = document.createElement( 'p' );
         p2.className = 'card__price';
         p2.textContent = price + "€ par jour";
 
+
+
         a.appendChild(img);
         a.appendChild(h2);
-        div1.appendChild(a);
-        div2.appendChild(h3);
-        div2.appendChild(p1);
-        div2.appendChild(p2);
+        header.appendChild(a);
+
+        body.appendChild(h3);
+        body.appendChild(p1);
+        body.appendChild(p2);
+
+        div1.appendChild(header);
+        div1.appendChild(body);
+
         article.appendChild(div1);
-        article.appendChild(div2);
 
         return (article);
     }

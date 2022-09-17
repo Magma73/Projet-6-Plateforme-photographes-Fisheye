@@ -1,4 +1,5 @@
 /***COLORS****/
+/***FONT-SIZE****/
 /***HOVER CURSOR****/
 /*** MEDIA QUERIES***/
 /*** MIXIN FLEX***/
@@ -19,6 +20,16 @@ body {
   font-family: "DM Sans", Arial, Helvetica, sans-serif;
   max-width: 1440px;
   margin: auto;
+}
+
+/**** GLOBAL ***/
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
 }
 
 .contact_button {
@@ -119,6 +130,73 @@ form input {
   border-radius: 5px;
 }
 
+.card__content {
+  flex: 28%;
+}
+.card__content:nth-child(2) {
+  margin-right: 112px;
+  margin-left: 112px;
+}
+.card__photographer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.card__title {
+  font-size: 2.25rem;
+  color: #D3573C;
+}
+.card__heading__img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card__img {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+.card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card__location {
+  font-size: 0.813rem;
+  color: #901C1C;
+}
+.card__tagline {
+  font-size: 0.625rem;
+  color: #000000;
+}
+.card__price {
+  font-size: 0.563rem;
+  color: #757575;
+}
+
+article.card__content:nth-child(2) {
+  margin-right: 112px;
+  margin-left: 112px;
+}
+
+.photographer_section {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 78px;
+}
+
 #contact_modal {
   display: none;
 }
@@ -154,10 +232,6 @@ form input {
   background-color: #FAFAFA;
   height: 300px;
   margin: 0 100px;
-}
-
-.photographer_section article img {
-  width: 22%;
 }
 
 /*# sourceMappingURL=style.css.map */

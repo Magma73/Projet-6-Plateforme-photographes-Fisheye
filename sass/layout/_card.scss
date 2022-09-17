@@ -1,0 +1,49 @@
+.card{
+    &__content{
+        flex:28%;
+        &:nth-child(2) {
+            margin-right: 112px;
+            margin-left: 112px;
+           }
+    }
+    &__photographer{
+        @include flexColumnCenter;
+        margin-top:15px;
+        margin-bottom:15px;
+    }
+    &__title{
+        font-size: $main-title;
+        color:$color-secondary;
+    }
+    &__heading__img{
+        @include flexColumnCenter;
+    }
+    &__link{
+        @include flexColumnCenter;
+    }
+    &__img{
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        object-fit: cover;
+    }
+    &__body{
+        @include flexColumnCenter;
+    }
+    &__location{
+        font-size: 0.813rem;
+        color:$color-primary;
+    }
+    &__tagline{
+        font-size: 0.625rem;
+        color:$color-black;
+    }
+    &__price{
+        font-size: 0.563rem;
+        color:$color-third;
+    }
+}
+article.card__content:nth-child(2) {
+    margin-right: 112px;
+    margin-left: 112px;
+   }
