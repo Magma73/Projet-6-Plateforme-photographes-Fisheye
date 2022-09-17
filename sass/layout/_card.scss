@@ -1,10 +1,10 @@
 .card{
     &__content{
         flex:28%;
-        &:nth-child(2) {
+        &:nth-child(2),  &:nth-child(5) {
             margin-right: 112px;
             margin-left: 112px;
-           }
+        }
     }
     &__photographer{
         @include flexColumnCenter;
@@ -43,7 +43,3 @@
         color:$color-third;
     }
 }
-article.card__content:nth-child(2) {
-    margin-right: 112px;
-    margin-left: 112px;
-   }

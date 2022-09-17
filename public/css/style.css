@@ -133,7 +133,7 @@ form input {
 .card__content {
   flex: 28%;
 }
-.card__content:nth-child(2) {
+.card__content:nth-child(2), .card__content:nth-child(5) {
   margin-right: 112px;
   margin-left: 112px;
 }
@@ -184,11 +184,6 @@ form input {
 .card__price {
   font-size: 0.563rem;
   color: #757575;
-}
-
-article.card__content:nth-child(2) {
-  margin-right: 112px;
-  margin-left: 112px;
 }
 
 .photographer_section {
