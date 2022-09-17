@@ -1,0 +1,15 @@
+/* Initialization reset*/
+*{
+    margin:0;
+    padding:0;
+}
+/* Initialisation box-sizing */
+*{
+  box-sizing: border-box;
+}
+/**** BODY ***/
+body{
+    font-family:'DM Sans', Arial, Helvetica, sans-serif;
+    max-width:1440px;
+    margin:auto;
+}

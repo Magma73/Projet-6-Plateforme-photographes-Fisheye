@@ -1,0 +1,26 @@
+/***COLORS****/
+$color-primary: #901C1C;
+$color-secondary: #D3573C;
+$color-third: #757575;
+$color-white: #FFFFFF;
+$color-black: #000000;
+
+$color-tagline-photographer:#525252;
+$color-form-input:#312E2E;
+
+$color-bg-media:#C4C4C4;
+$color-bg-header-photographer:#FAFAFA;
+$color-bg-lightbox: #E5E5E5;
+
+
+
+
+/***HOVER CURSOR****/
+$cursor: pointer;
+
+/*** MEDIA QUERIES***/
+$breakpoints: (
+    tablette:768px,
+    desktop: 992px,
+    xlarge: 1440px
+);

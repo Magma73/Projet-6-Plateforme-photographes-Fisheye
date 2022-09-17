@@ -1,0 +1,29 @@
+/*** MIXIN FLEX***/
+@mixin flexColumnCenter{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@mixin flexRowCenter{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+/*** MIXIN MEDIA QUERIES***/
+@mixin desktop {
+    @media (max-width: map-get($breakpoints, desktop)){
+        @content;
+    }
+}
+@mixin tablette {
+    @media (max-width: map-get($breakpoints, tablette)){
+        @content;
+    }
+}
+@mixin xLarge {
+    @media (max-width: map-get($breakpoints, xlarge)){
+        @content;
+    }
+}
