@@ -1,6 +1,7 @@
 .card{
     &__content{
         flex:28%;
+        margin-bottom: 42px;
         &:nth-child(2),  &:nth-child(5) {
             margin-right: 112px;
             margin-left: 112px;
@@ -12,29 +13,39 @@
         margin-bottom:15px;
     }
     &__title{
+        margin-top: 21.5px;
         font-size: $main-title;
+        font-weight:400;
         color:$color-secondary;
     }
     &__heading__img{
         @include flexColumnCenter;
     }
     &__link{
-        @include flexColumnCenter;
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content: space-between;
     }
     &__img{
         width: 200px;
         height: 200px;
         border-radius: 100%;
         object-fit: cover;
+        background: $color-bg-media;
+        box-shadow: 0px 4px 12px $color-bg-media-shadow;
     }
     &__body{
         @include flexColumnCenter;
+        margin-top: 6px;
     }
     &__location{
         font-size: 0.813rem;
         color:$color-primary;
     }
     &__tagline{
+        margin-top: 5px;
+        margin-bottom: 5px;
         font-size: 0.625rem;
         color:$color-black;
     }
