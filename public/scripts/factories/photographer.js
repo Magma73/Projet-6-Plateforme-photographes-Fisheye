@@ -32,7 +32,7 @@ function photographerFactory(data) {
 
         const h3 = document.createElement( 'h3' );
         h3.className = 'card__location';
-        h3.textContent = city;
+        h3.textContent = city +  ", " + country;
 
         const p1 = document.createElement( 'p' );
         p1.className = 'card__tagline';
