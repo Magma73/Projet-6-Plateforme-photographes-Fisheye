@@ -19,7 +19,7 @@
 body {
   font-family: "DM Sans", Arial, Helvetica, sans-serif;
   max-width: 1440px;
-  margin: auto;
+  margin: auto !important;
 }
 
 /**** GLOBAL ***/
@@ -134,9 +134,29 @@ form input {
   flex: 28%;
   margin-bottom: 42px;
 }
+@media (max-width: 992px) {
+  .card__content {
+    flex: 33%;
+  }
+}
+@media (max-width: 768px) {
+  .card__content {
+    flex: 50%;
+  }
+}
+@media (max-width: 540px) {
+  .card__content {
+    flex: 100%;
+  }
+}
 .card__content:nth-child(2), .card__content:nth-child(5) {
   margin-right: 112px;
   margin-left: 112px;
+}
+@media (max-width: 1440px) {
+  .card__content:nth-child(2), .card__content:nth-child(5) {
+    margin: unset;
+  }
 }
 .card__photographer {
   display: flex;
@@ -151,6 +171,7 @@ form input {
   font-size: 2.25rem;
   font-weight: 400;
   color: #D3573C;
+  text-align: center;
 }
 .card__heading__img {
   display: flex;

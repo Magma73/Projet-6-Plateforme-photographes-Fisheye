@@ -2,9 +2,21 @@
     &__content{
         flex:28%;
         margin-bottom: 42px;
+        @include desktop {
+            flex:33%;
+        }
+        @include tablette {
+            flex:50%;
+        }
+        @include mobile {
+            flex:100%;
+        }
         &:nth-child(2),  &:nth-child(5) {
             margin-right: 112px;
             margin-left: 112px;
+            @include xLarge {
+                margin: unset;
+            }
         }
     }
     &__photographer{
@@ -17,6 +29,7 @@
         font-size: $main-title;
         font-weight:400;
         color:$color-secondary;
+        text-align: center;
     }
     &__heading__img{
         @include flexColumnCenter;
