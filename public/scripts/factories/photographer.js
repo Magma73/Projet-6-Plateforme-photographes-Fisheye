@@ -16,12 +16,12 @@ function photographerFactory(data) {
         const a = document.createElement( 'a' );
         a.className = 'card__link';
         a.setAttribute("aria-label", name);
-        a.setAttribute("href", "#");
+        a.setAttribute("href", "photographer.html?"+id);
 
         const img = document.createElement( 'img' );
         img.className = 'card__img';
         img.setAttribute("src", picture);
-        img.setAttribute("alt", " ");
+        img.setAttribute("alt", name);
 
         const h2 = document.createElement( 'h2' );
         h2.className = 'card__title';
