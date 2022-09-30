@@ -21,7 +21,7 @@ function photographerFactory(data) {
         const img = document.createElement( 'img' );
         img.className = 'card__img';
         img.setAttribute("src", picture);
-        img.setAttribute("alt", name);
+        img.setAttribute("alt", name + "- Page du photographe");
 
         const h2 = document.createElement( 'h2' );
         h2.className = 'card__title';
