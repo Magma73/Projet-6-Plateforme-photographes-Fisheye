@@ -42,59 +42,62 @@ function photographerHeaderFactory(data) {
   const picture = `./assets/photographers/Photographers ID Photos/${portrait}`;
 
   function getUserCardDOM() {
-    // Création de l'élément heading
+    // Création du conteneur banner
     const div1 = document.createElement("div");
-    div1.className = "photographer__header--heading";
+    div1.className = "banner";
+
+    // Création de l'élément heading
+    const div2 = document.createElement("div");
+    div2.className = "banner__heading";
 
     // Création du titre h1 : nom du photographe
     const h1 = document.createElement("h1");
-    h1.className = "photographer__header--title";
+    h1.className = "banner__title";
     h1.textContent = name;
 
     // Création du body : location + tagline
     const body = document.createElement("div");
-    body.className = "photographer__header--body";
+    body.className = "banner__body";
 
-    // Création du body : location + tagline
+    // Création du titre h2 : location
     const h2 = document.createElement("h2");
-    h2.className = "photographer__header--location";
+    h2.className = "banner__location";
     h2.textContent = city +  ", " + country;
 
     // Créations du paragraphe tagline
     const p1 = document.createElement( "p" );
-    p1.className = "photographer__header--tagline";
+    p1.className = "banner__tagline";
     p1.textContent = tagline;
 
     // Création du conteneur du bouton
-    const div2 = document.createElement("div");
-    div2.className = "photographer__header--link";
+    const div3 = document.createElement("div");
+    div3.className = "banner__link-contact";
 
     // Création du bouton
     const button = document.createElement("button");
-    button.className = "photographer__header--contact-button";
+    button.className = "banner__button";
     button.textContent = "Contactez-moi";
 
     // Création de l'image et attribut alt
     const img = document.createElement( "img" );
-    img.className = "photographer__header--portrait";
+    img.className = "banner__img";
     img.setAttribute("src", picture);
     img.setAttribute("alt", name);
-
 
     // Ajout du titre h2 et de la tagline dans le body
     body.appendChild(h2);
     body.appendChild(p1);
 
-    // Ajout du bouton dans la div link
-    div2.appendChild(button);
-
-    // Ajout du bouton dans la div link
-    div2.appendChild(button);
-
     // Ajout du titre h1 et du body dans la div photographer__header
-    div1.appendChild(h1);
-    div1.appendChild(body);
+    div2.appendChild(h1);
+    div2.appendChild(body);
+
+    // Ajout du bouton dans la div link
+    div3.appendChild(button);
+
+    // Ajout des éléments dans la div1 : banner
     div1.appendChild(div2);
+    div1.appendChild(div3);
     div1.appendChild(img);
 
     return (div1);

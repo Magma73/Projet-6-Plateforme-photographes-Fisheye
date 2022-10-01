@@ -1,5 +1,57 @@
-.photograph-header {
+// .photograph-header {
+//     background-color: #FAFAFA;
+//     height: 300px;
+//     margin: 0 100px;
+// }
+.banner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+    flex:100%;
+    height:313px;
+    margin: -5px 151px;
+    &__heading{
+        margin-top: -8px;
+    }
+    &__title{
+        font-size: $main-title-photographer;
+        font-weight:400;
+        color:$color-secondary;
+        text-align: center;
+        margin:0;
+    }
+    &__body{
+        margin-top:10px;
+    }
+    &__location{
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: $color-primary;
+    }
+    &__tagline{
+        margin-top: 20px;
+        color:$color-tagline-photographer;
+        font-size:1.125rem;
+    }
+    &__button{
+        margin-top: 32px;
+        margin-left: -78px;
+        padding: 24px 14px;
+        font-weight: 700;
+        font-size: 1.25rem;
+        background:$color-primary;
+        color:$color-white;
+        border: none;
+        border-radius:5px;
+
+    }
+    &__img{
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        object-fit: cover;
+        background: #C4C4C4;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+    }
 }

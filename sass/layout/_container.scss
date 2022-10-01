@@ -1,0 +1,13 @@
+.photographer{
+    &__header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAFAFA;
+    }
+    &__section{
+       display: flex;
+       flex-wrap: wrap;
+       margin-top: 78px;
+    }
+ }

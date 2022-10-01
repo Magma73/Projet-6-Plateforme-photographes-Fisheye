@@ -10,6 +10,9 @@
     flex-direction: column;
     margin: 24px 15px;
   }
+  &--photographer {
+    margin: 43px 100px;
+  }
   &__link--home-page {
     flex: 50%;
     display: flex;
@@ -18,12 +21,18 @@
     @include tablette {
       justify-content: center;
     }
+    &--photographer {
+      flex: 100%;
+    }
   }
   &__logo {
     width: 32%;
     height: auto;
     @include tablette {
       min-width: 124px;
+    }
+    &--photographer {
+      width: 16.25%;
     }
   }
   &__heading {
