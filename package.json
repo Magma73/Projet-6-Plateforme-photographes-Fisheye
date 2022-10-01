@@ -4,7 +4,8 @@
   "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./public/css/style.css"
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css",
+    "lint": "eslint --max-warnings=0 ."
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,8 @@
   },
   "homepage": "https://github.com/Magma73/Projet-6-Plateforme-photographes-Fisheye#readme",
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.23.1",
     "sass": "^1.54.9"
   }
 }
