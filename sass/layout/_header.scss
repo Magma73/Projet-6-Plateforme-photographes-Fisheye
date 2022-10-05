@@ -11,7 +11,13 @@
     margin: 24px 15px;
   }
   &--photographer {
-    margin: 43px 100px;
+    margin: 43px 100px 40px 100px;
+    @include desktop {
+      margin: 24px 50px;
+    }
+    @include tablette {
+      margin: 24px 15px;
+    }
   }
   &__link--home-page {
     flex: 50%;
@@ -32,7 +38,7 @@
       min-width: 124px;
     }
     &--photographer {
-      width: 16.10%;
+      width: 16.1%;
     }
   }
   &__heading {
