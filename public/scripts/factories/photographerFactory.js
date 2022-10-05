@@ -21,7 +21,7 @@ function photographerFactory(photographers) {
         const a = document.createElement( 'a' );
         a.className = 'card__link';
         a.setAttribute("aria-label", name);
-        a.setAttribute("href", "photographer.html?"+"id="+id+"name="+name);
+        a.setAttribute("href", "photographer.html?"+"id="+id+"&name="+name);
 
         // Création de l'image et attribut alt
         const img = document.createElement( 'img' );
