@@ -30,7 +30,7 @@
   @include mobile {
     flex-wrap: unset;
     width: 100vw;
-    height: 45vh;
+    height: auto;
     margin: unset;
   }
   &__heading {
@@ -45,6 +45,8 @@
     }
     @include mobile {
       align-items: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
   }
   &__title {

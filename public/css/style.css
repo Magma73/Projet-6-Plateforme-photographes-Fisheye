@@ -309,7 +309,7 @@ form input {
   .banner {
     flex-wrap: unset;
     width: 100vw;
-    height: 45vh;
+    height: auto;
     margin: unset;
   }
 }
@@ -332,6 +332,8 @@ form input {
 @media (max-width: 540px) {
   .banner__heading {
     align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }
 .banner__title {
