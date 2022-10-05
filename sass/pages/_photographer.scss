@@ -4,30 +4,34 @@
 //     margin: 0 100px;
 // }
 .banner {
-  width: 86vw;
+  width: 1240px;
   margin: auto;
-  height: 30.56vh;
+  min-height: 313px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 49px;
   border-radius: 5px;
   background-color: #fafafa;
+  @include xLarge {
+    width: 86vw;
+    height: 30.56vh;
+  }
   @include desktop {
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
-    width:89vw;
-    padding:unset;
+    width: 89vw;
+    padding: unset;
   }
   @include tablette {
-    width:95vw;
+    width: 95vw;
   }
   @include mobile {
-    flex-wrap:unset;
-    width:100vw;
+    flex-wrap: unset;
+    width: 100vw;
     height: 45vh;
-    margin:unset;
+    margin: unset;
   }
   &__heading {
     @include flexColumnCenter;
@@ -36,11 +40,11 @@
     flex: 45%;
     margin-top: -10px;
     @include desktop {
-        flex: 55%;
+      flex: 55%;
       margin-top: unset;
     }
     @include mobile {
-        align-items: center;
+      align-items: center;
     }
   }
   &__title {
@@ -50,7 +54,7 @@
     text-align: center;
     margin: 0;
     @include mobile {
-        font-size: 3rem;
+      font-size: 3rem;
     }
   }
   &__body {
@@ -58,8 +62,8 @@
     align-items: flex-start;
     margin-top: 6px;
     @include mobile {
-        align-items: center;
-        text-align:center;
+      align-items: center;
+      text-align: center;
     }
   }
   &__location {
@@ -78,9 +82,9 @@
     flex: 42%;
     margin-top: 29px;
     @include desktop {
-        flex: 21%;
-        margin-top: unset;
-      }
+      flex: 21%;
+      margin-top: unset;
+    }
   }
   &__button {
     padding: 24px 11px;
@@ -92,8 +96,8 @@
     border-radius: 5px;
     letter-spacing: 0.1rem;
     @include mobile {
-        font-size: 1rem;
-        padding: 18px 11px;
+      font-size: 1rem;
+      padding: 18px 11px;
     }
   }
   &__img {

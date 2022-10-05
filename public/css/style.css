@@ -275,15 +275,21 @@ form input {
 }
 
 .banner {
-  width: 86vw;
+  width: 1240px;
   margin: auto;
-  height: 30.56vh;
+  min-height: 313px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 49px;
   border-radius: 5px;
   background-color: #fafafa;
+}
+@media (max-width: 1440px) {
+  .banner {
+    width: 86vw;
+    height: 30.56vh;
+  }
 }
 @media (max-width: 992px) {
   .banner {
