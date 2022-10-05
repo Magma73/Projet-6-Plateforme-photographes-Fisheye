@@ -77,6 +77,7 @@ function photographerHeaderFactory(data) {
     const button = document.createElement("button");
     button.className = "banner__button";
     button.textContent = "Contactez-moi";
+    button.setAttribute("aria-label", "Contactez-moi");
 
     // Création de la div contenant l'image et attribut alt
     const div4 = document.createElement( "div" );
