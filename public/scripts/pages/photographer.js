@@ -78,9 +78,12 @@ function photographerHeaderFactory(data) {
     button.className = "banner__button";
     button.textContent = "Contactez-moi";
 
+    // Création de la div contenant l'image et attribut alt
+    const div4 = document.createElement( "div" );
+    div4.className = "banner__img";
+
     // Création de l'image et attribut alt
     const img = document.createElement( "img" );
-    img.className = "banner__img";
     img.setAttribute("src", picture);
     img.setAttribute("alt", name);
 
@@ -95,10 +98,13 @@ function photographerHeaderFactory(data) {
     // Ajout du bouton dans la div link
     div3.appendChild(button);
 
+    // Ajout de l'image dans la div banner__img
+    div4.appendChild(img);
+
     // Ajout des éléments dans la div1 : banner
     div1.appendChild(div2);
     div1.appendChild(div3);
-    div1.appendChild(img);
+    div1.appendChild(div4);
 
     return (div1);
   }
