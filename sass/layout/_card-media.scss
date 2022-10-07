@@ -1,20 +1,21 @@
 .card__media{
-    max-width:350px;
+    max-height:351px;
     display: flex;
     flex-direction: column;
-    flex:17%;
+    flex:25%;
     margin-bottom:30px;
-    margin-right: 47.5px;
-    margin-left: 47.5px;
+    margin-right: 36.5px;
+    margin-left: 49.5px;
     &-element{
         display: flex;
         flex-direction: column;
     }
     &--img{
-        width:350px;
+        width:100%;
         height:300px;
         object-fit: cover;
         border-radius: 5px;
+        // flex:100%;
     }
     &-infos{
         display: flex;
