@@ -25,7 +25,7 @@ async function displayData(photographers) {
    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
    const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
    const isIDPhotograph = photographers.find((isId) => isId.id === idURL); // Je trouve dans mon tableau d'objet l'id à récupérer
-   const photographerHeaderModel = photographerFactory(isIDPhotograph);
+   const photographerHeaderModel = headerPhotographerFactory(isIDPhotograph);
    const photographerCardDOM = photographerHeaderModel.getPhotographerCardDOM();
    photographersHeader.appendChild(photographerCardDOM);
 }
@@ -50,6 +50,10 @@ async function init() {
    // Récupère les datas medias des photographes
    const { photographersMedias } = await getPhotographers();
    displayDataMedia(photographersMedias);
+
+   // const buttonContact = document.body.innerHTML;
+   // console.log(buttonContact);
 }
 
 init();
+
