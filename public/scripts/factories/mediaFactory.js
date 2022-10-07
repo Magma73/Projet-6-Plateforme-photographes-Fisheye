@@ -2,7 +2,10 @@ function photographerMediasFactory(photographersMedias) {
     const { id, photographerId, title, image, video, likes, date, price } = photographersMedias;
 
     const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
-    const nom = params.get("name"); // Je récupère le nom du photographe
+    const nom = params.get("name").toString(); // Je récupère le nom du photographe
+
+
+
     const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
 
     // const photographerId = idURL;
@@ -80,6 +83,11 @@ function photographerMediasFactory(photographersMedias) {
       const conteneurIcon = document.createElement("div");
       conteneurIcon.className = "card__media-icon";
 
+      // Création du nombre de likes
+      const nbLikes = document.createElement("p");
+      nbLikes.className = "card__media-likes";
+      nbLikes.textContent = likes;
+
       // Création de l'icône
       const icon = document.createElement("i");
       icon.className = "fas fa-heart card__media--icon-heart";
@@ -90,6 +98,7 @@ function photographerMediasFactory(photographersMedias) {
 
 
       // Ajout de l'icône dans le conteneur icône
+      conteneurIcon.appendChild(nbLikes);
       conteneurIcon.appendChild(icon);
 
     // Ajout du titre et de l'icône dans le conteneur mediaInfos
