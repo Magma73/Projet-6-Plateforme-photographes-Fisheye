@@ -12,25 +12,94 @@ function photographerMediasFactory(photographersMedias) {
     const mediaVideo = `./assets/photographers/${nom}/${video}`;
 
     function getMediaCardDOM() {
+      // Création du conteneur tri
+      // const conteneurSort = document.createElement("div");
+      // conteneurSort.className = "container__sort";
+
+      // // Création du conteneur titre tri
+      // const conteneurSortHeading = document.createElement("div");
+      // conteneurSortHeading.className = "sort__heading";
+
+      // // Création du conteneur nav tri
+      // const conteneurSortInput = document.createElement("input");
+      // conteneurSortInput.className = "sort__filter";
+
+      // // Création du titre tri
+      // const titreSort = document.createElement("p");
+      // titreSort.className = "sort__title";
+      // titreSort.textContent = "Trier par";
+
+      // // Création du menu déroulant
+      // const menuTri = document.createElement("ul");
+      // menuTri.className = "sort__dropdown";
+      // const menuElementTri = document.createElement("li");
+      // let elements= ["Popularité", "Date", "Titre"];
+      // for (let i=0; length.elements < 3; i++){
+      //   menuElementTri.textContent = elements[i];
+      // }
+      // menuElementTri.className = "sort__element";
+
+
       // Création du conteneur article
       const article = document.createElement("article");
       article.className = "card__media";
+
+      // Création du conteneur media element
+      const mediaElement = document.createElement("div");
+      mediaElement.className = "card__media-element";
+
+    // Création du média photo ou video et ajout dans la div mediaElement
+      if(video !== undefined) {
+        const video = document.createElement("video");
+        video.setAttribute("src", mediaVideo);
+        video.setAttribute("alt", title);
+        video.controls = true;
+        video.className = "card__media--video";
+        mediaElement.appendChild(video);
+
+      } else if (image !== undefined){
+        const img = document.createElement("img");
+        img.setAttribute("src", mediaPhoto);
+        img.setAttribute("alt", title);
+        img.className = "card__media--img";
+        mediaElement.appendChild(img);
+      } else {
+        console.log("Pas d'images ni de vidéos trouvées");
+      }
+
+      // Création du conteneur media informations
+      const mediaInfos = document.createElement("div");
+      mediaInfos.className = "card__media-infos";
 
       // Création du titre
       const titre = document.createElement("h3");
       titre.className = "card__media--title";
       titre.textContent = title;
 
-    // Création du média photo
-        const img = document.createElement("img");
-        // img.className = "card__media--img";
-        img.setAttribute("src", mediaPhoto);
-        img.setAttribute("alt", title);
-        img.className = "card__media--img";
+      // Création du conteneur icon
+      const conteneurIcon = document.createElement("div");
+      conteneurIcon.className = "card__media-icon";
 
-      // Ajout des éléments dans la div1 : banner
-      article.appendChild(titre);
-      article.appendChild(img);
+      // Création de l'icône
+      const icon = document.createElement("i");
+      icon.className = "fas fa-heart card__media--icon-heart";
+      // icon.textContent =
+      // "<path d='M9.5 18.35L8.23125 17.03C3.725 12.36 0.75 9.28 0.75 5.5C0.75 2.42 2.8675 0 5.5625 0C7.085 0 8.54625 0.81 9.5 2.09C10.4537 0.81 11.915 0 13.4375 0C16.1325 0 18.25 2.42 18.25 5.5C18.25 9.28 15.275 12.36 10.7688 17.04L9.5 18.35Z' fill='#911C1C'/>";
+
+      // "width='19' height='19' viewBox='0 0 19 19' fill='none' xmlns='http://www.w3.org/2000/svg'>"+
+
+
+      // Ajout de l'icône dans le conteneur icône
+      conteneurIcon.appendChild(icon);
+
+    // Ajout du titre et de l'icône dans le conteneur mediaInfos
+      mediaInfos.appendChild(titre);
+      mediaInfos.appendChild(conteneurIcon);
+
+      // Ajout des éléments mediaElement et mediaInfos dans l'article
+      article.appendChild(mediaElement);
+      article.appendChild(mediaInfos);
+
 
       return (article);
     }
