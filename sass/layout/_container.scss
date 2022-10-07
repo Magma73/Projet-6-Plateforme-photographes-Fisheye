@@ -7,4 +7,19 @@
     flex-wrap: wrap;
     margin-top: 78px;
   }
+  &__medias {
+    display:flex;
+    flex-direction: column;
+    margin: 25px 52.5px;
+  }
+}
+.container{
+  &__sort{
+    // margin-bottom:40px;
+  }
+  &__medias{
+    display: flex;
+    flex-wrap:wrap;
+    margin-top:58px;
+  }
 }

@@ -234,8 +234,45 @@ form input {
   color: #757575;
 }
 
+.card__media {
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  flex: 17%;
+  margin-bottom: 30px;
+  margin-right: 47.5px;
+  margin-left: 47.5px;
+}
+.card__media-element {
+  display: flex;
+  flex-direction: column;
+}
 .card__media--img {
-  width: 10%;
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.card__media-infos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  padding-bottom: 10px;
+  color: #901C1C;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.card__media-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card__media-icon > i {
+  color: #901C1C;
+  font-size: 1.094rem;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 .photographer__header {
@@ -246,36 +283,16 @@ form input {
   flex-wrap: wrap;
   margin-top: 78px;
 }
-
-#contact_modal {
-  display: none;
-}
-
-.modal {
-  border-radius: 5px;
-  background-color: #DB8876;
-  width: 50%;
+.photographer__medias {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 35px;
-  margin: auto;
+  margin: 25px 52.5px;
 }
 
-.modal header {
-  justify-content: space-between;
-  width: 100%;
-}
-
-.modal header img {
-  cursor: pointer;
-}
-
-.modal header h2 {
-  font-size: 64px;
-  font-weight: normal;
-  text-align: center;
+.container__medias {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 58px;
 }
 
 .banner {
@@ -429,6 +446,37 @@ form input {
     margin-top: 20px;
     margin-bottom: 30px;
   }
+}
+
+#contact_modal {
+  display: none;
+}
+
+.modal {
+  border-radius: 5px;
+  background-color: #DB8876;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 35px;
+  margin: auto;
+}
+
+.modal header {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal header img {
+  cursor: pointer;
+}
+
+.modal header h2 {
+  font-size: 64px;
+  font-weight: normal;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */
