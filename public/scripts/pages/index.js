@@ -1,13 +1,14 @@
 async function getPhotographers() {
   try {
     const response = await fetch("../data/photographers.json");
+    console.log(response);
     if (response.status === 200) {
       const dataPhotographers = await response.json();
       const photographers = dataPhotographers.photographers;
       // et bien retourner le tableau photographers seulement une fois
-      return {
+      return ({
         photographers: [...photographers],
-      };
+      });
     } else {
       throw "Le fichier JSON n'a pas été trouvé";
     }

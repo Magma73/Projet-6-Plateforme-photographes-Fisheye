@@ -75,7 +75,7 @@ function photographerFactory(photographers) {
         return (article);
     }
 
-    // FACTORY DES PAGES PHOTOGRAPHES : je créé une page pour chaque photographe (photographer.html)
+    // FACTORY DES PAGES PHOTOGRAPHES : création du header pour chaque photographe (photographer.html)
 
     function getPhotographerCardDOM() {
         // Création du conteneur banner
@@ -145,5 +145,6 @@ function photographerFactory(photographers) {
 
         return (div1);
       }
+    // return { name,  id, city, country, tagline, price, picture, getUserCardDOM }
     return { name,  id, city, country, tagline, price, picture, getUserCardDOM, getPhotographerCardDOM }
 }
