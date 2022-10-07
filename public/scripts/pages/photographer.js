@@ -24,7 +24,7 @@ async function displayData(photographers) {
    const photographersHeader = document.querySelector(".photographer__header");
    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
    const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
-   const isIDPhotograph = photographers.find((isId) => isId.id === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
+   const isIDPhotograph = photographers.find((isId) => isId.id === idURL); // Je trouve dans mon tableau d'objet l'id à récupérer
    const photographerHeaderModel = photographerFactory(isIDPhotograph);
    const photographerCardDOM = photographerHeaderModel.getPhotographerCardDOM();
    photographersHeader.appendChild(photographerCardDOM);
@@ -34,10 +34,12 @@ async function displayDataMedia(photographersMedias) {
    const photographersMediasSection = document.querySelector(".photographer__medias");
    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
    const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
-   const isIDPhotographID = photographersMedias.find((isId) => isId.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
-   const photographerMediaModel = photographerMediasFactory(isIDPhotographID);
-   const photographerMediaCardDOM = photographerMediaModel.getMediaCardDOM();
-   photographersMediasSection.appendChild(photographerMediaCardDOM);
+   const results = photographersMedias.filter(photographersMedia => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
+   results.forEach((result) => { // Pour chaque média associé à l'url du photographe filtré, je créé la carte MediaCardDom
+      const photographerMediaModel = photographerMediasFactory(result);
+      const photographerMediaCardDOM = photographerMediaModel.getMediaCardDOM();
+      photographersMediasSection.appendChild(photographerMediaCardDOM);
+   });
 }
 
 async function init() {
