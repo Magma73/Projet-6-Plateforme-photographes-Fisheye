@@ -234,6 +234,10 @@ form input {
   color: #757575;
 }
 
+.card__media--img {
+  width: 10%;
+}
+
 .photographer__header {
   display: flex;
 }
@@ -318,10 +322,10 @@ form input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 15.33vh;
   align-items: flex-start;
   flex: 45%;
   margin-top: -10px;
+  padding-right: 20px;
 }
 @media (max-width: 992px) {
   .banner__heading {
@@ -340,12 +344,12 @@ form input {
   font-size: 4rem;
   font-weight: 400;
   color: #D3573C;
-  text-align: center;
   margin: 0;
 }
 @media (max-width: 540px) {
   .banner__title {
     font-size: 3rem;
+    text-align: center;
   }
 }
 .banner__body {
