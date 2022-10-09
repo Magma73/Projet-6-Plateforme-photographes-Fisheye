@@ -235,19 +235,20 @@ form input {
 }
 
 .card__media {
-  max-height: 351px;
+  max-width: 350px;
   display: flex;
   flex-direction: column;
-  flex: 25%;
-  margin-bottom: 30px;
-  margin-right: 36.5px;
-  margin-left: 49.5px;
+  flex: 26.12%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 22.5px;
+  margin-left: 73.5px;
 }
 @media (max-width: 768px) {
   .card__media {
+    min-width: 100%;
     margin-right: unset;
     margin-left: unset;
-    min-width: 100%;
   }
 }
 .card__media-element {
@@ -264,10 +265,10 @@ form input {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 12px;
-  padding-bottom: 10px;
+  margin-top: 12px;
+  margin-bottom: 10px;
   color: #901C1C;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 400;
 }
 .card__media-icon {
@@ -293,7 +294,8 @@ form input {
 .photographer__medias {
   display: flex;
   flex-direction: column;
-  margin: 25px 52.5px;
+  justify-content: center;
+  margin: 25px 1.82%;
 }
 @media (max-width: 768px) {
   .photographer__medias {
@@ -304,7 +306,8 @@ form input {
 .container__medias {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 58px;
+  justify-content: flex-start;
+  margin-top: 48px;
 }
 @media (max-width: 768px) {
   .container__medias {

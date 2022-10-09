@@ -1,16 +1,17 @@
 .card__media{
-    max-height:351px;
+    // max-height:351px;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
-    flex:25%;
-    margin-bottom:30px;
-    margin-right: 36.5px;
-    margin-left: 49.5px;
+    flex:26.12%;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-right: 22.5px;
+    margin-left: 73.5px;
     @include tablette {
+        min-width: 100%;
         margin-right: unset;
         margin-left: unset;
-        min-width: 100%;
-        // margin:auto;
       }
     &-element{
         display: flex;
@@ -27,10 +28,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-top: 12px;
-        padding-bottom: 10px;
+        // padding-top: 12px;
+        // padding-bottom: 10px;
+        margin-top: 12px;
+        margin-bottom: 10px;
         color:$color-primary;
-        font-size:1.5rem;
+        font-size:1.25rem;
         font-weight: 400;
     }
     &--title{
