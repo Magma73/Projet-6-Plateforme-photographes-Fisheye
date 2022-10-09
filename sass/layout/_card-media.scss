@@ -6,6 +6,12 @@
     margin-bottom:30px;
     margin-right: 36.5px;
     margin-left: 49.5px;
+    @include tablette {
+        margin-right: unset;
+        margin-left: unset;
+        min-width: 100%;
+        // margin:auto;
+      }
     &-element{
         display: flex;
         flex-direction: column;

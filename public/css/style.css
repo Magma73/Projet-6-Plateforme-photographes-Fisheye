@@ -243,6 +243,13 @@ form input {
   margin-right: 36.5px;
   margin-left: 49.5px;
 }
+@media (max-width: 768px) {
+  .card__media {
+    margin-right: unset;
+    margin-left: unset;
+    min-width: 100%;
+  }
+}
 .card__media-element {
   display: flex;
   flex-direction: column;
@@ -288,12 +295,24 @@ form input {
   flex-direction: column;
   margin: 25px 52.5px;
 }
+@media (max-width: 768px) {
+  .photographer__medias {
+    margin: 25px 17px;
+  }
+}
 
 .container__medias {
   display: flex;
   flex-wrap: wrap;
   margin-top: 58px;
 }
+@media (max-width: 768px) {
+  .container__medias {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .banner {
   width: 1240px;
   margin: auto;

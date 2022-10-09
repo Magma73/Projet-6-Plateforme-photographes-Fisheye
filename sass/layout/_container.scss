@@ -11,6 +11,9 @@
     display:flex;
     flex-direction: column;
     margin: 25px 52.5px;
+    @include tablette {
+      margin: 25px 17px;
+    }
   }
 }
 .container{
@@ -21,5 +24,9 @@
     display: flex;
     flex-wrap:wrap;
     margin-top:58px;
+    @include tablette {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }
