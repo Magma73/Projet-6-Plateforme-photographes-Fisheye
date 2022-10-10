@@ -1,5 +1,10 @@
 .encart{
     &__likes{
         display: flex;
+        align-items: center;
+        &--heart{
+            padding-left: 7px;
+            font-size: 1.25rem;
+        }
     }
 }

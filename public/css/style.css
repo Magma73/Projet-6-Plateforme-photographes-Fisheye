@@ -149,6 +149,15 @@ form input {
   border-radius: 5px;
 }
 
+.encart__likes {
+  display: flex;
+  align-items: center;
+}
+.encart__likes--heart {
+  padding-left: 7px;
+  font-size: 1.25rem;
+}
+
 .card__content {
   flex: 28%;
   margin-bottom: 42px;
@@ -321,6 +330,11 @@ form input {
     margin: 25px 17px;
   }
 }
+.photographer__footer {
+  position: fixed;
+  right: 20px;
+  bottom: -19px;
+}
 
 .container__medias {
   display: flex;
@@ -338,6 +352,16 @@ form input {
     flex-direction: column;
     align-items: center;
   }
+}
+.container__encart {
+  display: flex;
+  justify-content: space-between;
+  background: #DB8876;
+  width: 376px;
+  padding: 23px 35px 19px 33px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .banner {

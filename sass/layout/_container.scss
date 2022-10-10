@@ -22,6 +22,11 @@
       margin: 25px 17px;
     }
   }
+  &__footer {
+    position:fixed;
+    right: 20px;
+    bottom: -19px;
+  }
 }
 .container{
   &__sort{
@@ -39,5 +44,15 @@
       flex-direction: column;
       align-items: center;
     }
+  }
+  &__encart{
+    display:flex;
+    justify-content: space-between;
+    background:$color-bg-encart;
+    width: 376px;
+    padding: 23px 35px 19px 33px;
+    border-radius: 5px;
+    font-size:1.5rem;
+    font-weight: 500;
   }
 }
