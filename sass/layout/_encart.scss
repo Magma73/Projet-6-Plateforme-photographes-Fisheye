@@ -2,6 +2,10 @@
     &__likes{
         display: flex;
         align-items: center;
+        padding-right:64px;
+        @include mobile {
+            padding-right:20px;
+          }
         &--heart{
             padding-left: 7px;
             font-size: 1.25rem;

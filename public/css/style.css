@@ -152,6 +152,12 @@ form input {
 .encart__likes {
   display: flex;
   align-items: center;
+  padding-right: 64px;
+}
+@media (max-width: 540px) {
+  .encart__likes {
+    padding-right: 20px;
+  }
 }
 .encart__likes--heart {
   padding-left: 7px;
@@ -335,6 +341,11 @@ form input {
   right: 20px;
   bottom: -19px;
 }
+@media (max-width: 540px) {
+  .photographer__footer {
+    right: 0px;
+  }
+}
 
 .container__medias {
   display: flex;
@@ -355,9 +366,12 @@ form input {
 }
 .container__encart {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 376px;
   background: #DB8876;
-  width: 376px;
   padding: 23px 35px 19px 33px;
   border-radius: 5px;
   font-size: 1.5rem;
