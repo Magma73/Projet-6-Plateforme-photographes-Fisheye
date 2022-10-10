@@ -17,7 +17,7 @@
     width: 86vw;
     height: 30.56vh;
   }
-  @include desktop {
+  @include desktop992 {
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
@@ -40,7 +40,7 @@
     flex: 45%;
     margin-top: -10px;
     padding-right: 20px;
-    @include desktop {
+    @include desktop992 {
       flex: 55%;
       margin-top: unset;
     }
@@ -84,7 +84,7 @@
     align-items: flex-start;
     flex: 42%;
     margin-top: 29px;
-    @include desktop {
+    @include desktop992 {
       flex: 21%;
       margin-top: unset;
     }

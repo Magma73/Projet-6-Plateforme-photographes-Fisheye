@@ -1,18 +1,21 @@
 .card__media{
-    // max-height:351px;
     max-width: 350px;
     display: flex;
     flex-direction: column;
     flex:26.12%;
     margin-top:10px;
-    margin-bottom:10px;
+    margin-bottom:11px;
     margin-right: 22.5px;
     margin-left: 73.5px;
+    @include xLarge {
+        margin-right: 37.5px;
+        margin-left: 37.5px;
+    }
     @include tablette {
         min-width: 100%;
         margin-right: unset;
         margin-left: unset;
-      }
+    }
     &-element{
         display: flex;
         flex-direction: column;
@@ -22,32 +25,27 @@
         height:300px;
         object-fit: cover;
         border-radius: 5px;
-        // flex:100%;
     }
     &-infos{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        // padding-top: 12px;
-        // padding-bottom: 10px;
         margin-top: 12px;
         margin-bottom: 10px;
         color:$color-primary;
         font-size:1.25rem;
         font-weight: 400;
     }
-    &--title{
-        // color:$color-primary;
-        // font-size:1.5rem;
-        // font-weight: 400;
-    }
     &-icon{
         @include flexRowCenter;
         & > i{
             color:$color-primary;
             font-size:1.094rem;
-            padding-right:5px;
-            padding-left:5px;
+            padding-right:3px;
+            padding-left:6px;
         }
+    }
+    &-likes{
+        font-size:1.5rem;
     }
 }

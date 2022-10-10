@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   margin: 22px 100px;
-  @include desktop {
+  @include desktop992 {
     margin: 24px 50px;
   }
   @include tablette {
@@ -12,7 +12,7 @@
   }
   &--photographer {
     margin: 43px 100px 40px 100px;
-    @include desktop {
+    @include desktop992 {
       margin: 24px 50px;
     }
     @include tablette {

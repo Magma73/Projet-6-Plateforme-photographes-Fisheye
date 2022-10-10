@@ -16,13 +16,18 @@
         @content;
     }
 }
-@mixin desktop {
+@mixin tablette {
+    @media (max-width: map-get($breakpoints, tablette)){
+        @content;
+    }
+}
+@mixin desktop992 {
     @media (max-width: map-get($breakpoints, desktop)){
         @content;
     }
 }
-@mixin tablette {
-    @media (max-width: map-get($breakpoints, tablette)){
+@mixin desktop1200{
+    @media (max-width: map-get($breakpoints, desktopPlus)){
         @content;
     }
 }
