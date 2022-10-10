@@ -53,6 +53,16 @@ async function displayDataMedia(photographersMedias) {
    });
 }
 
+async function displayDataEncart(photographers) {
+   const photographersEncartSection = document.querySelector(".photographer__footer");
+   const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
+   const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
+   const isIDPhotograph = photographers.find((isId) => isId.id === idURL); // Je trouve dans mon tableau d'objet l'id à récupérer
+   const photographerEncartModel = encartMediasFactory(isIDPhotograph);
+   const photographerEncartCardDOM = photographerEncartModel.getEncartCardDOM();
+   photographersEncartSection.appendChild(photographerEncartCardDOM);
+}
+
 async function init() {
    // Récupère les datas des photographes
    const { photographers } = await getPhotographers();
@@ -62,7 +72,7 @@ async function init() {
    const { photographersMedias } = await getPhotographers();
    displayDataMedia(photographersMedias);
    displayDataFilter(photographersMedias);
-
+   displayDataEncart(photographers);
    // const buttonContact = document.body.innerHTML;
    // console.log(buttonContact);
 }
