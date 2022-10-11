@@ -15,34 +15,6 @@ function photographerMediasFactory(photographersMedias) {
     const mediaVideo = `./assets/photographers/${nom}/${video}`;
 
     function getMediaCardDOM() {
-      // Création du conteneur tri
-      // const conteneurSort = document.createElement("div");
-      // conteneurSort.className = "container__sort";
-
-      // // Création du conteneur titre tri
-      // const conteneurSortHeading = document.createElement("div");
-      // conteneurSortHeading.className = "sort__heading";
-
-      // // Création du conteneur nav tri
-      // const conteneurSortInput = document.createElement("input");
-      // conteneurSortInput.className = "sort__filter";
-
-      // // Création du titre tri
-      // const titreSort = document.createElement("p");
-      // titreSort.className = "sort__title";
-      // titreSort.textContent = "Trier par";
-
-      // // Création du menu déroulant
-      // const menuTri = document.createElement("ul");
-      // menuTri.className = "sort__dropdown";
-      // const menuElementTri = document.createElement("li");
-      // let elements= ["Popularité", "Date", "Titre"];
-      // for (let i=0; length.elements < 3; i++){
-      //   menuElementTri.textContent = elements[i];
-      // }
-      // menuElementTri.className = "sort__element";
-
-
       // Création du conteneur article
       const article = document.createElement("article");
       article.className = "card__media";
@@ -108,7 +80,6 @@ function photographerMediasFactory(photographersMedias) {
       // Ajout des éléments mediaElement et mediaInfos dans l'article
       article.appendChild(mediaElement);
       article.appendChild(mediaInfos);
-
 
       return (article);
     }

@@ -1,10 +1,6 @@
 function sortMediasFactory(photographersMedias) {
     const { id, photographerId, title, image, video, likes, date, price } = photographersMedias;
 
-    // const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
-    // const nom = params.get("name"); // Je récupère le nom du photographe
-    // const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
-
     // FACTORY DES FILTRES : Page photographer.html
 
     function getSortCardDOM() {
@@ -14,28 +10,46 @@ function sortMediasFactory(photographersMedias) {
       conteneurSortHeading.className = "sort__heading";
 
       // Création du conteneur nav tri
-      const conteneurSortInput = document.createElement("input");
-      conteneurSortInput.className = "sort__filter";
+      const conteneurSortLabel = document.createElement("label");
+      conteneurSortLabel.className = "sort__filter";
+      conteneurSortLabel.setAttribute("for", "sort");
+      conteneurSortLabel.setAttribute("aria-label", "order by");
+      conteneurSortLabel.textContent = "Trier par : "
 
-      // Création du titre tri
-      const titreSort = document.createElement("p");
-      titreSort.className = "sort__title";
-      titreSort.textContent = "Trier par";
+      // Création du select
+      const sortSelect = document.createElement("select");
+      sortSelect.className = "sort__select";
+      sortSelect.setAttribute("name", "choice");
+      sortSelect.setAttribute("id", "choice");
 
-    //   // Création du menu déroulant
-    //   const menuTri = document.createElement("ul");
-    //   menuTri.className = "sort__dropdown";
-    //   const menuElementTri = document.createElement("li");
-    //   let elements= ["Popularité", "Date", "Titre"];
-    //   for (let i=0; length.elements < 3; i++){
-    //     menuElementTri.textContent = elements[i];
-    //   }
-    //   menuElementTri.className = "sort__element";
+    //  Création du menu déroulant
+      const menuSort = document.createElement("option");
+      menuSort.className = "sort__dropdown";
+
+    //  Création des options
+      const optionPopularite = document.createElement("option");
+      optionPopularite.className = "sort__element";
+      optionPopularite.textContent = "Popularité";
+      optionPopularite.setAttribute("value", "popularite");
+
+      const optionDate = document.createElement("option");
+      optionDate.className = "sort__element";
+      optionDate.textContent = "Date";
+      optionDate.setAttribute("value", "date");
+
+      const optionTitre = document.createElement("option");
+      optionTitre.className = "sort__element";
+      optionTitre.textContent = "Titre";
+      optionTitre.setAttribute("value", "titre");
+
+      // Ajout des options dans le select
+      sortSelect.appendChild(optionPopularite);
+      sortSelect.appendChild(optionDate);
+      sortSelect.appendChild(optionTitre);
 
       // Ajout des éléments du filtre
-      conteneurSortHeading.appendChild(titreSort);
-
-
+      conteneurSortHeading.appendChild(conteneurSortLabel);
+      conteneurSortHeading.appendChild(sortSelect);
 
       return (conteneurSortHeading);
     }
