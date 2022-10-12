@@ -1,14 +1,15 @@
 .button {
-    &__contact{
-    font-size: 20px;
+    border: none;
+    border-radius: $main-radius;
+    font-size: 1.25rem;
     font-weight: bold;
+    background-color: $color-primary;
     color: $color-white;
+    cursor: pointer;
+    &__contact{
     padding: 11px;
     width: 170px;
     height: 70px;
     border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
     }
 }

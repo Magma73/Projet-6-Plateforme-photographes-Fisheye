@@ -1,5 +1,6 @@
 /***COLORS****/
 /***FONT-SIZE****/
+/***BORDER-RADISU****/
 /***HOVER CURSOR****/
 /*** MEDIA QUERIES***/
 /*** MIXIN FLEX***/
@@ -32,17 +33,20 @@ ul {
   padding: 0;
 }
 
-.button__contact {
-  font-size: 20px;
+.button {
+  border: none;
+  border-radius: 5px;
+  font-size: 1.25rem;
   font-weight: bold;
+  background-color: #901C1C;
   color: #FFFFFF;
+  cursor: pointer;
+}
+.button__contact {
   padding: 11px;
   width: 170px;
   height: 70px;
   border: none;
-  background-color: #901C1C;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 .sort__heading {
@@ -143,27 +147,24 @@ ul {
   }
 }
 
-form {
+.form {
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
 }
-
-form label {
-  color: #312E2E;
-  font-size: 36px;
-}
-
-form div {
+.form__data {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: self-start;
   margin-bottom: 26px;
 }
-
-form input {
+.form__label {
+  color: #312E2E;
+  font-size: 36px;
+}
+.form__text-control {
   width: 100%;
   height: 68px;
   border: none;
@@ -555,35 +556,40 @@ form input {
   }
 }
 
-#contact_modal {
+#contact__modal {
   display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: rgba(196, 196, 196, 0.4);
 }
 
 .modal {
+  width: 100%;
+  max-width: 656px;
+  margin: 5% auto;
+  padding: 35px;
   border-radius: 5px;
   background-color: #DB8876;
-  width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 35px;
-  margin: auto;
+  align-items: flex-start;
 }
-
-.modal header {
+.modal__header {
+  display: flex;
   justify-content: space-between;
-  width: 100%;
 }
-
-.modal header img {
+.modal__header > img {
+  width: 80px;
   cursor: pointer;
 }
-
-.modal header h2 {
-  font-size: 64px;
-  font-weight: normal;
-  text-align: center;
+.modal__title {
+  font-size: 4rem;
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=style.css.map */
