@@ -38,19 +38,36 @@
       </div>
       <div class="photographer__footer"></div>
     </main>
-    <div id="contact_modal">
+    <div id="contact__modal">
 			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="./assets/icons/close.svg" class="button__close">
+				<header class="modal__header">
+          <h2 class="modal__title">Contactez-moi</h2>
+          <img src="./assets/icons/close.svg" class="modal__close">
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input >
-					</div>
-          <button class="submit_button">Envoyer</button>
-				</form>
+
+        <form class="form" name="contact" id="formContact">
+          <div class="form__data" data-error-visible="" data-error="">
+            <label class="form__label" for="first">Prénom</label>
+            <input class="form__text-control" id="first" name="first" />
+          </div>
+
+          <div class="form__data" data-error-visible="" data-error="">
+            <label class="form__label" for="last">Nom</label>
+            <input class="form__text-control" id="last" name="last" />
+          </div>
+
+          <div class="form__data" data-error-visible="" data-error="">
+            <label  class="form__label" for="email">E-mail</label>
+            <input class="form__text-control" id="email" name="email" />
+          </div>
+
+          <div class="form__data" data-error-visible="" data-error="">
+            <label  class="form__label" for="message">Votre message</label>
+            <textarea class="form__text-control" id="message" name="message"></textarea>
+          </div>
+
+          <input class="button button__submit" type="submit" value="Envoyer" />
+        </form>
 			</div>
 		</div>
 
