@@ -1,9 +1,11 @@
-function displayModal() {
-    const modal = document.getElementById("contact_modal");
+/********* FUNCTIONS *********/
+/* Function ouverture de la modale */
+ function displayModal() {
+    const modal = document.querySelector("#contact_modal");
 	modal.style.display = "block";
-}
-
+ }
+/* Function fermeture de la modale */
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
+    const modal = document.querySelector("#contact_modal");
     modal.style.display = "none";
 }

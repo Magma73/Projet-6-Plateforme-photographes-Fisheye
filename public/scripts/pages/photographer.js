@@ -73,8 +73,15 @@ async function init() {
    displayDataMedia(photographersMedias);
    displayDataFilter(photographersMedias);
    displayDataEncart(photographers);
-   // const buttonContact = document.body.innerHTML;
-   // console.log(buttonContact);
+
+   // Crée les fonctions pour faire fonctionner la modale de contact
+      ///* Ouverture de la modal contact *///
+   const buttonContact = document.querySelector(".button__contact");
+      buttonContact.addEventListener("click", displayModal);
+
+      ///* Fermeture de la modal contact *///
+   const buttonClose = document.querySelector(".button__close");
+   buttonClose.addEventListener("click", closeModal);
 }
 
 init();
