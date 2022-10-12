@@ -11,7 +11,7 @@ function sortMediasFactory(photographersMedias) {
 
       // Création du conteneur nav tri
       const conteneurSortLabel = document.createElement("label");
-      conteneurSortLabel.className = "sort__filter";
+      conteneurSortLabel.className = "sort__label";
       conteneurSortLabel.setAttribute("for", "sort");
       conteneurSortLabel.setAttribute("aria-label", "order by");
       conteneurSortLabel.textContent = "Trier par : "
@@ -28,17 +28,18 @@ function sortMediasFactory(photographersMedias) {
 
     //  Création des options
       const optionPopularite = document.createElement("option");
-      optionPopularite.className = "sort__element";
+      optionPopularite.className = "sort__option";
       optionPopularite.textContent = "Popularité";
       optionPopularite.setAttribute("value", "popularite");
+      optionPopularite.setAttribute("id", "popularite");
 
       const optionDate = document.createElement("option");
-      optionDate.className = "sort__element";
+      optionDate.className = "sort__option";
       optionDate.textContent = "Date";
       optionDate.setAttribute("value", "date");
 
       const optionTitre = document.createElement("option");
-      optionTitre.className = "sort__element";
+      optionTitre.className = "sort__option";
       optionTitre.textContent = "Titre";
       optionTitre.setAttribute("value", "titre");
 
