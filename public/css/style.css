@@ -34,6 +34,10 @@ ul {
 }
 
 .button {
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
   border: none;
   border-radius: 5px;
   font-size: 1.25rem;
@@ -42,11 +46,8 @@ ul {
   color: #FFFFFF;
   cursor: pointer;
 }
-.button__contact {
-  padding: 11px;
-  width: 170px;
-  height: 70px;
-  border: none;
+.button__submit {
+  margin-top: 13px;
 }
 
 .sort__heading {
@@ -158,17 +159,25 @@ ul {
   flex-direction: column;
   width: 100%;
   align-items: self-start;
-  margin-bottom: 26px;
+  margin-bottom: 3px;
+}
+.form__data:nth-child(4) {
+  margin-top: 9px;
 }
 .form__label {
   color: #312E2E;
-  font-size: 36px;
+  font-size: 2.25rem;
+  padding-bottom: 3px;
 }
 .form__text-control {
   width: 100%;
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+.form__text-control--message {
+  height: 172px;
+  margin-top: 6px;
 }
 
 .encart__likes {
@@ -569,22 +578,27 @@ ul {
 }
 
 .modal {
-  width: 100%;
-  max-width: 656px;
-  margin: 5% auto;
-  padding: 35px;
-  border-radius: 5px;
-  background-color: #DB8876;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
+  max-width: 669px;
+  margin: 5% 32% 5% 27%;
+  padding: 17.5px 35px 18px 35px;
+  border-radius: 5px;
+  background-color: #DB8876;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
 }
 .modal__header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 25px;
 }
 .modal__header > img {
-  width: 80px;
+  width: 44px;
+  padding-top: 16px;
+  padding-left: 3px;
+  align-self: baseline;
   cursor: pointer;
 }
 .modal__title {

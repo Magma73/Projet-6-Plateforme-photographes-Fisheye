@@ -75,13 +75,22 @@ async function init() {
    displayDataEncart(photographers);
 
    // Crée les fonctions pour faire fonctionner la modale de contact
-      ///* Ouverture de la modal contact *///
+      /* Ouverture de la modal contact */
    const buttonContact = document.querySelector(".button__contact");
       buttonContact.addEventListener("click", displayModal);
 
-      ///* Fermeture de la modal contact *///
-   const buttonClose = document.querySelector(".button__close");
+      /* Fermeture de la modal contact */
+   const buttonClose = document.querySelector(".modal__close");
    buttonClose.addEventListener("click", closeModal);
+
+      /* Ajout de l'id du photographe */
+   const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
+   const nom = params.get("name").toString(); // Je récupère le nom du photographe
+   const contactPhotographer = document.querySelector(".modal__title");
+   contactPhotographer.textContent = "Contactez-moi "+nom;
+   contactPhotographer.setAttribute("aria-labelledby", "Contactez-moi "+nom);
+
+
 }
 
 init();

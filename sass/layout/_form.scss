@@ -8,17 +8,25 @@
         flex-direction: column;
         width: 100%;
         align-items: self-start;
-        margin-bottom: 26px;
+        margin-bottom: 3px;
+        &:nth-child(4) {
+            margin-top: 9px;
+        }
     }
     &__label{
-        color: #312E2E;
-        font-size: 36px;
+        color: $color-form-input;
+        font-size: 2.25rem;
+        padding-bottom: 3px;
     }
     &__text-control {
         width: 100%;
         height: 68px;
         border: none;
         border-radius: $main-radius;
+        &--message {
+            height:172px;
+            margin-top: 6px;
+        }
     }
 }
 

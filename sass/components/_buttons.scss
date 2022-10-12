@@ -1,4 +1,8 @@
 .button {
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
     border: none;
     border-radius: $main-radius;
     font-size: 1.25rem;
@@ -7,9 +11,9 @@
     color: $color-white;
     cursor: pointer;
     &__contact{
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
+
+    }
+    &__submit{
+        margin-top: 13px;
     }
 }
