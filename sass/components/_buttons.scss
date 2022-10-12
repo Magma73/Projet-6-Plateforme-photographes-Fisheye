@@ -1,7 +1,8 @@
-.contact_button {
+.button {
+    &__contact{
     font-size: 20px;
     font-weight: bold;
-    color: white;
+    color: $color-white;
     padding: 11px;
     width: 170px;
     height: 70px;
@@ -9,4 +10,5 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    }
 }

@@ -39,7 +39,7 @@ function headerPhotographerFactory(photographers) {
 
         // Création du bouton
         const button = document.createElement("button");
-        button.className = "banner__button";
+        button.className = "button__contact";
         button.textContent = "Contactez-moi";
         button.setAttribute("aria-label", "Contactez-moi");
 
