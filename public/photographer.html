@@ -24,13 +24,13 @@
   </head>
 
   <body>
-    <header class="header header--photographer">
+    <header class="header header--photographer"  aria-hidden="false">
       <a href="./index.html" aria-label="Fisheye Home page" aria-current="page" class="header__link--home-page header__link--home-page--photographer">
         <img src="./assets/logos/logo.png" class="header__logo header__logo--photographer" alt="Fisheye Home page">
       </a>
     </header>
 
-    <main class="content">
+    <main class="content" aria-hidden="false">
       <div class="photographer__header"></div>
       <div class="photographer__medias">
         <div class="container__sort"></div>
@@ -38,17 +38,17 @@
       </div>
       <div class="photographer__footer"></div>
     </main>
-    <div id="contact__modal">
+    <div id="contact__modal" role="dialog" aria-hidden="true" aria-describedby="id-photographe">
 			<div class="modal">
 				<header class="modal__header">
-          <h2 class="modal__title"></h2>
+          <h1 id="id-photographe" class="modal__title"></h1>
           <img src="./assets/icons/close.svg" class="modal__close">
         </header>
 
         <form class="form" name="contact" id="formContact">
           <div class="form__data" data-error-visible="" data-error="">
             <label class="form__label" for="first">Prénom</label>
-            <input class="form__text-control" id="first" name="first" />
+            <input class="form__text-control" id="first" name="first" aria-labelledby="first" />
           </div>
 
           <div class="form__data" data-error-visible="" data-error="">

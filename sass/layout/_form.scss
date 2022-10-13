@@ -12,6 +12,33 @@
         &:nth-child(4) {
             margin-top: 9px;
         }
+        &[data-error]::after {
+            content: attr(data-error);
+            font-size: 0.45em;
+            color: black;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 7px;
+            text-align: left;
+            line-height: 0.3;
+            opacity: 0;
+            // transition: 0.3s;
+        }
+        &[data-error-visible="true"]::after {
+            content: attr(data-error);
+            font-size: 0.45em;
+            color: black;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 7px;
+            text-align: left;
+            line-height: 0.3;
+            opacity: 1;
+            // transition: 0.3s;
+        }
+        // & [data-error-visible="true"] .text-control {
+        //     border: 2px solid #e54858;
+        //   }
     }
     &__label{
         color: $color-form-input;

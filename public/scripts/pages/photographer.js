@@ -83,6 +83,17 @@ async function init() {
    const buttonClose = document.querySelector(".modal__close");
    buttonClose.addEventListener("click", closeModal);
 
+   /* Fermeture de la modal contact avec la touche échap*/
+   const modal = document.querySelector("#contact__modal");
+   modal.addEventListener("keydown", e => {
+      const keyCode = e.keyCode ? e.keyCode : e.which;
+      if (modal.attr("aria-hidden") == "false" && keyCode === 27) {
+         closeModal()
+     }
+   })
+
+
+
       /* Ajout de l'id du photographe */
    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
    const nom = params.get("name").toString(); // Je récupère le nom du photographe
