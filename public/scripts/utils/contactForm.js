@@ -10,13 +10,22 @@
     header.setAttribute("aria-hidden", "true");
     main.setAttribute("aria-hidden", "true");
     modal.setAttribute("aria-hidden", "false");
-    // body.className("no-scroll");
+    body.classList.add("body--no-scroll");
     buttonClose.focus();
  }
 /* Function fermeture de la modale */
 function closeModal() {
+    const body = document.querySelector("body");
+    const header = document.querySelector(".header");
+    const main = document.querySelector(".content");
+    const buttonContact = document.querySelector(".button__contact");
     const modal = document.querySelector("#contact__modal");
     modal.style.display = "none";
+    header.setAttribute("aria-hidden", "false");
+    main.setAttribute("aria-hidden", "false");
+    modal.setAttribute("aria-hidden", "true");
+    body.classList.remove("body--no-scroll");
+    buttonContact.focus();
 }
 
 /* Function fermeture de la modale avec la touche escape*/

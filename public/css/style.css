@@ -22,6 +22,9 @@ body {
   max-width: 1440px;
   margin: auto !important;
 }
+body--no-scroll {
+  overflow: hidden;
+}
 
 /**** GLOBAL ***/
 a {
@@ -190,6 +193,16 @@ ul {
   color: #312E2E;
   font-size: 2.25rem;
   padding-bottom: 3px;
+}
+@media (max-width: 768px) {
+  .form__label {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 540px) {
+  .form__label {
+    font-size: 1.75rem;
+  }
 }
 .form__text-control {
   width: 100%;
@@ -631,6 +644,16 @@ ul {
 .modal__title {
   font-size: 4rem;
   font-weight: 400;
+}
+@media (max-width: 768px) {
+  .modal__title {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 540px) {
+  .modal__title {
+    font-size: 2.25rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

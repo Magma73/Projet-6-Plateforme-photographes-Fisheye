@@ -12,6 +12,9 @@ body{
     font-family:'DM Sans', Arial, Helvetica, sans-serif;
     max-width:1440px;
     margin:auto!important;
+    &--no-scroll{
+        overflow: hidden;
+    }
 }
 /**** GLOBAL ***/
 a{
