@@ -85,14 +85,13 @@ async function init() {
 
    /* Fermeture de la modal contact avec la touche échap*/
    const modal = document.querySelector("#contact__modal");
-   modal.addEventListener("keydown", e => {
-      const keyCode = e.keyCode ? e.keyCode : e.which;
-      if (modal.attr("aria-hidden") == "false" && keyCode === 27) {
+   window.addEventListener("keydown", (e) => {
+      // const keyCode = Escape;
+      const keyCode = "Escape";
+      if (modal.getAttribute("aria-hidden") == "false" && keyCode === "Escape") {
          closeModal()
      }
-   })
-
-
+   });
 
       /* Ajout de l'id du photographe */
    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
