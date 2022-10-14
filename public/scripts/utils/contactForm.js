@@ -46,7 +46,7 @@ function closeModal() {
 
 
 // FUNCTIONS VALIDATION FORM
-// Function verification Firstname
+/* Function verification Firstname*/
 function checkFirstNameInput() {
     const regexName = /^[a-zA-Z\s\-À-ÖØ-öø-ÿ]+$/;
     const firstName = document.querySelector("#first");
@@ -69,75 +69,79 @@ function checkFirstNameInput() {
     }
   }
 
-  // Function verification Lastname
-//   function checkLastNameInput(lastName) {
-//     if (lastName.value.length >= 2 && lastName.value.length <= 100 && regexName.test(lastName.value)) {
-//       formData[1].setAttribute("data-error-visible", "false");
-//       return true;
-//     } else if (lastName.value.length < 2 && regexName.test(lastName.value)) {
-//       formData[1].setAttribute("data-error-visible", "true");
-//       formData[1].setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour le champ du nom.");
-//       return false;
-//     } else if (lastName.value.length > 100 && regexName.test(lastName.value)) {
-//       formData[1].setAttribute("data-error-visible", "true");
-//       formData[1].setAttribute("data-error", "Ce champ ne peut pas contenir plus de 100 caractères.");
-//       return false;
-//     } else {
-//       formData[1].setAttribute("data-error-visible", "true");
-//       formData[1].setAttribute("data-error", "Veuillez entrer votre nom.");
-//       return false;
-//     }
-//   }
+  /* Function verification Lastname */
+  function checkLastNameInput() {
+    const regexName = /^[a-zA-Z\s\-À-ÖØ-öø-ÿ]+$/;
+    const lastName = document.querySelector("#last");
+    const formData = document.querySelectorAll(".form__data");
+    if (lastName.value.length >= 2 && lastName.value.length <= 100 && regexName.test(lastName.value)) {
+      formData[1].setAttribute("data-error-visible", "false");
+      return true;
+    } else if (lastName.value.length < 2 && regexName.test(lastName.value)) {
+      formData[1].setAttribute("data-error-visible", "true");
+      formData[1].setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour le champ du nom.");
+      return false;
+    } else if (lastName.value.length > 100 && regexName.test(lastName.value)) {
+      formData[1].setAttribute("data-error-visible", "true");
+      formData[1].setAttribute("data-error", "Ce champ ne peut pas contenir plus de 100 caractères.");
+      return false;
+    } else {
+      formData[1].setAttribute("data-error-visible", "true");
+      formData[1].setAttribute("data-error", "Veuillez entrer votre nom.");
+      return false;
+    }
+  }
 
-  // Function verification Email
-//   function checkEmailInput(email) {
-//     if (regexEmail.test(email.value)) {
-//       formData[2].setAttribute("data-error-visible", "false");
-//       return true;
-//     } else {
-//       formData[2].setAttribute("data-error-visible", "true");
-//       formData[2].setAttribute("data-error", "Vous devez saisir une adresse mail.");
-//       return false;
-//     }
-//   }
+  /* Function verification Email */
+  function checkEmailInput() {
+    const regexEmail = /^((?!\.)[\w_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/;
+    const email = document.querySelector("#email");
+    const formData = document.querySelectorAll(".form__data");
+    if (regexEmail.test(email.value)) {
+      formData[2].setAttribute("data-error-visible", "false");
+      return true;
+    } else {
+      formData[2].setAttribute("data-error-visible", "true");
+      formData[2].setAttribute("data-error", "Vous devez saisir une adresse mail.");
+      return false;
+    }
+  }
 
-  // Function verification Birthdate
-//   function checkBirthdateInput(birthdate) {
-//     const today = new Date();
-//     const yearMinimum = today.getFullYear() - 18; // age minimum 18 years
-//     const yearMaximum = today.getFullYear() - 80; // age maximum 80 years
-//     const birthdatePlayer = new Date(birthdate.value); // converts the value of the input birthdate to date
-//     const yearPlayer = birthdatePlayer.getFullYear(); // recovers the user's year of birth
-//     if (regexBirthdate.test(birthdate.value) && yearPlayer < yearMinimum && yearPlayer > yearMaximum) {
-//       formData[3].setAttribute("data-error-visible", "false");
-//       return true;
-//     } else if (regexBirthdate.test(birthdate.value) && yearPlayer > yearMinimum) {
-//       formData[3].setAttribute("data-error-visible", "true");
-//       formData[3].setAttribute("data-error", "Vous devez avoir plus de 18 ans.");
-//       return false;
-//     } else if (regexBirthdate.test(birthdate.value) && yearPlayer < yearMaximum) {
-//       formData[3].setAttribute("data-error-visible", "true");
-//       formData[3].setAttribute("data-error", "Vous êtes un peu trop âgé pour participer à notre événement!");
-//       return false;
-//     } else {
-//       formData[3].setAttribute("data-error-visible", "true");
-//       formData[3].setAttribute("data-error", "Vous devez entrer votre date de naissance.");
-//       return false;
-//     }
-//   }
+  /* Function verification Message */
+  function checkMessageInput() {
+    const regexMessage = /^[a-zA-Z\s\-À-ÖØ-öø-ÿ\0-9]+$/;
+    const message = document.querySelector("#message");
+    const formData = document.querySelectorAll(".form__data");
+    if (message.value.length >= 2 && message.value.length <= 360 && regexMessage.test(message.value)) {
+      formData[3].setAttribute("data-error-visible", "false");
+      return true;
+    } else if (message.value.length < 2 && regexMessage.test(message.value)) {
+      formData[3].setAttribute("data-error-visible", "true");
+      formData[1].setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour votre message.");
+      return false;
+    } else if (message.value.length > 100 && regexMessage.test(message.value)) {
+      formData[3].setAttribute("data-error-visible", "true");
+      formData[3].setAttribute("data-error", "Votre message ne peut pas contenir plus de 360 caractères.");
+      return false;
+    } else {
+      formData[3].setAttribute("data-error-visible", "true");
+      formData[3].setAttribute("data-error", "Veuillez entrer un message.");
+      return false;
+    }
+  }
 
   // Function submit form
   addEventListener("submit", (e) => { //on submit, verify if the functions of verification are true
     e.preventDefault(); // if it's true, the form is reset and closed and the message of validation appears
     checkFirstNameInput();
-    // checkLastNameInput(lastName);
-    // checkEmailInput(email);
-    // checkBirthdateInput(birthdate);
+    checkLastNameInput();
+    checkEmailInput();
+    checkMessageInput();
     if (
-      checkFirstNameInput()
-    //   checkLastNameInput(lastName) &&
-    //   checkEmailInput(email) &&
-    //   checkBirthdateInput(birthdate)
+      checkFirstNameInput() &&
+      checkLastNameInput() &&
+      checkEmailInput() &&
+      checkMessageInput() == true
     ) {
       form.reset();
       closeModal();
