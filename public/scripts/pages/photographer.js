@@ -85,13 +85,19 @@ async function init() {
 
    /* Fermeture de la modal contact avec la touche échap*/
    const modal = document.querySelector("#contact__modal");
-   window.addEventListener("keydown", (e) => {
-      // const keyCode = Escape;
-      const keyCode = "Escape";
-      if (modal.getAttribute("aria-hidden") == "false" && keyCode === "Escape") {
+   window.addEventListener("keydown", function (event) {
+      if (event.defaultPrevented) {
+        return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+      }
+      switch (event.key) {
+        case "Escape":
          closeModal()
-     }
-   });
+          // Faire quelque chose pour la touche "esc" pressée.
+          break;
+      }
+      // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+      event.preventDefault();
+    }, true);
 
       /* Ajout de l'id du photographe */
    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
@@ -99,8 +105,6 @@ async function init() {
    const contactPhotographer = document.querySelector(".modal__title");
    contactPhotographer.textContent = "Contactez-moi "+nom;
    contactPhotographer.setAttribute("aria-labelledby", "Contactez-moi "+nom);
-
-
 }
 
 init();
