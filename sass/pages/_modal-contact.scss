@@ -1,4 +1,4 @@
-#contact__modal {
+#contactModal, #contactModalValidate {
     display: none;
     position: fixed;
     z-index: 1;
@@ -28,6 +28,11 @@
     @include xLarge {
         margin: 5% auto;
     }
+    &__validate{
+        height:86.53vh;
+        align-items: center;
+        justify-content: space-around;
+    }
     &__header {
         display:flex;
         justify-content: space-between;
@@ -44,6 +49,10 @@
     &__title{
         font-size: $main-title-photographer;
         font-weight: 400;
+        &--validate{
+            font-size: 3.5rem;
+            padding: 65px;
+        }
         @include tablette {
             font-size:3rem;
         }

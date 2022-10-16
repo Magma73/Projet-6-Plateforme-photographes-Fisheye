@@ -6,12 +6,10 @@ async function getPhotographers() {
          const dataPhotographers = await response.json();
          const photographers = dataPhotographers.photographers;
          const photographersMedias = dataPhotographers.media;
-         return (
-            {
-               photographers: [...photographers],
-               photographersMedias: [...photographersMedias],
-            }
-         );
+         return {
+            photographers: [...photographers],
+            photographersMedias: [...photographersMedias],
+         };
       } else {
          throw "Le fichier JSON n'a pas été trouvé";
       }
@@ -38,15 +36,15 @@ async function displayDataFilter(photographersMedias) {
    const photographerSortModel = sortMediasFactory(photographersMedias);
    const photographerSortCardDOM = photographerSortModel.getSortCardDOM();
    photographersSortSection.appendChild(photographerSortCardDOM);
-
 }
 
 async function displayDataMedia(photographersMedias) {
    const photographersMediasSection = document.querySelector(".container__medias");
    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
    const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
-   const results = photographersMedias.filter(photographersMedia => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
-   results.forEach((result) => { // Pour chaque média associé à l'url du photographe filtré, je créé la carte MediaCardDom
+   const results = photographersMedias.filter((photographersMedia) => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
+   results.forEach((result) => {
+      // Pour chaque média associé à l'url du photographe filtré, je créé la carte MediaCardDom
       const photographerMediaModel = photographerMediasFactory(result);
       const photographerMediaCardDOM = photographerMediaModel.getMediaCardDOM();
       photographersMediasSection.appendChild(photographerMediaCardDOM);
@@ -75,37 +73,49 @@ async function init() {
    displayDataEncart(photographers);
 
    // Crée les fonctions pour faire fonctionner la modale de contact
-      /* Ouverture de la modal contact */
+   /* Ouverture de la modal contact */
    const buttonContact = document.querySelector(".button__contact");
-      buttonContact.addEventListener("click", displayModal);
+   buttonContact.addEventListener("click", displayModal);
 
-      /* Fermeture de la modal contact */
-   const buttonClose = document.querySelector(".modal__close");
+   /* Fermeture de la modal contact */
+   const buttonClose = document.querySelector(".modal__close--form");
    buttonClose.addEventListener("click", closeModal);
 
-   /* Fermeture de la modal contact avec la touche échap*/
-   const modal = document.querySelector("#contact__modal");
-   window.addEventListener("keydown", function (event) {
-      if (event.defaultPrevented) {
-        return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
-      }
-      switch (event.key) {
-        case "Escape":
-         closeModal()
-          // Faire quelque chose pour la touche "esc" pressée.
-          break;
-      }
-      // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
-      event.preventDefault();
-    }, true);
+   /* Fermeture de la modal message de validation avec la croix */
+   const crossCloseMessage = document.querySelector(".modal__close--validate");
+   crossCloseMessage.addEventListener("click", closeModalValidate);
 
-      /* Ajout de l'id du photographe */
+   /* Fermeture de la modal message de validation avec le bouton */
+   const buttonCloseMessage = document.querySelector(".button__close");
+   buttonCloseMessage.addEventListener("click", closeModalValidate);
+
+   /* Fermeture de la modal contact avec la touche échap*/
+   const modal = document.querySelectorAll(".contact__modal");
+   window.addEventListener(
+      "keydown",
+      function (event) {
+         if (event.defaultPrevented) {
+            return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+         }
+         switch (event.key) {
+            case "Escape":
+               closeModal();
+               closeModalValidate();
+               // Faire quelque chose pour la touche "esc" pressée.
+               break;
+         }
+         // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+         // event.preventDefault();
+      },
+      true
+   );
+
+   /* Ajout du nom du photographe */
    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
    const nom = params.get("name").toString(); // Je récupère le nom du photographe
    const contactPhotographer = document.querySelector(".modal__title");
-   contactPhotographer.textContent = "Contactez-moi "+nom;
-   contactPhotographer.setAttribute("aria-labelledby", "Contactez-moi "+nom);
+   contactPhotographer.textContent = "Contactez-moi "+ nom;
+   contactPhotographer.setAttribute("aria-labelledby", "Contactez-moi " + nom);
 }
 
 init();
-

@@ -23,6 +23,10 @@ body {
   margin: auto !important;
 }
 
+.body--no-scroll {
+  overflow: hidden;
+}
+
 /**** GLOBAL ***/
 a {
   text-decoration: none;
@@ -640,6 +644,11 @@ ul {
     margin: 5% auto;
   }
 }
+.modal__validate {
+  height: 86.53vh;
+  align-items: center;
+  justify-content: space-around;
+}
 .modal__header {
   display: flex;
   justify-content: space-between;
@@ -655,6 +664,10 @@ ul {
 .modal__title {
   font-size: 4rem;
   font-weight: 400;
+}
+.modal__title--validate {
+  font-size: 3.5rem;
+  padding: 65px;
 }
 @media (max-width: 768px) {
   .modal__title {
