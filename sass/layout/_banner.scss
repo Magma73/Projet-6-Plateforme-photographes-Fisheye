@@ -10,39 +10,38 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 49px;
+  padding: 0 43px 0 59px;
   border-radius: $main-radius;
   background-color: #fafafa;
   @include xLarge {
     width: 86vw;
-    height: 30.56vh;
+    height:auto;
   }
   @include desktop992 {
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
     width: 89vw;
-    padding: unset;
+    padding: 20px;
   }
   @include tablette {
     width: 95vw;
+    flex-direction: column;
+    align-items:flex-start ;
   }
   @include mobile {
-    flex-wrap: unset;
     width: 100vw;
-    height: auto;
+    align-items:center ;
     margin: unset;
   }
   &__heading {
-    @include flexColumnCenter;
-    // height: 15.33vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: flex-start;
-    flex: 45%;
+    flex: 28%;
     margin-top: -10px;
-    padding-right: 20px;
-    @include desktop992 {
-      flex: 55%;
-      margin-top: unset;
+    @include tablette{
+      order: 2;
+      flex: 100%;
+      margin:unset;
     }
     @include mobile {
       align-items: center;
@@ -79,33 +78,30 @@
     color: $color-tagline-photographer;
     font-size: 1.125rem;
   }
-  &__link-contact {
-    @include flexColumnCenter;
-    align-items: flex-start;
-    flex: 42%;
-    margin-top: 29px;
-    @include desktop992 {
-      flex: 21%;
-      margin-top: unset;
-    }
-  }
   &__button {
-    padding: 24px 11px;
-    font-weight: 600;
-    font-size: 1.125rem;
-    background: $color-primary;
-    color: $color-white;
-    border: none;
-    border-radius: $main-radius;
-    letter-spacing: 0.1rem;
-    @include mobile {
-      font-size: 1rem;
-      padding: 18px 11px;
+    display: flex;
+    flex-direction: column;
+    flex: 13%;
+    margin-top: 32px;
+    @include tablette{
+      flex: 100%;
+      order: 3;
     }
   }
   &__img {
-    @include flexColumnCenter;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
     flex: 15%;
+    @include tablette{
+      flex: 100%;
+      order: 1;
+      margin-bottom: 30px;
+    }
+    @include mobile{
+      margin-bottom: unset;
+    }
     & > img {
       width: 200px;
       height: 200px;
@@ -113,9 +109,15 @@
       object-fit: cover;
       background: #c4c4c4;
       box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+      @include desktop992 {
+        // width: 190px;
+        // height: 190px;
+      }
+      @include tablette {
+        width: 100px;
+        height: 100px;
+      }
       @include mobile {
-        width: 125px;
-        height: 125px;
         margin-top: 20px;
         margin-bottom: 30px;
       }

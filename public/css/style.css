@@ -34,17 +34,17 @@ ul {
 }
 
 .button {
-  padding: 11px;
   width: 170px;
-  height: 70px;
-  border: none;
+  height: 69px;
+  padding: 23px 7px;
   border: none;
   border-radius: 5px;
-  font-size: 1.25rem;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 1.125rem;
   background-color: #901C1C;
   color: #FFFFFF;
   cursor: pointer;
+  letter-spacing: 0.1rem;
 }
 .button__submit {
   margin-top: 21px;
@@ -125,7 +125,7 @@ ul {
   }
 }
 .header__logo--photographer {
-  width: 16.1%;
+  width: 16.35%;
 }
 .header__heading {
   flex: 50%;
@@ -467,52 +467,49 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 49px;
+  padding: 0 43px 0 59px;
   border-radius: 5px;
   background-color: #fafafa;
 }
 @media (max-width: 1339px) {
   .banner {
     width: 86vw;
-    height: 30.56vh;
+    height: auto;
   }
 }
 @media (max-width: 992px) {
   .banner {
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
     width: 89vw;
-    padding: unset;
+    padding: 20px;
   }
 }
 @media (max-width: 768px) {
   .banner {
     width: 95vw;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 @media (max-width: 540px) {
   .banner {
-    flex-wrap: unset;
     width: 100vw;
-    height: auto;
+    align-items: center;
     margin: unset;
   }
 }
 .banner__heading {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   align-items: flex-start;
-  flex: 45%;
+  flex: 28%;
   margin-top: -10px;
-  padding-right: 20px;
 }
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .banner__heading {
-    flex: 55%;
-    margin-top: unset;
+    order: 2;
+    flex: 100%;
+    margin: unset;
   }
 }
 @media (max-width: 540px) {
@@ -558,43 +555,36 @@ ul {
   color: #525252;
   font-size: 1.125rem;
 }
-.banner__link-contact {
+.banner__button {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  align-items: flex-start;
-  flex: 42%;
-  margin-top: 29px;
+  flex: 13%;
+  margin-top: 32px;
 }
-@media (max-width: 992px) {
-  .banner__link-contact {
-    flex: 21%;
-    margin-top: unset;
-  }
-}
-.banner__button {
-  padding: 24px 11px;
-  font-weight: 600;
-  font-size: 1.125rem;
-  background: #901C1C;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 5px;
-  letter-spacing: 0.1rem;
-}
-@media (max-width: 540px) {
+@media (max-width: 768px) {
   .banner__button {
-    font-size: 1rem;
-    padding: 18px 11px;
+    flex: 100%;
+    order: 3;
   }
 }
 .banner__img {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   flex: 15%;
+}
+@media (max-width: 768px) {
+  .banner__img {
+    flex: 100%;
+    order: 1;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 540px) {
+  .banner__img {
+    margin-bottom: unset;
+  }
 }
 .banner__img > img {
   width: 200px;
@@ -604,16 +594,20 @@ ul {
   background: #c4c4c4;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
 }
+@media (max-width: 768px) {
+  .banner__img > img {
+    width: 100px;
+    height: 100px;
+  }
+}
 @media (max-width: 540px) {
   .banner__img > img {
-    width: 125px;
-    height: 125px;
     margin-top: 20px;
     margin-bottom: 30px;
   }
 }
 
-#contact__modal {
+#contactModal, #contactModalValidate {
   display: none;
   position: fixed;
   z-index: 1;

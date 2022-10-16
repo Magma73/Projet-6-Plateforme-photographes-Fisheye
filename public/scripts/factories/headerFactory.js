@@ -7,35 +7,35 @@ function headerPhotographerFactory(photographers) {
 
     function getPhotographerCardDOM() {
         // Création du conteneur banner
-        const div1 = document.createElement("div");
-        div1.className = "banner";
+        const banner = document.createElement("div");
+        banner.className = "banner";
 
         // Création de l'élément heading
-        const div2 = document.createElement("div");
-        div2.className = "banner__heading";
+        const bannerHeading = document.createElement("div");
+        bannerHeading.className = "banner__heading";
 
         // Création du titre h1 : nom du photographe
-        const h1 = document.createElement("h1");
-        h1.className = "banner__title";
-        h1.textContent = name;
+        const title = document.createElement("h1");
+        title.className = "banner__title";
+        title.textContent = name;
 
         // Création du body : location + tagline
         const body = document.createElement("div");
         body.className = "banner__body";
 
         // Création du titre h2 : location
-        const h2 = document.createElement("h2");
-        h2.className = "banner__location";
-        h2.textContent = city +  ", " + country;
+        const location = document.createElement("h2");
+        location.className = "banner__location";
+        location.textContent = city +  ", " + country;
 
         // Créations du paragraphe tagline
-        const p1 = document.createElement( "p" );
-        p1.className = "banner__tagline";
-        p1.textContent = tagline;
+        const mantra = document.createElement( "p" );
+        mantra.className = "banner__tagline";
+        mantra.textContent = tagline;
 
-        // Création du conteneur du bouton
-        const div3 = document.createElement("div");
-        div3.className = "banner__link-contact";
+        // Création du conteneur du bouton et de l'image
+        const containerContact = document.createElement("div");
+        containerContact.className = "banner__contact";
 
         // Création du bouton
         const button = document.createElement("button");
@@ -43,9 +43,13 @@ function headerPhotographerFactory(photographers) {
         button.textContent = "Contactez-moi";
         button.setAttribute("aria-label", "Contactez-moi");
 
+        // Création du conteneur du bouton
+        const containerButton = document.createElement("div");
+        containerButton.className = "banner__button";
+
         // Création de la div contenant l'image et attribut alt
-        const div4 = document.createElement( "div" );
-        div4.className = "banner__img";
+        const containerImg = document.createElement( "div" );
+        containerImg.className = "banner__img";
 
         // Création de l'image et attribut alt
         const img = document.createElement( "img" );
@@ -53,25 +57,28 @@ function headerPhotographerFactory(photographers) {
         img.setAttribute("alt", name);
 
         // Ajout du titre h2 et de la tagline dans le body
-        body.appendChild(h2);
-        body.appendChild(p1);
+        body.appendChild(location);
+        body.appendChild(mantra);
 
         // Ajout du titre h1 et du body dans la div photographer__header
-        div2.appendChild(h1);
-        div2.appendChild(body);
+        bannerHeading.appendChild(title);
+        bannerHeading.appendChild(body);
 
-        // Ajout du bouton dans la div link
-        div3.appendChild(button);
+        // Ajout du bouton dans le container bouton
+        containerButton.appendChild(button);
 
-        // Ajout de l'image dans la div banner__img
-        div4.appendChild(img);
+        // Ajout de l'image dans le container image
+        containerImg.appendChild(img);
 
-        // Ajout des éléments dans la div1 : banner
-        div1.appendChild(div2);
-        div1.appendChild(div3);
-        div1.appendChild(div4);
+        // Ajout des containers bouton et image dans le containerContact
+        containerContact.appendChild(containerButton);
+        containerContact.appendChild(containerImg);
 
-        return (div1);
+        // Ajout des éléments dans lea div banner
+        banner.appendChild(bannerHeading);
+        banner.appendChild(containerContact);
+
+        return (banner);
       }
     // return { name,  id, city, country, tagline, price, picture, getUserCardDOM }
     return { name,  id, city, country, tagline, price, picture, getPhotographerCardDOM }
