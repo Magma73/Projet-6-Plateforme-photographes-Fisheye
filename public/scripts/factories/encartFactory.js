@@ -8,6 +8,7 @@ function encartMediasFactory(photographers) {
     // Création du conteneur encart
     const containerEncart = document.createElement("div");
     containerEncart.className = "container__encart";
+    containerEncart.setAttribute("tabindex", "0");
 
     // Création du conteneur des likes
     const encartLikes = document.createElement("div");
@@ -21,6 +22,7 @@ function encartMediasFactory(photographers) {
     const nbTotalLikes = document.createElement("p");
     nbTotalLikes.className = "encart__likes--total";
     nbTotalLikes.textContent = "297 081";
+    nbTotalLikes.setAttribute("tabindex", "0");
 
     // Création de l'icône
     const iconTotalLikes = document.createElement("i");
@@ -30,6 +32,7 @@ function encartMediasFactory(photographers) {
     const encartTarifJour = document.createElement("p");
     encartTarifJour.className = "encart__tarifJour";
     encartTarifJour.textContent = price + "€ / jour";
+    encartTarifJour.setAttribute("tabindex", "0");
 
     // Ajout du nombre de likes et de l'icône dans le conteneur des likes
     encartLikes.appendChild(nbTotalLikes);

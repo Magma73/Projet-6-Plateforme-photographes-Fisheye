@@ -18,10 +18,12 @@ function headerPhotographerFactory(photographers) {
         const title = document.createElement("h1");
         title.className = "banner__title";
         title.textContent = name;
+        title.setAttribute("tabindex", "0");
 
         // Création du body : location + tagline
         const body = document.createElement("div");
         body.className = "banner__body";
+        body.setAttribute("tabindex", "0");
 
         // Création du titre h2 : location
         const location = document.createElement("h2");
@@ -38,6 +40,7 @@ function headerPhotographerFactory(photographers) {
         button.className = "button button__contact";
         button.textContent = "Contactez-moi";
         button.setAttribute("aria-label", "Contactez-moi");
+        button.setAttribute("tabindex", "0");
 
         // Création du conteneur du bouton
         const containerButton = document.createElement("div");
@@ -46,6 +49,7 @@ function headerPhotographerFactory(photographers) {
         // Création de la div contenant l'image
         const containerImg = document.createElement( "div" );
         containerImg.className = "banner__img";
+        containerImg.setAttribute("tabindex", "0");
 
         // Création de l'image et attribut alt
         const img = document.createElement( "img" );

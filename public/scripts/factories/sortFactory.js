@@ -15,12 +15,14 @@ function sortMediasFactory(photographersMedias) {
       conteneurSortLabel.setAttribute("for", "sort");
       conteneurSortLabel.setAttribute("aria-label", "order by");
       conteneurSortLabel.textContent = "Trier par : "
+      conteneurSortLabel.setAttribute("tabindex", "0");
 
       // Création du select
       const sortSelect = document.createElement("select");
       sortSelect.className = "sort__select";
       sortSelect.setAttribute("name", "choice");
       sortSelect.setAttribute("id", "choice");
+      sortSelect.setAttribute("tabindex", "0");
 
     //  Création du menu déroulant
       const menuSort = document.createElement("option");

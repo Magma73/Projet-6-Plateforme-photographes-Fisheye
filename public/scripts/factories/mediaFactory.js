@@ -22,6 +22,7 @@ function photographerMediasFactory(photographersMedias) {
       // Création du conteneur media element
       const mediaElement = document.createElement("div");
       mediaElement.className = "card__media-element";
+      mediaElement.setAttribute("tabindex", "0");
 
     // Création du média photo ou video et ajout dans la div mediaElement
       if(video !== undefined) {
@@ -50,6 +51,7 @@ function photographerMediasFactory(photographersMedias) {
       const titre = document.createElement("h3");
       titre.className = "card__media--title";
       titre.textContent = title;
+      titre.setAttribute("tabindex", "0");
 
       // Création du conteneur icon
       const conteneurIcon = document.createElement("div");
@@ -59,6 +61,7 @@ function photographerMediasFactory(photographersMedias) {
       const nbLikes = document.createElement("p");
       nbLikes.className = "card__media-likes";
       nbLikes.textContent = likes;
+      nbLikes.setAttribute("tabindex", "0");
 
       // Création de l'icône
       const icon = document.createElement("i");
