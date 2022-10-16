@@ -46,6 +46,10 @@ ul {
   cursor: pointer;
   letter-spacing: 0.1rem;
 }
+.button:hover, .button:active {
+  background-color: #DB8876;
+  color: #000000;
+}
 .button__submit {
   margin-top: 21px;
 }
