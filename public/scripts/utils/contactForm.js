@@ -66,22 +66,23 @@ function checkFirstNameInput() {
    const formData = document.querySelectorAll(".form__data");
    if (firstName.value.length >= 2 && firstName.value.length <= 100 && regexName.test(firstName.value)) {
       formData[0].setAttribute("data-error-visible", "false");
-      formData[0].setAttribute("aria-invalid", "false");
+      formData[0].setAttribute("role", "");
+      console.log(firstName.value);
       return true;
    } else if (firstName.value.length < 2 && regexName.test(firstName.value)) {
       formData[0].setAttribute("data-error-visible", "true");
-      formData[0].setAttribute("aria-invalid", "true");
       formData[0].setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
+      formData[0].setAttribute("role", "alert");
       return false;
    } else if (firstName.value.length > 100 && regexName.test(firstName.value)) {
       formData[0].setAttribute("data-error-visible", "true");
-      formData[0].setAttribute("aria-invalid", "true");
       formData[0].setAttribute("data-error", "Ce champ ne peut pas contenir plus de 100 caractères.");
+      formData[0].setAttribute("role", "alert");
       return false;
    } else {
       formData[0].setAttribute("data-error-visible", "true");
-      formData[0].setAttribute("aria-invalid", "true");
       formData[0].setAttribute("data-error", "Veuillez entrer votre prénom.");
+      formData[0].setAttribute("role", "alert");
       return false;
    }
 }
@@ -93,22 +94,23 @@ function checkLastNameInput() {
    const formData = document.querySelectorAll(".form__data");
    if (lastName.value.length >= 2 && lastName.value.length <= 100 && regexName.test(lastName.value)) {
       formData[1].setAttribute("data-error-visible", "false");
-      formData[1].setAttribute("aria-invalid", "false");
+      formData[1].setAttribute("role", "");
+      console.log(lastName.value);
       return true;
    } else if (lastName.value.length < 2 && regexName.test(lastName.value)) {
       formData[1].setAttribute("data-error-visible", "true");
-      formData[1].setAttribute("aria-invalid", "true");
       formData[1].setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour le champ du nom.");
+      formData[1].setAttribute("role", "alert");
       return false;
    } else if (lastName.value.length > 100 && regexName.test(lastName.value)) {
       formData[1].setAttribute("data-error-visible", "true");
-      formData[1].setAttribute("aria-invalid", "true");
       formData[1].setAttribute("data-error", "Ce champ ne peut pas contenir plus de 100 caractères.");
+      formData[1].setAttribute("role", "alert");
       return false;
    } else {
       formData[1].setAttribute("data-error-visible", "true");
-      formData[1].setAttribute("aria-invalid", "true");
       formData[1].setAttribute("data-error", "Veuillez entrer votre nom.");
+      formData[1].setAttribute("role", "alert");
       return false;
    }
 }
@@ -120,39 +122,41 @@ function checkEmailInput() {
    const formData = document.querySelectorAll(".form__data");
    if (regexEmail.test(email.value)) {
       formData[2].setAttribute("data-error-visible", "false");
-      formData[2].setAttribute("aria-invalid", "false");
+      formData[2].setAttribute("role", "");
+      console.log(email.value);
       return true;
    } else {
       formData[2].setAttribute("data-error-visible", "true");
-      formData[2].setAttribute("aria-invalid", "true");
       formData[2].setAttribute("data-error", "Vous devez saisir une adresse mail au format : pseudo@domaine.extension.");
+      formData[2].setAttribute("role", "alert");
       return false;
    }
 }
 
 /* Function verification Message */
 function checkMessageInput() {
-   const regexMessage = /^[a-zA-Z\s\-À-ÖØ-öø-ÿ\0-9]+$/;
+   const regexMessage = /^[a-zA-Z\s\-À-ÖØ-öø-ÿ\0-9\$&+,:;=?@#|'<>.-^*()%!]+$/;
    const message = document.querySelector("#message");
    const formData = document.querySelectorAll(".form__data");
    if (message.value.length >= 10 && message.value.length <= 360 && regexMessage.test(message.value)) {
       formData[3].setAttribute("data-error-visible", "false");
-      formData[3].setAttribute("aria-invalid", "false");
+      formData[3].setAttribute("role", "");
+      console.log(message.value);
       return true;
-   } else if (message.value.length < 2 && regexMessage.test(message.value)) {
+   } else if (message.value.length < 10 && regexMessage.test(message.value)) {
       formData[3].setAttribute("data-error-visible", "true");
-      formData[3].setAttribute("aria-invalid", "true");
-      formData[3].setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour votre message.");
+      formData[3].setAttribute("data-error", "Veuillez entrer 10 caractères ou plus pour votre message.");
+      formData[3].setAttribute("role", "alert");
       return false;
    } else if (message.value.length > 100 && regexMessage.test(message.value)) {
       formData[3].setAttribute("data-error-visible", "true");
-      formData[3].setAttribute("aria-invalid", "true");
       formData[3].setAttribute("data-error", "Votre message ne peut pas contenir plus de 360 caractères.");
+      formData[3].setAttribute("role", "alert");
       return false;
    } else {
       formData[3].setAttribute("data-error-visible", "true");
-      formData[3].setAttribute("aria-invalid", "true");
-      formData[3].setAttribute("data-error", "Veuillez entrer un message.");
+      formData[3].setAttribute("data-error", "Veuillez entrer un message d'au moins 10 caractères.");
+      formData[3].setAttribute("role", "alert");
       return false;
    }
 }

@@ -47,24 +47,24 @@
         </header>
 
         <form class="form" name="contact" id="formContact">
-          <div class="form__data" data-error-visible="" data-error="" id="firstname_error" aria-invalid="">
-            <label class="form__label" id="firstLabel" for="first">Prénom</label>
-            <input class="form__text-control" id="first" name="first" aria-labelledby="firstLabel">
+          <div class="form__data" data-error-visible="" data-error="" role="" aria-live="assertive">
+            <label class="form__label" id="firstNameLabel" for="first">Prénom</label>
+            <input class="form__text-control" id="first" name="first" aria-labelledby="firstNameLabel">
           </div>
 
-          <div class="form__data" data-error-visible="" data-error="" id="lasstname_error" aria-invalid="">
+          <div class="form__data" data-error-visible="" data-error="" role="" aria-live="assertive">
             <label class="form__label" id="lastNameLabel"  for="last">Nom</label>
             <input class="form__text-control" id="last" name="last" aria-labelledby="lastNameLabel">
           </div>
 
-          <div class="form__data" data-error-visible="" data-error="" id="email_error" aria-errormessage="email_error" aria-invalid="">
+          <div class="form__data" data-error-visible="" data-error="" role="" aria-live="assertive">
             <label  class="form__label" id="emailLabel" for="email">Email</label>
-            <input class="form__text-control" id="email" name="email" aria-labelledby="emailLabel" >
+            <input class="form__text-control" id="email" name="email" aria-labelledby="emailLabel">
           </div>
 
-          <div class="form__data" data-error-visible="" data-error="" id="message_error" aria-invalid="">
+          <div class="form__data" data-error-visible="" data-error="" role="" aria-live="assertive">
             <label  class="form__label" id="messageLabel" for="message">Votre message</label>
-            <textarea class="form__text-control form__text-control--message" id="message" name="message" aria-labelledby="messageLabel" ></textarea>
+            <textarea class="form__text-control form__text-control--message" id="message" name="message" aria-labelledby="messageLabel"></textarea>
           </div>
 
           <input class="button button__submit" type="submit" value="Envoyer" aria-label="Envoyer" >
