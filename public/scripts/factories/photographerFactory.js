@@ -22,6 +22,7 @@ function photographerFactory(photographers) {
         a.className = 'card__link';
         a.setAttribute("aria-label", name);
         a.setAttribute("href", "photographer.html?"+"id="+id+"&name="+name);
+        a.setAttribute("tabindex", "0");
 
         // Création de l'image et attribut alt
         const img = document.createElement( 'img' );
@@ -47,6 +48,7 @@ function photographerFactory(photographers) {
         const p1 = document.createElement( 'p' );
         p1.className = 'card__tagline';
         p1.textContent = tagline;
+        p1.setAttribute("tabindex", "0");
 
         const p2 = document.createElement( 'p' );
         p2.className = 'card__price';

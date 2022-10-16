@@ -15,16 +15,15 @@
     <script src="./scripts/factories/photographerFactory.js"></script>
     <script src="./scripts/pages/index.js"></script>
   </head>
-  <body>
-    <header class="header">
-      <a href="./index.html" aria-label="Fisheye Home page" aria-current="page" class="header__link--home-page">
-        <img src="./assets/logos/logo.png" class="header__logo" alt="Fisheye Home page">
+  <body aria-current="page">
+    <header class="header" role="banner" id="banner">
+      <a href="./index.html" aria-label="Fisheye Home page" class="header__link--home-page" tabindex="1">
+        <img src="./assets/logos/logo.png" class="header__logo" alt="Fisheye Home page" aria-labelledby="banner">
       </a>
-      <h1 class="header__heading">Nos photographes</h1>
+      <h1 class="header__heading" tabindex="0">Nos photographes</h1>
     </header>
-    <main class="content">
+    <main class="content" role="main">
         <div class="photographer__section"></div>
     </main>
-
   </body>
 </html>
