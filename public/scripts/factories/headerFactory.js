@@ -33,10 +33,6 @@ function headerPhotographerFactory(photographers) {
         mantra.className = "banner__tagline";
         mantra.textContent = tagline;
 
-        // Création du conteneur du bouton et de l'image
-        const containerContact = document.createElement("div");
-        containerContact.className = "banner__contact";
-
         // Création du bouton
         const button = document.createElement("button");
         button.className = "button button__contact";
@@ -47,7 +43,7 @@ function headerPhotographerFactory(photographers) {
         const containerButton = document.createElement("div");
         containerButton.className = "banner__button";
 
-        // Création de la div contenant l'image et attribut alt
+        // Création de la div contenant l'image
         const containerImg = document.createElement( "div" );
         containerImg.className = "banner__img";
 
@@ -70,13 +66,10 @@ function headerPhotographerFactory(photographers) {
         // Ajout de l'image dans le container image
         containerImg.appendChild(img);
 
-        // Ajout des containers bouton et image dans le containerContact
-        containerContact.appendChild(containerButton);
-        containerContact.appendChild(containerImg);
-
         // Ajout des éléments dans lea div banner
         banner.appendChild(bannerHeading);
-        banner.appendChild(containerContact);
+        banner.appendChild(containerButton);
+        banner.appendChild(containerImg);
 
         return (banner);
       }
