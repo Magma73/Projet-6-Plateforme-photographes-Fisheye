@@ -43,6 +43,7 @@ function photographerFactory(photographers) {
         const h3 = document.createElement( 'h3' );
         h3.className = 'card__location';
         h3.textContent = city +  ", " + country;
+        h3.setAttribute("tabindex", "0");
 
         // Créations des paragraphes : tagline et price
         const p1 = document.createElement( 'p' );
@@ -53,7 +54,7 @@ function photographerFactory(photographers) {
         const p2 = document.createElement( 'p' );
         p2.className = 'card__price';
         p2.textContent = price + "€ par jour";
-
+        p2.setAttribute("tabindex", "0");
 
         // Ajout des éléments image et titre h2 dans le lien (balise a)
         a.appendChild(img);
