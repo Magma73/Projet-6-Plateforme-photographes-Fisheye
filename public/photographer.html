@@ -72,17 +72,17 @@
 			</div>
 		</div>
 
-    <div id="contactModalValidate" class="contact__modal" role="dialog" aria-hidden="true" aria-labelledby="messageValidation">
+    <div id="contactModalValidate" class="contact__modal" tabindex="1" role="dialog" aria-hidden="true" aria-labelledby="messageValidation">
       <div  id="modalValidate" class="modal modal__validate">
 				<header class="modal__header">
-          <p id="messageValidation" class="modal__title modal__title--validate">
+          <p id="messageValidation" class="modal__title modal__title--validate" tabindex="2">
             Merci de m'avoir contacté.<br /> <br />
             Je m'engage à vous répondre dans les plus brefs délais.
           </p>
-          <img src="./assets/icons/close.svg" alt="Fermer le message de validation" class="modal__close modal__close--validate" aria-label="Fermer le message de validation">
+          <img src="./assets/icons/close.svg" alt="Fermer le message de validation" class="modal__close modal__close--validate" tabindex="4" aria-label="Fermer le message de validation">
         </header>
 
-        <button class="button button__close">Fermer</button>
+        <button class="button button__close" tabindex="3">Fermer</button>
 
         </div>
       </div>

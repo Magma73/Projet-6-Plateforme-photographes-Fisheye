@@ -39,7 +39,7 @@ function displayValidationMessage() {
    main.setAttribute("aria-hidden", "true");
    modalbgValidate.setAttribute("aria-hidden", "false");
    body.classList.add("body--no-scroll");
-   buttonClose.focus();
+   modalbgValidate.focus();
 }
 
 /* Function fermeture ouverture du message de validation */
@@ -171,6 +171,8 @@ addEventListener("submit", (e) => {
    if (checkFirstNameInput() && checkLastNameInput() && checkEmailInput() && checkMessageInput() == true) {
       document.querySelector(".form").reset();
       closeModal();
+      const modalbgValidate = document.querySelector("#contactModalValidate");
+      modalbgValidate.focus();
       displayValidationMessage();
    }
    else{
