@@ -5,13 +5,12 @@ function displayModal() {
    const header = document.querySelector(".header");
    const main = document.querySelector(".content");
    const modal = document.querySelector("#contactModal");
-   const buttonClose = document.querySelector(".modal__close--form");
    modal.style.display = "block";
    header.setAttribute("aria-hidden", "true");
    main.setAttribute("aria-hidden", "true");
    modal.setAttribute("aria-hidden", "false");
    body.classList.add("body--no-scroll");
-   buttonClose.focus();
+   modal.focus();
 }
 /* Function fermeture de la modale */
 function closeModal() {
@@ -173,5 +172,9 @@ addEventListener("submit", (e) => {
       document.querySelector(".form").reset();
       closeModal();
       displayValidationMessage();
+   }
+   else{
+      const modal = document.querySelector("#contactModal");
+      modal.focus();
    }
 });

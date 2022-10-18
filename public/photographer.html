@@ -23,14 +23,14 @@
     <script src="./scripts/utils/contactForm.js"></script>
   </head>
 
-  <body>
-    <header class="header header--photographer"  aria-hidden="false">
+  <body aria-hidden="false">
+    <header class="header header--photographer" tabindex="" aria-hidden="false">
       <a href="./index.html" aria-label="Fisheye Home page" class="header__link--home-page header__link--home-page--photographer" tabindex="1">
         <img src="./assets/logos/logo.png" class="header__logo header__logo--photographer" alt="Fisheye Home page">
       </a>
     </header>
 
-    <main class="content" aria-hidden="false">
+    <main class="content" tabindex="" aria-hidden="false">
       <div class="photographer__header"></div>
       <div class="photographer__medias">
         <div class="container__sort"></div>
@@ -39,35 +39,35 @@
       <div class="photographer__footer"></div>
     </main>
 
-    <div id="contactModal" class="contact__modal"  role="dialog" aria-hidden="true" aria-labelledby="modalTitle">
-			<div id="modalForm" class="modal">
+    <div id="contactModal" class="contact__modal"role="dialog" tabindex="1" aria-hidden="true" aria-labelledby="modalTitle">
+			<div id="modalForm" class="modal" >
 				<header class="modal__header">
-          <h1 id="modalTitle" class="modal__title" >Contactez-moi</h1>
-          <img src="./assets/icons/close.svg" alt="Fermer le formulaire de contact" class="modal__close modal__close--form" aria-label="Fermer le formulaire de contact">
+          <h1 id="modalTitle" class="modal__title" tabindex="2" >Contactez-moi</h1>
+          <img src="./assets/icons/close.svg" alt="Fermer le formulaire de contact" class="modal__close modal__close--form" tabindex="12" aria-label="Fermer le formulaire de contact">
         </header>
 
         <form class="form" name="contact" id="formContact">
           <div class="form__data" data-error-visible="" data-error="" role="" aria-live="assertive">
-            <label class="form__label" id="firstNameLabel" for="first" >Prénom</label>
-            <input class="form__text-control" id="first" name="first" aria-labelledby="firstNameLabel">
+            <label class="form__label" tabindex="3" id="firstNameLabel" for="first" >Prénom</label>
+            <input class="form__text-control" tabindex="4" id="first" name="first" aria-labelledby="firstNameLabel">
           </div>
 
           <div class="form__data" data-error-visible="" data-error="" role="" aria-live="assertive">
-            <label class="form__label" id="lastNameLabel" for="last" >Nom</label>
-            <input class="form__text-control" id="last" name="last" aria-labelledby="lastNameLabel">
+            <label class="form__label" tabindex="5" id="lastNameLabel" for="last" >Nom</label>
+            <input class="form__text-control" tabindex="6" id="last" name="last" aria-labelledby="lastNameLabel">
           </div>
 
           <div class="form__data" data-error-visible="" data-error="" role="" aria-live="assertive">
-            <label  class="form__label" id="emailLabel" for="email" >Email</label>
-            <input class="form__text-control" id="email" name="email" aria-labelledby="emailLabel">
+            <label  class="form__label" tabindex="7" id="emailLabel" for="email" >Email</label>
+            <input class="form__text-control" tabindex="8" id="email" name="email" aria-labelledby="emailLabel">
           </div>
 
           <div class="form__data" data-error-visible="" data-error="" role="" aria-live="assertive">
-            <label  class="form__label" id="messageLabel" for="message">Votre message</label>
-            <textarea class="form__text-control form__text-control--message" id="message" name="message" aria-labelledby="messageLabel"></textarea>
+            <label  class="form__label" tabindex="9" id="messageLabel" for="message">Votre message</label>
+            <textarea class="form__text-control form__text-control--message" tabindex="10" id="message" name="message" aria-labelledby="messageLabel"></textarea>
           </div>
 
-          <input class="button button__submit" type="submit" value="Envoyer" aria-label="Envoyer" >
+          <input class="button button__submit" tabindex="11" type="submit" value="Envoyer" aria-label="Envoyer" >
         </form>
 			</div>
 		</div>
