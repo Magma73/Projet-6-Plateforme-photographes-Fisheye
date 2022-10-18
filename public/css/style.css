@@ -650,7 +650,8 @@ ul {
 .modal__validate {
   height: 86.53vh;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 22.5px 28px 28px 43px;
 }
 .modal__header {
   display: flex;
@@ -676,7 +677,6 @@ ul {
 }
 .modal__title--validate {
   font-size: 3.5rem;
-  padding: 65px;
 }
 @media (max-width: 768px) {
   .modal__title {

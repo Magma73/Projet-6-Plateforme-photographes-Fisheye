@@ -31,7 +31,8 @@
     &__validate{
         height:86.53vh;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
+        padding: 22.5px 28px 28px 43px;
     }
     &__header {
         display:flex;
@@ -54,7 +55,6 @@
         font-weight: 400;
         &--validate{
             font-size: 3.5rem;
-            padding: 65px;
         }
         @include tablette {
             font-size:3rem;
@@ -63,5 +63,4 @@
             font-size:2.25rem;
         }
     }
-
 }
