@@ -7,7 +7,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        align-items: self-start;
+        // align-items: self-start;
         margin-bottom: 3px;
         position:relative;
         &:nth-child(4) {
@@ -27,6 +27,9 @@
         &[data-error-visible="true"]::after {
             opacity: 1;
             position: relative;
+        }
+        &[data-error-visible=""]::after {
+            display:none;
         }
         &[data-error-visible="true"]>.form__text-control {
             border: 3px solid $color-primary;

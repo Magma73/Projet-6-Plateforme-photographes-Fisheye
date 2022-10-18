@@ -16,7 +16,7 @@
         // justify-content: space-between;
     width: 100%;
     max-width: 669px;
-    margin: 5% 26.31% 5% 27.22%;
+    margin: 5% auto;
     padding: 17.5px 35px 18px 35px;
     border-radius: $main-radius;
     background-color: #DB8876;
@@ -36,17 +36,20 @@
     &__header {
         display:flex;
         justify-content: space-between;
+        align-items: baseline;
         margin-bottom: 25px;
-
         & > img {
             width: 44px;
-            padding-top: 16px;
             padding-left: 3px;
             align-self: baseline;
             cursor: $cursor-pointer;
+            @include mobile {
+                width: 30px;
+            }
         }
     }
     &__title{
+        margin:0;
         font-size: $main-title-photographer;
         font-weight: 400;
         &--validate{
