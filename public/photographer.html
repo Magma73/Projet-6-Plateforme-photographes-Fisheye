@@ -22,7 +22,8 @@
     <!-- <script src="./scripts/factories/lightboxFactory.js"></script> -->
     <script src="./scripts/pages/photographer.js"></script>
     <script src="./scripts/utils/contactForm.js"></script>
-    <script src="./scripts/utils/lightboxModal.js"></script>
+    <!-- <script src="./scripts/utils/lightboxModal.js"></script> -->
+    <script src="./scripts/utils/dropDown.js"></script>
   </head>
 
   <body aria-hidden="false">
@@ -84,17 +85,18 @@
 
 
 
-
+        <!-- <label>Trier par :</label>
         <div class="dropdown">
+
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown button
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" role="listbox" href="#">Action</a>
+            <a class="dropdown-item" role="listbox" href="#">Another action</a>
+            <a class="dropdown-item" role="listbox" href="#">Something else here</a>
           </div>
-        </div>
+        </div> -->
 
 
 
@@ -102,32 +104,41 @@
 
 
 
-          <!-- <div class="wrapper">
-            <label class="wrapper__label">Trier par : </label>
+          <div class="dropdown">
+            <label id="dropdownLabel" class="dropdown__label">Trier par : </label>
 
             <div class="wrapper__select">
-                <ul class="wrapper__select--option-default">
-                    <li class="button button__wrapper">
-                        <div class="wrapper__select--option1-default">
-                          <p>Popularité</p>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="wrapper__select--options">
-                    <li class="button button__wrapper">
-                        <div class="wrapper__select--option2">
-                          <p >Date</p>
-                        </div>
-                    </li>
-                    <li class="button button__wrapper">
-                        <div class="wrapper__select--option3">
-                          <p>Titre</p>
-                        </div>
-                    </li>
-                </ul>
+              <p class="button button__wrapper">
+                <a class="wrapper__main--option" role="button" aria-haspopup="listbox" aria-expanded="false" href="#">
+                    <span class="header-dropdown-link-content">
+                      Popularité
+                    </span>
+                    <!-- <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1.33447L8.00465 8.13311L14.5973 1.33447" stroke="#E9E9E9" stroke-width="2"/>
+                    </svg> -->
+                </a>
+              </p>
+              <!-- <ul class="wrapper__select--option-default">
+                  <li class="button button__wrapper">
+                      <div class="wrapper__select--option1-default">
+                        <p>Popularité</p>
+                      </div>
+                  </li>
+              </ul> -->
+              <ul class="wrapper__options" role="listbox" aria-activedescendant="" aria-selected="" aria-labelledby="dropdownLabel">
+                  <li>
+                      <div class="wrapper__option wrapper__option2">
+                        <p >Date</p>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="wrapper__option wrapper__option3">
+                        <p>Titre</p>
+                      </div>
+                  </li>
+              </ul>
             </div>
-
-          </div> -->
+          </div>
 
 
 

@@ -1,0 +1,10 @@
+.dropdown{
+    display: flex;
+    align-items: center;
+    &__label{
+        margin-right:35px;
+        font-size:1.125rem;
+        font-weight:700;
+    }
+}
+.show {display: block;}

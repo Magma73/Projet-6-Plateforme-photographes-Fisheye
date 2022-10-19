@@ -59,7 +59,7 @@ ul {
   margin-top: 21px;
 }
 .button__wrapper {
-  border-radius: unset;
+  padding: 23px 20px;
 }
 
 .sort__heading {
@@ -621,45 +621,70 @@ ul {
   }
 }
 
-.wrapper {
-  display: flex;
-  align-items: center;
-}
-.wrapper__label {
-  margin-right: 35px;
-}
 .wrapper__select {
   user-select: none;
   position: relative;
 }
-.wrapper__select--option-default {
-  position: relative;
-  border-radius: 5px;
+.wrapper__main--option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
   list-style: none;
+  color: #FFFFFF;
   cursor: pointer;
 }
-.wrapper__select--option-default:before {
+.wrapper__main--option:before {
   content: "";
   position: absolute;
-  top: 18px;
+  top: 24px;
   right: 18px;
   width: 6px;
   height: 6px;
   border: 2px solid;
-  border-color: transparent transparent #555555 #555555;
+  border-color: transparent transparent #FFFFFF #FFFFFF;
   transform: rotate(-45deg);
 }
-.wrapper__select--options {
+.wrapper__options {
   width: 100%;
+  position: absolute;
   top: 55px;
   left: 0;
-  position: absolute;
-  border-radius: 5px;
+  border-radius: 0 0 5px 5px;
   list-style: none;
   background: #901C1C;
+  display: none;
 }
-.wrapper__select--options > li {
-  border-bottom: #FFFFFF;
+.wrapper__options::before {
+  content: "";
+  width: 150px;
+  height: 1px;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.wrapper__options::after {
+  content: "";
+  width: 150px;
+  height: 1px;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 60px;
+  left: 10px;
+}
+.wrapper__option {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 23px 20px;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+.wrapper__option:hover, .wrapper__option:active {
+  background-color: #DB8876;
+  color: #000000;
 }
 
 #contactModal, #contactModalValidate {
@@ -734,7 +759,7 @@ ul {
 }
 
 .carrousel__modal {
-  display: block;
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -793,6 +818,20 @@ ul {
   font-size: 1.5rem;
   font-weight: 400;
   color: #901C1C;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+}
+.dropdown__label {
+  margin-right: 35px;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.show {
+  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */

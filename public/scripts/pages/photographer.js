@@ -28,15 +28,15 @@ async function displayData(photographers) {
    photographersHeader.appendChild(photographerCardDOM);
 }
 
-async function displayDataFilter(photographersMedias) {
-   const photographersSortSection = document.querySelector(".container__sort");
-   // const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
-   // const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
-   // const results = photographersMedias.filter(photographersMedia => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
-   const photographerSortModel = sortMediasFactory(photographersMedias);
-   const photographerSortCardDOM = photographerSortModel.getSortCardDOM();
-   photographersSortSection.appendChild(photographerSortCardDOM);
-}
+// async function displayDataFilter(photographersMedias) {
+//    const photographersSortSection = document.querySelector(".container__sort");
+//    // const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
+//    // const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
+//    // const results = photographersMedias.filter(photographersMedia => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
+//    const photographerSortModel = sortMediasFactory(photographersMedias);
+//    const photographerSortCardDOM = photographerSortModel.getSortCardDOM();
+//    photographersSortSection.appendChild(photographerSortCardDOM);
+// }
 
 async function displayDataMedia(photographersMedias) {
    const photographersMediasSection = document.querySelector(".container__medias");
@@ -50,6 +50,19 @@ async function displayDataMedia(photographersMedias) {
       photographersMediasSection.appendChild(photographerMediaCardDOM);
    });
 }
+
+// async function displayLightboxMedia(photographersMedias) {
+//    const carrouselModalSection = document.querySelector(".carrousel__modal");
+//    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
+//    const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
+//    const results = photographersMedias.filter((photographersMedia) => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
+//    results.forEach((result) => {
+//       // Pour chaque média associé à l'url du photographe filtré, je créé la carte MediaCardDom
+//       const carrouselModalModel = lightboxMediasFactory(result);
+//       const carrouselMediaCardDOM = carrouselModalModel.getLightboxMediaCardDOM();
+//       carrouselModalSection.appendChild(carrouselMediaCardDOM);
+//    });
+// }
 
 async function displayDataEncart(photographers) {
    const photographersEncartSection = document.querySelector(".photographer__footer");
@@ -69,8 +82,9 @@ async function init() {
    // Récupère les datas medias des photographes
    const { photographersMedias } = await getPhotographers();
    displayDataMedia(photographersMedias);
-   displayDataFilter(photographersMedias);
+   // displayDataFilter(photographersMedias);
    displayDataEncart(photographers);
+   // displayLightboxMedia(photographersMedias);
 
    // Crée les fonctions pour faire fonctionner la modale de contact
    /* Ouverture de la modal contact */
@@ -116,6 +130,16 @@ async function init() {
    const contactPhotographer = document.querySelector(".modal__title");
    contactPhotographer.textContent = "Contactez-moi "+ nom;
    contactPhotographer.setAttribute("aria-labelledby", "Contactez-moi " + nom);
+
+
+   /*WRAPPER*/
+
+   const buttonWrapper = document.querySelector(".wrapper__select");
+   buttonWrapper.addEventListener("click", openDropdown);
+
+
+
+
 }
 
 init();
