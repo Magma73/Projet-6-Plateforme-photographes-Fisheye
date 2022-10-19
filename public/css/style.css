@@ -58,6 +58,9 @@ ul {
   font-size: 1rem;
   margin-top: 21px;
 }
+.button__wrapper {
+  border-radius: unset;
+}
 
 .sort__heading {
   position: relative;
@@ -618,6 +621,47 @@ ul {
   }
 }
 
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+.wrapper__label {
+  margin-right: 35px;
+}
+.wrapper__select {
+  user-select: none;
+  position: relative;
+}
+.wrapper__select--option-default {
+  position: relative;
+  border-radius: 5px;
+  list-style: none;
+  cursor: pointer;
+}
+.wrapper__select--option-default:before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 6px;
+  height: 6px;
+  border: 2px solid;
+  border-color: transparent transparent #555555 #555555;
+  transform: rotate(-45deg);
+}
+.wrapper__select--options {
+  width: 100%;
+  top: 55px;
+  left: 0;
+  position: absolute;
+  border-radius: 5px;
+  list-style: none;
+  background: #901C1C;
+}
+.wrapper__select--options > li {
+  border-bottom: #FFFFFF;
+}
+
 #contactModal, #contactModalValidate {
   display: none;
   position: fixed;
@@ -687,6 +731,68 @@ ul {
   .modal__title {
     font-size: 2.25rem;
   }
+}
+
+.carrousel__modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: #FFFFFF;
+}
+.carrousel__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 62px 64px 0 95px;
+  position: relative;
+}
+.carrousel__item {
+  width: 1050px;
+  margin: auto;
+  list-style: none;
+}
+.carrousel__item--1 {
+  display: none;
+}
+.carrousel__item--2 {
+  display: none;
+}
+.carrousel__cross {
+  width: 42px;
+  position: absolute;
+  right: 27px;
+  top: 15px;
+}
+.carrousel__arrow {
+  position: absolute;
+  top: 44%;
+  color: #901C1C;
+  font-size: 3.5rem;
+}
+.carrousel__arrow--prev {
+  left: 35px;
+}
+.carrousel__arrow--next {
+  right: 29px;
+}
+.carrousel__media {
+  width: 100%;
+  height: auto;
+  max-height: 900px;
+  object-fit: cover;
+  border-radius: 5px;
+  object-position: -6px -179px;
+}
+.carrousel__title {
+  margin-top: 9px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #901C1C;
 }
 
 /*# sourceMappingURL=style.css.map */

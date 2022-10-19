@@ -1,0 +1,11 @@
+#contactModal, #contactModalValidate/*, #carrouselModal*/ {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background: rgba(196, 196, 196, 0.4);
+}
