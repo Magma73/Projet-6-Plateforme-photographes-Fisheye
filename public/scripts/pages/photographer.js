@@ -143,6 +143,10 @@ async function init() {
    const cardMedia = document.querySelectorAll(".card__media");
    cardMedia.forEach((btn) => btn.addEventListener("click", displayModalLightbox));
 
+   /* Fermeture de la lightbox */
+   const buttonCloseLightbox = document.querySelector(".carrousel__cross");
+   buttonCloseLightbox.addEventListener("click", closeModalLightbox);
+
    function displayModalLightbox(){
       const body = document.querySelector("body");
       const header = document.querySelector(".header");
@@ -156,6 +160,19 @@ async function init() {
       modal.focus();
    }
 
+   function closeModalLightbox(){
+      const body = document.querySelector("body");
+      const header = document.querySelector(".header");
+      const main = document.querySelector(".content");
+      const modal = document.querySelector("#carrouselModal");
+      const cardMedia = document.querySelectorAll(".card__media");
+      modal.style.display = "none";
+      header.setAttribute("aria-hidden", "false");
+      main.setAttribute("aria-hidden", "false");
+      modal.setAttribute("aria-hidden", "true");
+      body.classList.remove("body--no-scroll");
+      cardMedia.focus();
+   }
 
 }
 
