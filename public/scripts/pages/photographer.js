@@ -138,6 +138,23 @@ async function init() {
    buttonWrapper.addEventListener("click", openDropdown);
 
 
+   // Crée les fonctions pour ouvrir la lightbox
+   /* Ouverture de la lightbox */
+   const cardMedia = document.querySelectorAll(".card__media");
+   cardMedia.forEach((btn) => btn.addEventListener("click", displayModalLightbox));
+
+   function displayModalLightbox(){
+      const body = document.querySelector("body");
+      const header = document.querySelector(".header");
+      const main = document.querySelector(".content");
+      const modal = document.querySelector("#carrouselModal");
+      modal.style.display = "block";
+      header.setAttribute("aria-hidden", "true");
+      main.setAttribute("aria-hidden", "true");
+      modal.setAttribute("aria-hidden", "false");
+      body.classList.add("body--no-scroll");
+      modal.focus();
+   }
 
 
 }
