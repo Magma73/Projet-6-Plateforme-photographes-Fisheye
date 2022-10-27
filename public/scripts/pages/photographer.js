@@ -104,7 +104,7 @@ async function init() {
    buttonCloseMessage.addEventListener("click", closeModalValidate);
 
    /* Fermeture de la modal contact avec la touche échap*/
-   const modal = document.querySelectorAll(".contact__modal");
+   // const modal = document.querySelectorAll(".contact__modal");
    window.addEventListener(
       "keydown",
       function (event) {
@@ -165,14 +165,32 @@ async function init() {
       const header = document.querySelector(".header");
       const main = document.querySelector(".content");
       const modal = document.querySelector("#carrouselModal");
-      const cardMedia = document.querySelectorAll(".card__media");
+      // const cardMedia = document.querySelectorAll(".card__media");
       modal.style.display = "none";
       header.setAttribute("aria-hidden", "false");
       main.setAttribute("aria-hidden", "false");
       modal.setAttribute("aria-hidden", "true");
       body.classList.remove("body--no-scroll");
-      cardMedia.focus();
+      // cardMedia.focus();
    }
+      /* Fermeture de la modal lightbox avec la touche échap*/
+      window.addEventListener(
+         "keydown",
+         function (event) {
+            if (event.defaultPrevented) {
+               return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+            }
+            switch (event.key) {
+               case "Escape":
+                  closeModalLightbox();
+                  // Faire quelque chose pour la touche "esc" pressée.
+                  break;
+            }
+            // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+            // event.preventDefault();
+         },
+         true
+      );
 
 }
 

@@ -687,7 +687,7 @@ ul {
   color: #000000;
 }
 
-#contactModal, #contactModalValidate {
+#contactModal, #contactModalValidate, #carrouselModal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -697,6 +697,10 @@ ul {
   width: 100%;
   overflow: auto;
   background: rgba(196, 196, 196, 0.4);
+}
+
+#carrouselModal {
+  background: #FFFFFF;
 }
 
 .modal {
@@ -759,14 +763,6 @@ ul {
 }
 
 .carrousel__modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
   background: #FFFFFF;
 }
 .carrousel__list {
@@ -792,6 +788,7 @@ ul {
   position: absolute;
   right: 27px;
   top: 15px;
+  cursor: pointer;
 }
 .carrousel__arrow {
   position: absolute;
