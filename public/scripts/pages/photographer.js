@@ -137,8 +137,8 @@ async function init() {
    const buttonWrapper = document.querySelector(".wrapper__select");
    buttonWrapper.addEventListener("click", openDropdown);
 
-
-   // Crée les fonctions pour ouvrir la lightbox
+   /*CARROUSEL*/
+   // Crée les events pour faire fonctionner la modale lightbox
    /* Ouverture de la lightbox */
    const cardMedia = document.querySelectorAll(".card__media");
    cardMedia.forEach((btn) => btn.addEventListener("click", displayModalLightbox));
@@ -147,125 +147,18 @@ async function init() {
    const buttonCloseLightbox = document.querySelectorAll(".carrousel__close");
    buttonCloseLightbox.forEach((btn) => btn.addEventListener("click", closeModalLightbox));
 
-   function displayModalLightbox(){
-      const body = document.querySelector("body");
-      const header = document.querySelector(".header");
-      const main = document.querySelector(".content");
-      const modal = document.querySelector("#carrouselModal");
-      modal.style.display = "block";
-      header.setAttribute("aria-hidden", "true");
-      main.setAttribute("aria-hidden", "true");
-      modal.setAttribute("aria-hidden", "false");
-      body.classList.add("body--no-scroll");
-      modal.focus();
+   /* Initialisation des medias du carrousel en display none sauf la première diapo */
+   const carouselItems = document.querySelectorAll(".carrousel__item");
+   const nbCarouselItems = carouselItems.length;
+   for (i = 1; i < nbCarouselItems; i++) {
+      carouselItems[i].style.display = "none";
    }
 
-   function closeModalLightbox(){
-      const body = document.querySelector("body");
-      const header = document.querySelector(".header");
-      const main = document.querySelector(".content");
-      const modal = document.querySelector("#carrouselModal");
-      // const cardMedia = document.querySelectorAll(".card__media");
-      modal.style.display = "none";
-      header.setAttribute("aria-hidden", "false");
-      main.setAttribute("aria-hidden", "false");
-      modal.setAttribute("aria-hidden", "true");
-      body.classList.remove("body--no-scroll");
-      // cardMedia.focus();
-   }
-      /* Fermeture de la modal lightbox avec la touche échap*/
-      window.addEventListener(
-         "keydown",
-         function (event) {
-            if (event.defaultPrevented) {
-               return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
-            }
-            switch (event.key) {
-               case "Escape":
-                  closeModalLightbox();
-                  // Faire quelque chose pour la touche "esc" pressée.
-                  break;
-            }
-            // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
-            // event.preventDefault();
-         },
-         true
-      );
-
-      //*** DOM ELEMENTS ***//
-const nextBtn = document.querySelectorAll(".carrousel__arrow--next");
-const prevBtn = document.querySelectorAll(".carrousel__arrow--prev");
-
-const carouselItems = document.querySelectorAll(".carrousel__item");
-const nbCarouselItems = carouselItems.length;
-let currentItemPosition = 0;
-
-for (i = 1; i < nbCarouselItems; i++) {
-   carouselItems[i].style.display = "none";
-}
-
-  function goToNextSlide() {
-    /*si la currentItemPosition est supérieure au nombre d'items (images) alors on revient  au début du carousel (position 0)*/
-       if (currentItemPosition + 1 >=  nbCarouselItems) {
-      /*console.log(currentItemPosition);*/
-
-       const lastItem = carouselItems[currentItemPosition];
-
-       currentItemPosition = 0;
-       const currentItem = carouselItems[currentItemPosition];
-
-       setNodeAttributes(lastItem, currentItem);
-          } else {
-
-    currentItemPosition += 1;
-
- const lastItem = carouselItems[currentItemPosition - 1];
-
-  const currentItem = carouselItems[currentItemPosition];
-
-setNodeAttributes(lastItem, currentItem);
-    }
-  }
-
-
-
-  function goToPreviousSlide() {
-
-       if (currentItemPosition - 1 >=  0) {
-         currentItemPosition -= 1;
-      /*console.log(currentItemPosition);*/
-
-       const currentItem = carouselItems[currentItemPosition];
-       const lastItem = carouselItems[currentItemPosition + 1];
-
-       setNodeAttributes(lastItem, currentItem);
-          } else {
-
-          const lastItem = carouselItems[currentItemPosition];
-
-    currentItemPosition = nbCarouselItems - 1;
-
-
-  const currentItem = carouselItems[currentItemPosition];
-
-setNodeAttributes(lastItem, currentItem);
-    }
-  }
-
-
-
-
-
-function setNodeAttributes (lastItem, currentItem) {
-   lastItem.style.display='none';
-   currentItem.style.display= 'block';
-}
-
-//**** EVENTS ***//
-/*nextBtn.addEventListener("click", goToNextSlide);*/
- nextBtn.forEach((btn) => btn.addEventListener("click", goToNextSlide));
- prevBtn.forEach((btn) => btn.addEventListener("click", goToPreviousSlide));
-
+   /* Gestion des flèches du carrousel */
+   const nextBtn = document.querySelectorAll(".carrousel__arrow--next");
+   const prevBtn = document.querySelectorAll(".carrousel__arrow--prev");
+   nextBtn.forEach((btn) => btn.addEventListener("click", goToNextSlide));
+   prevBtn.forEach((btn) => btn.addEventListener("click", goToPreviousSlide));
 
 }
 
