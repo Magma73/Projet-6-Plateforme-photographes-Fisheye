@@ -78,6 +78,7 @@ function lightboxMediasFactory(photographersMedias) {
       const carrouselTitle = document.createElement("h1");
       carrouselTitle.className = "carrousel__title";
       carrouselTitle.setAttribute("alt", title);
+      carrouselTitle.textContent = title;
 
       // Création du média photo ou video et ajout dans la div mediaElement
       if (video !== undefined) {
