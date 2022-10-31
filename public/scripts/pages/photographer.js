@@ -51,18 +51,18 @@ async function displayDataMedia(photographersMedias) {
    });
 }
 
-// async function displayLightboxMedia(photographersMedias) {
-//    const carrouselModalSection = document.querySelector(".carrousel__modal");
-//    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
-//    const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
-//    const results = photographersMedias.filter((photographersMedia) => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
-//    results.forEach((result) => {
-//       // Pour chaque média associé à l'url du photographe filtré, je créé la carte MediaCardDom
-//       const carrouselModalModel = lightboxMediasFactory(result);
-//       const carrouselMediaCardDOM = carrouselModalModel.getLightboxMediaCardDOM();
-//       carrouselModalSection.appendChild(carrouselMediaCardDOM);
-//    });
-// }
+async function displayDataLightboxMedia(photographersMedias) {
+   const carrouselUlSection = document.querySelector(".carrousel__list");
+   const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
+   const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
+   const results = photographersMedias.filter((photographersMedia) => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
+   results.forEach((result) => {
+      // Pour chaque média associé à l'url du photographe filtré, je créé la carte MediaCardDom
+      const carrouselModalModel = lightboxMediasFactory(result);
+      const carrouselMediaCardDOM = carrouselModalModel.getLightboxMediaCardDOM();
+      carrouselUlSection.appendChild(carrouselMediaCardDOM);
+   });
+}
 
 async function displayDataEncart(photographers) {
    const photographersEncartSection = document.querySelector(".photographer__footer");
@@ -84,7 +84,7 @@ async function init() {
    displayDataMedia(photographersMedias);
    // displayDataFilter(photographersMedias);
    displayDataEncart(photographers);
-   // displayLightboxMedia(photographersMedias);
+   displayDataLightboxMedia(photographersMedias);
 
    // Crée les fonctions pour faire fonctionner la modale de contact
    /* Ouverture de la modal contact */
@@ -144,8 +144,8 @@ async function init() {
    cardMedia.forEach((btn) => btn.addEventListener("click", displayModalLightbox));
 
    /* Fermeture de la lightbox */
-   const buttonCloseLightbox = document.querySelector(".carrousel__cross");
-   buttonCloseLightbox.addEventListener("click", closeModalLightbox);
+   const buttonCloseLightbox = document.querySelectorAll(".carrousel__close");
+   buttonCloseLightbox.forEach((btn) => btn.addEventListener("click", closeModalLightbox));
 
    function displayModalLightbox(){
       const body = document.querySelector("body");
@@ -191,6 +191,81 @@ async function init() {
          },
          true
       );
+
+      //*** DOM ELEMENTS ***//
+const nextBtn = document.querySelectorAll(".carrousel__arrow--next");
+const prevBtn = document.querySelectorAll(".carrousel__arrow--prev");
+
+const carouselItems = document.querySelectorAll(".carrousel__item");
+const nbCarouselItems = carouselItems.length;
+let currentItemPosition = 0;
+
+for (i = 1; i < nbCarouselItems; i++) {
+   carouselItems[i].style.display = "none";
+}
+
+  function goToNextSlide() {
+    /*si la currentItemPosition est supérieure au nombre d'items (images) alors on revient  au début du carousel (position 0)*/
+       if (currentItemPosition + 1 >=  nbCarouselItems) {
+      /*console.log(currentItemPosition);*/
+
+       const lastItem = carouselItems[currentItemPosition];
+
+       currentItemPosition = 0;
+       const currentItem = carouselItems[currentItemPosition];
+
+       setNodeAttributes(lastItem, currentItem);
+          } else {
+
+    currentItemPosition += 1;
+
+ const lastItem = carouselItems[currentItemPosition - 1];
+
+  const currentItem = carouselItems[currentItemPosition];
+
+setNodeAttributes(lastItem, currentItem);
+    }
+  }
+
+
+
+  function goToPreviousSlide() {
+
+       if (currentItemPosition - 1 >=  0) {
+         currentItemPosition -= 1;
+      /*console.log(currentItemPosition);*/
+
+       const currentItem = carouselItems[currentItemPosition];
+       const lastItem = carouselItems[currentItemPosition + 1];
+
+       setNodeAttributes(lastItem, currentItem);
+          } else {
+
+          const lastItem = carouselItems[currentItemPosition];
+
+    currentItemPosition = nbCarouselItems - 1;
+
+
+  const currentItem = carouselItems[currentItemPosition];
+
+setNodeAttributes(lastItem, currentItem);
+    }
+  }
+
+
+
+
+
+function setNodeAttributes (lastItem, currentItem) {
+   lastItem.style.display='none';
+   currentItem.style.display= 'block';
+}
+
+//**** EVENTS ***//
+/*nextBtn.addEventListener("click", goToNextSlide);*/
+ nextBtn.forEach((btn) => btn.addEventListener("click", goToNextSlide));
+ prevBtn.forEach((btn) => btn.addEventListener("click", goToPreviousSlide));
+
 
 }
 
