@@ -85,14 +85,14 @@ function lightboxMediasFactory(photographersMedias) {
          video.setAttribute("src", mediaVideo);
          video.setAttribute("alt", title);
          video.controls = true;
-         video.className = "carrousel__media--video";
+         video.className = "carrousel__media carrousel__media--video";
          carrouselElement.appendChild(video);
          carrouselElement.appendChild(carrouselTitle);
       } else if (image !== undefined) {
          const img = document.createElement("img");
          img.setAttribute("src", mediaPhoto);
          img.setAttribute("alt", title);
-         img.className = "carrousel__media--img";
+         img.className = "carrousel__media carrousel__media--img";
          carrouselElement.appendChild(img);
          carrouselElement.appendChild(carrouselTitle);
       } else {

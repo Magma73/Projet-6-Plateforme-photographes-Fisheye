@@ -773,15 +773,10 @@ ul {
   position: relative;
 }
 .carrousel__item {
-  width: 1050px;
+  width: 100%;
+  max-width: 1050px;
   margin: auto;
   list-style: none;
-}
-.carrousel__item--1 {
-  display: none;
-}
-.carrousel__item--2 {
-  display: none;
 }
 .carrousel__cross {
   width: 42px;
@@ -802,13 +797,22 @@ ul {
 .carrousel__arrow--next {
   right: 29px;
 }
+.carrousel__element {
+  flex: 100%;
+}
 .carrousel__media {
   width: 100%;
-  height: auto;
+  min-height: 900px;
   max-height: 900px;
   object-fit: cover;
+  object-position: 100% 35%;
   border-radius: 5px;
-  object-position: -6px -179px;
+}
+@media (max-width: 1339px) {
+  .carrousel__media {
+    height: auto;
+    min-height: unset;
+  }
 }
 .carrousel__title {
   margin-top: 9px;
