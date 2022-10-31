@@ -823,6 +823,7 @@ ul {
 }
 @media (max-width: 768px) {
   .carrousel__media {
+    min-height: 600px;
     object-position: 70% 100%;
   }
 }

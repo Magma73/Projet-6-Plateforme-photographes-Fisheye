@@ -66,6 +66,7 @@
             // min-height: 700px;
         }
         @include tablette{
+            min-height: 600px;
             object-position:70% 100%;
         }
     }
