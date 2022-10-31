@@ -28,6 +28,7 @@ function lightboxMediasFactory(photographersMedias) {
       carrouselCross.className = "carrousel__cross";
       carrouselCross.setAttribute("src", "./assets/icons/close-red.svg");
       carrouselCross.setAttribute("alt", "Fermer le carrousel");
+      carrouselCross.setAttribute("tabindex", 6);
 
       // CONTRÔLES "PRECENDANTE"
       // Création de la div contenant le bouton de contrôle "Précédante"
@@ -38,6 +39,7 @@ function lightboxMediasFactory(photographersMedias) {
       // Création de la span contenant l'icône et le mot "Précédante"
       const carrouselArrowLeft = document.createElement("span");
       carrouselArrowLeft.className = "carrousel__arrow carrousel__arrow--prev";
+      carrouselArrowLeft.setAttribute("tabindex", 4);
 
       // Création de l'icône flèche précédante
       const carrouselIconLeft = document.createElement("i");
@@ -58,6 +60,7 @@ function lightboxMediasFactory(photographersMedias) {
       // Création de la span contenant l'icône et le mot "Suivante"
       const carrouselArrowRight = document.createElement("span");
       carrouselArrowRight.className = "carrousel__arrow carrousel__arrow--next";
+      carrouselArrowRight.setAttribute("tabindex", 5);
 
       // Création de l'icône flèche précédante
       const carrouselIconRight = document.createElement("i");
@@ -79,12 +82,14 @@ function lightboxMediasFactory(photographersMedias) {
       carrouselTitle.className = "carrousel__title";
       carrouselTitle.setAttribute("alt", title);
       carrouselTitle.textContent = title;
+      carrouselElement.setAttribute("tabindex", 3);
 
       // Création du média photo ou video et ajout dans la div mediaElement
       if (video !== undefined) {
          const video = document.createElement("video");
          video.setAttribute("src", mediaVideo);
          video.setAttribute("alt", title);
+         video.setAttribute("tabindex", 2);
          video.controls = true;
          video.className = "carrousel__media carrousel__media--video";
          carrouselElement.appendChild(video);
@@ -93,6 +98,7 @@ function lightboxMediasFactory(photographersMedias) {
          const img = document.createElement("img");
          img.setAttribute("src", mediaPhoto);
          img.setAttribute("alt", title);
+         img.setAttribute("tabindex", 2);
          img.className = "carrousel__media carrousel__media--img";
          carrouselElement.appendChild(img);
          carrouselElement.appendChild(carrouselTitle);
