@@ -41,12 +41,14 @@
         right:2.1%;
         top:1.45%;
         cursor: $cursor-pointer;
+        z-index: 10;
     }
     &__arrow{
         position: absolute;
         top: 44%;
         color:$color-primary;
         font-size:3.5rem;
+        z-index: 10;
         &--prev{
             left: 2.43%;
         }

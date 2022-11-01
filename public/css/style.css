@@ -800,12 +800,14 @@ ul {
   right: 2.1%;
   top: 1.45%;
   cursor: pointer;
+  z-index: 10;
 }
 .carrousel__arrow {
   position: absolute;
   top: 44%;
   color: #901C1C;
   font-size: 3.5rem;
+  z-index: 10;
 }
 .carrousel__arrow--prev {
   left: 2.43%;

@@ -81,16 +81,17 @@ window.addEventListener(
          return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
       }
       switch (event.key) {
-        case "Escape": // Lorsque la touche "esc" pressée, fermer la lightbox
+         case "Escape": // Lorsque la touche "esc" pressée, fermer la lightbox
           closeModalLightbox();
           break;
-         case "ArrowLeft": // Lorsque la touche "flèche gauche" pressée, aller à la diapo précédante
-            goToPreviousSlide();
 
-            break;
+         case "ArrowLeft": // Lorsque la touche "flèche gauche" pressée, aller à la diapo précédante
+          goToPreviousSlide();
+          break;
+
          case "ArrowRight": // Lorsque la touche "flèche droite" pressée, aller à la diapo suivante
-            goToNextSlide();
-            break;
+          goToNextSlide();
+          break;
       }
       // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
       // event.preventDefault();
