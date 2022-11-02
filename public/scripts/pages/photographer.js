@@ -95,6 +95,25 @@ async function init() {
    const buttonClose = document.querySelector(".modal__close--form");
    buttonClose.addEventListener("click", closeModal);
 
+      /* Fermeture de la modal contactavec la touch Entrée */
+      buttonClose.addEventListener(
+         "keydown",
+         function (event) {
+            if (event.defaultPrevented) {
+               return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+            }
+            switch (event.key) {
+               case "Enter":
+                  closeModal();
+                  // Faire quelque chose pour la touche "esc" pressée.
+                  break;
+            }
+            // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+            event.preventDefault();
+         },
+         true
+      );
+
    /* Fermeture de la modal message de validation avec la croix */
    const crossCloseMessage = document.querySelector(".modal__close--validate");
    crossCloseMessage.addEventListener("click", closeModalValidate);
