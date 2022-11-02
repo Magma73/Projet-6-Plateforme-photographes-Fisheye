@@ -133,9 +133,13 @@ async function init() {
 
 
    /*WRAPPER*/
-
-   const buttonWrapper = document.querySelector(".wrapper__select");
+   // Ouverture du wrapper
+   const buttonWrapper = document.querySelector(".button__wrapper");
    buttonWrapper.addEventListener("click", openDropdown);
+
+   // Fermeture du wrapper
+   const wrapperList = document.querySelectorAll(".wrapper__option");
+   wrapperList.forEach((btn) => btn.addEventListener("click", closeDropdown));
 
    /*CARROUSEL*/
    // Crée les events pour faire fonctionner la modale lightbox

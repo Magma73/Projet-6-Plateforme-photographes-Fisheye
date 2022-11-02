@@ -101,23 +101,34 @@
 
 
 
+        <div class="wrapper">
+          <label id="wrapperLabel" class="wrapper__label">Trier par : </label>
+
+          <div class="wrapper__select">
+
+            <button class="button button__wrapper" type="button" id="menubutton1" aria-expanded="false" aria-haspopup="true" aria-controls="menu1">
+              Priorité
+              <i class="fas fa-chevron-down wrapper__icon"></i>
+            </button>
+            <ul class="wrapper__list" id="menu1" role="listbox" tabindex="-1" aria-labelledby="menubutton1" aria-activedescendant="mi1">
+              <li id="mi1" role="listboxitem" class="wrapper__option wrapper__option--1">Priorité <i class="fas fa-chevron-up wrapper__icon"></i></li>
+              <li id="mi2" role="listboxitem" class="wrapper__option wrapper__option--2">Date</li>
+              <li id="mi3" role="listboxitem" class="wrapper__option wrapper__option--3">Titre</li>
+            </ul>
+          </div>
+      </div>
 
 
-
-          <div class="dropdown">
-            <label id="dropdownLabel" class="dropdown__label">Trier par : </label>
-
-            <div class="wrapper__select">
-              <p class="button button__wrapper">
+              <!-- <p class="button button__wrapper">
                 <a class="wrapper__main--option" role="button" aria-haspopup="listbox" aria-expanded="false" href="#">
                     <span class="header-dropdown-link-content">
                       Popularité
                     </span>
-                    <!-- <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1.33447L8.00465 8.13311L14.5973 1.33447" stroke="#E9E9E9" stroke-width="2"/>
                     </svg> -->
-                </a>
-              </p>
+                <!-- </a>
+              </p> -->
               <!-- <ul class="wrapper__select--option-default">
                   <li class="button button__wrapper">
                       <div class="wrapper__select--option1-default">
@@ -125,7 +136,7 @@
                       </div>
                   </li>
               </ul> -->
-              <ul class="wrapper__options" role="listbox" aria-activedescendant="" aria-selected="" aria-labelledby="dropdownLabel">
+              <!-- <ul class="wrapper__options" role="listbox" aria-activedescendant="" aria-selected="" aria-labelledby="dropdownLabel">
                   <li>
                       <div class="wrapper__option wrapper__option2">
                         <p >Date</p>
@@ -136,8 +147,8 @@
                         <p>Titre</p>
                       </div>
                   </li>
-              </ul>
-            </div>
+              </ul> -->
+            <!-- </div> -->
           </div>
 
 
@@ -190,7 +201,7 @@
       <div  id="modalValidate" class="modal modal__validate">
 				<header class="modal__header">
           <p id="messageValidation" class="modal__title modal__title--validate" tabindex="2">
-            Merci de m'avoir contacté.<br /> <br />
+            Merci de m'avoir contacté.<br> <br>
             Je m'engage à vous répondre dans les plus brefs délais.
           </p>
           <img src="./assets/icons/close.svg" alt="Fermer le message de validation" class="modal__close modal__close--validate" tabindex="4" aria-label="Fermer le message de validation">

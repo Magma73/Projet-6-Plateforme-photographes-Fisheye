@@ -13,12 +13,18 @@
     &:hover, &:active{
         background-color: $color-bg-encart;
         color: $color-black;
+        & .wrapper__icon{
+            color: $color-black;
+        }
     }
     &__submit{
         font-size: 1rem;
         margin-top: 21px;
     }
     &__wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         padding: 23px 20px;
     }
 }

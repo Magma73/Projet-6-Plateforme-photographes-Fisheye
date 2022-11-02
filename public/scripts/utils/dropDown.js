@@ -1,18 +1,14 @@
-
 function openDropdown() {
-    document.querySelector(".wrapper__options").classList.toggle("show");
+    const wrapperSelect = document.querySelector(".wrapper__select");
+    const buttonWrapper = document.querySelector(".button__wrapper");
+    wrapperSelect.className += " active";
+    buttonWrapper.setAttribute("aria-expanded", "true");
+    // buttonWrapper.focus();
 }
-
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.querySelector(".wrapper__options");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-        }
-        }
-    }
+function closeDropdown() {
+    const wrapperSelect = document.querySelector(".wrapper__select");
+    const buttonWrapper = document.querySelector(".button__wrapper");
+    wrapperSelect.className = "wrapper__select";
+    buttonWrapper.setAttribute("aria-expanded", "false");
+    buttonWrapper.focus();
 }
