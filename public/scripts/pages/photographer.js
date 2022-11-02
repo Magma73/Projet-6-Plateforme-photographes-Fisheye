@@ -95,24 +95,24 @@ async function init() {
    const buttonClose = document.querySelector(".modal__close--form");
    buttonClose.addEventListener("click", closeModal);
 
-      /* Fermeture de la modal contactavec la touch Entrée */
-      buttonClose.addEventListener(
-         "keydown",
-         function (event) {
-            if (event.defaultPrevented) {
-               return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
-            }
-            switch (event.key) {
-               case "Enter":
-                  closeModal();
-                  // Faire quelque chose pour la touche "esc" pressée.
-                  break;
-            }
-            // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
-            event.preventDefault();
-         },
-         true
-      );
+   /* Fermeture de la modal contactavec la touch Entrée */
+   buttonClose.addEventListener(
+      "keydown",
+      function (event) {
+         if (event.defaultPrevented) {
+            return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+         }
+         switch (event.key) {
+            case "Enter":
+               closeModal();
+               // Faire quelque chose pour la touche "esc" pressée.
+               break;
+         }
+         // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+         event.preventDefault();
+      },
+      true
+   );
 
    /* Fermeture de la modal message de validation avec la croix */
    const crossCloseMessage = document.querySelector(".modal__close--validate");
@@ -147,9 +147,8 @@ async function init() {
    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
    const nom = params.get("name").toString(); // Je récupère le nom du photographe
    const contactPhotographer = document.querySelector(".modal__title");
-   contactPhotographer.textContent = "Contactez-moi "+ nom;
+   contactPhotographer.textContent = "Contactez-moi " + nom;
    contactPhotographer.setAttribute("aria-labelledby", "Contactez-moi " + nom);
-
 
    /*WRAPPER*/
    // Ouverture du wrapper
@@ -170,6 +169,24 @@ async function init() {
    const buttonCloseLightbox = document.querySelectorAll(".carrousel__close");
    buttonCloseLightbox.forEach((btn) => btn.addEventListener("click", closeModalLightbox));
 
+   /* Fermeture de la lightbox avec la touch Entrée */
+   buttonCloseLightbox.forEach((btn) => btn.addEventListener(
+      "keydown",
+      function (event) {
+         if (event.defaultPrevented) {
+            return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+         }
+         switch (event.key) {
+            case "Enter":
+               closeModalLightbox();
+               // Faire quelque chose pour la touche "esc" pressée.
+               break;
+         }
+         // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+         event.preventDefault();
+      },
+      true
+   ));
    /* Initialisation des medias du carrousel en display none sauf la première diapo */
    const carouselItems = document.querySelectorAll(".carrousel__item");
    const nbCarouselItems = carouselItems.length;
@@ -182,7 +199,6 @@ async function init() {
    const prevBtn = document.querySelectorAll(".carrousel__arrow--prev");
    nextBtn.forEach((btn) => btn.addEventListener("click", goToNextSlide));
    prevBtn.forEach((btn) => btn.addEventListener("click", goToPreviousSlide));
-
 }
 
 init();
