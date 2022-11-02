@@ -56,6 +56,7 @@
     &__option{
         height:69px;
         padding: 23px 20px;
+        cursor: $cursor-pointer;
         &:hover, &:active{
             background-color: $color-bg-encart;
             color: $color-black;

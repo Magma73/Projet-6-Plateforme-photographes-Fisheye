@@ -357,6 +357,7 @@ ul {
   margin-bottom: 11px;
   margin-right: 22.5px;
   margin-left: 73.5px;
+  cursor: pointer;
 }
 @media (max-width: 1439px) {
   .card__media {
@@ -683,6 +684,7 @@ ul {
 .wrapper__option {
   height: 69px;
   padding: 23px 20px;
+  cursor: pointer;
 }
 .wrapper__option:hover, .wrapper__option:active {
   background-color: #DB8876;
