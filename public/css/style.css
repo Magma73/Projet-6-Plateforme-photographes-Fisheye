@@ -833,25 +833,27 @@ ul {
   margin: auto;
   list-style: none;
 }
-.carrousel__cross {
+.carrousel__close {
   width: 42px;
   position: absolute;
   right: 2.1%;
   top: 1.45%;
   cursor: pointer;
-  z-index: 10;
 }
-.carrousel__arrow {
+.carrousel__cross {
+  width: 42px;
+}
+.carrousel__controls {
   position: absolute;
   top: 44%;
   color: #901C1C;
   font-size: 3.5rem;
   z-index: 10;
 }
-.carrousel__arrow--prev {
+.carrousel__controls--left {
   left: 2.43%;
 }
-.carrousel__arrow--next {
+.carrousel__controls--right {
   right: 2%;
 }
 .carrousel__media {
