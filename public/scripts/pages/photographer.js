@@ -157,7 +157,11 @@ async function init() {
 
    // Fermeture du wrapper
    const wrapperList = document.querySelectorAll(".wrapper__option");
-   wrapperList.forEach((btn) => btn.addEventListener("click", closeDropdown));
+   wrapperList.forEach((btn) => btn.addEventListener("click", function(){
+     closeDropdown();
+     const currentOption = this;
+     changeName(currentOption)
+   }));
 
    /*CARROUSEL*/
    // Crée les events pour faire fonctionner la modale lightbox

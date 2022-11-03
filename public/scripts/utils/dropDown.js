@@ -12,3 +12,8 @@ function closeDropdown() {
     buttonWrapper.setAttribute("aria-expanded", "false");
     buttonWrapper.focus();
 }
+function changeName(currentOption){
+    const buttonWrapper = document.querySelector(".button__wrapper");
+    const optionText = currentOption.textContent;
+    buttonWrapper.textContent = optionText;
+}

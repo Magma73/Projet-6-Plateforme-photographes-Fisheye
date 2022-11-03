@@ -54,8 +54,12 @@ ul {
   background-color: #DB8876;
   color: #000000;
 }
-.button:hover .wrapper__icon, .button:active .wrapper__icon {
+.button:hover.button__wrapper::after, .button:active.button__wrapper::after {
+  content: "\f078";
+  font-family: "Font Awesome 5 Free";
   color: #000000;
+  position: absolute;
+  right: 20px;
 }
 .button__submit {
   font-size: 1rem;
@@ -66,6 +70,13 @@ ul {
   justify-content: space-between;
   align-items: center;
   padding: 23px 20px;
+}
+.button__wrapper::after {
+  content: "\f078";
+  font-family: "Font Awesome 5 Free";
+  color: white;
+  position: absolute;
+  right: 20px;
 }
 
 .sort__heading {
@@ -644,9 +655,6 @@ ul {
 .wrapper__select.active .wrapper__list {
   display: block;
 }
-.wrapper__icon {
-  color: #FFFFFF;
-}
 .wrapper__list {
   width: 170px;
   position: absolute;
@@ -690,8 +698,12 @@ ul {
   background-color: #DB8876;
   color: #000000;
 }
-.wrapper__option:hover .wrapper__icon, .wrapper__option:active .wrapper__icon {
+.wrapper__option:hover.wrapper__option--1::after, .wrapper__option:active.wrapper__option--1::after {
+  content: "\f077";
+  font-family: "Font Awesome 5 Free";
   color: #000000;
+  position: absolute;
+  right: 20px;
 }
 .wrapper__option:first-child:hover {
   border-top-left-radius: 5px;
@@ -705,6 +717,13 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.wrapper__option--1::after {
+  content: "\f077";
+  font-family: "Font Awesome 5 Free";
+  color: white;
+  position: absolute;
+  right: 20px;
 }
 
 #contactModal, #contactModalValidate, #carrouselModal {

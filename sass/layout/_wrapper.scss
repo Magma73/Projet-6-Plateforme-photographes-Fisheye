@@ -16,9 +16,6 @@
         //     transform: rotate(-180deg);
         // }
     }
-    &__icon{
-        color:$color-white;
-    }
     &__list{
         width: 170px;
         position: absolute;
@@ -60,9 +57,13 @@
         &:hover, &:active{
             background-color: $color-bg-encart;
             color: $color-black;
-            & .wrapper__icon{
-                color: $color-black;
-            }
+            &.wrapper__option--1::after{
+                content:"\f077";
+                font-family: "Font Awesome 5 Free";
+                color:$color-black;
+                position:absolute;
+                right:20px;
+              }
         }
         &:first-child:hover{
             border-top-left-radius: $main-radius;
@@ -76,6 +77,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            &::after{
+                content:"\f077";
+                font-family: "Font Awesome 5 Free";
+                color:white;
+                position:absolute;
+                right:20px;
+              }
         }
     }
 

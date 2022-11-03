@@ -13,9 +13,16 @@
     &:hover, &:active{
         background-color: $color-bg-encart;
         color: $color-black;
-        & .wrapper__icon{
+        &.button__wrapper::after{
+            content:"\f078";
+            font-family: "Font Awesome 5 Free";
             color: $color-black;
-        }
+            position:absolute;
+            right:20px;
+          }
+        // & .wrapper__icon{
+        //     color: $color-black;
+        // }
     }
     &__submit{
         font-size: 1rem;
@@ -26,5 +33,12 @@
         justify-content: space-between;
         align-items: center;
         padding: 23px 20px;
+        &::after{
+            content:"\f078";
+            font-family: "Font Awesome 5 Free";
+            color:white;
+            position:absolute;
+            right:20px;
+          }
     }
 }
