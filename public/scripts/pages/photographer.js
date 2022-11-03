@@ -134,6 +134,7 @@ async function init() {
             case "Escape":
                closeModal();
                closeModalValidate();
+               closeDropdown();
                // Faire quelque chose pour la touche "esc" pressée.
                break;
          }
@@ -155,6 +156,24 @@ async function init() {
    const buttonWrapper = document.querySelector(".button__wrapper");
    buttonWrapper.addEventListener("click", openDropdown);
 
+   buttonWrapper.addEventListener(
+      "keydown",
+      function (event) {
+         if (event.defaultPrevented) {
+            return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+         }
+         switch (event.key) {
+            case "Enter":
+               openDropdown();
+               // Faire quelque chose pour la touche "esc" pressée.
+               break;
+         }
+         // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+         // event.preventDefault();
+      },
+      true
+   );
+
    // Fermeture du wrapper
    const wrapperList = document.querySelectorAll(".wrapper__option");
    wrapperList.forEach((btn) => btn.addEventListener("click", function(){
@@ -162,6 +181,34 @@ async function init() {
      const currentOption = this;
      changeName(currentOption)
    }));
+
+   // Gérer les événements au clavier
+   wrapperList.forEach((btn) => btn.addEventListener(
+      "keydown",
+      function (event) {
+         const currentOption = this;
+         if (event.defaultPrevented) {
+            return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+         }
+         switch (event.key) {
+            case "Enter":
+               closeDropdown();
+               // Faire quelque chose pour la touche "esc" pressée.
+               break;
+         case "ArrowDown": // Lorsque la touche "flèche gauche" pressée, aller à la diapo précédante
+         //    goToPreviousSlide();
+         // currentOption.focus();
+            break;
+
+         case "ArrowUp": // Lorsque la touche "flèche droite" pressée, aller à la diapo suivante
+            // goToNextSlide();
+            break;
+        }
+         // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+         event.preventDefault();
+      },
+      true
+   ));
 
    /*CARROUSEL*/
    // Crée les events pour faire fonctionner la modale lightbox
