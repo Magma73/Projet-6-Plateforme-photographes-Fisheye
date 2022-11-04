@@ -38,6 +38,13 @@ async function displayData(photographers) {
 //    photographersSortSection.appendChild(photographerSortCardDOM);
 // }
 
+async function displayDataContactPhotographer(photographersMedias) {
+   const contactPhotographerSection = document.querySelector(".contact__modal");
+   const photographerContactModel = contactPhotographerFactory(photographersMedias);
+   const photographerContactCardDOM = photographerContactModel.getContactPhotographerCardDOM();
+   contactPhotographerSection.appendChild(photographerContactCardDOM);
+}
+
 async function displayDataMedia(photographersMedias) {
    const photographersMediasSection = document.querySelector(".container__medias");
    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
@@ -81,6 +88,7 @@ async function init() {
 
    // Récupère les datas medias des photographes
    const { photographersMedias } = await getPhotographers();
+   displayDataContactPhotographer(photographersMedias);
    displayDataMedia(photographersMedias);
    // displayDataFilter(photographersMedias);
    displayDataEncart(photographers);
@@ -145,11 +153,11 @@ async function init() {
    );
 
    /* Ajout du nom du photographe */
-   const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
-   const nom = params.get("name").toString(); // Je récupère le nom du photographe
-   const contactPhotographer = document.querySelector(".modal__title");
-   contactPhotographer.textContent = "Contactez-moi " + nom;
-   contactPhotographer.setAttribute("aria-labelledby", "Contactez-moi " + nom);
+   // const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
+   // const nom = params.get("name").toString(); // Je récupère le nom du photographe
+   // const contactPhotographer = document.querySelector(".modal__title");
+   // contactPhotographer.textContent = "Contactez-moi " + nom;
+   // contactPhotographer.setAttribute("aria-labelledby", "Contactez-moi " + nom);
 
    /*WRAPPER*/
    // Ouverture du wrapper
@@ -186,7 +194,7 @@ async function init() {
    wrapperList.forEach((btn) => btn.addEventListener(
       "keydown",
       function (event) {
-         const currentOption = this;
+         // const currentOption = this;
          if (event.defaultPrevented) {
             return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
          }
@@ -205,7 +213,7 @@ async function init() {
             break;
         }
          // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
-         event.preventDefault();
+         // event.preventDefault();
       },
       true
    ));
@@ -234,7 +242,7 @@ async function init() {
                break;
          }
          // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
-         event.preventDefault();
+         // event.preventDefault();
       },
       true
    ));
@@ -246,8 +254,8 @@ async function init() {
    }
 
    /* Gestion des flèches du carrousel */
-   const nextBtn = document.querySelectorAll(".carrousel__arrow--next");
-   const prevBtn = document.querySelectorAll(".carrousel__arrow--prev");
+   const nextBtn = document.querySelectorAll(".carrousel__controls--right");
+   const prevBtn = document.querySelectorAll(".carrousel__controls--left");
    nextBtn.forEach((btn) => btn.addEventListener("click", goToNextSlide));
    prevBtn.forEach((btn) => btn.addEventListener("click", goToPreviousSlide));
 }

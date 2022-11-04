@@ -20,6 +20,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
       <script src="./scripts/factories/headerFactory.js"></script>
+      <script src="./scripts/factories/contactFactory.js"></script>
       <script src="./scripts/factories/mediaFactory.js"></script>
       <!-- <script src="./scripts/factories/sortFactory.js"></script> -->
       <script src="./scripts/factories/encartFactory.js"></script>
@@ -66,48 +67,17 @@
          <div class="photographer__footer" aria-hidden="false"></div>
       </main>
 
-      <div id="contactModal" class="contact__modal" role="dialog" tabindex="1" aria-hidden="true" aria-labelledby="modalTitle">
-         <div id="modalForm" class="modal">
-            <header class="modal__header">
-               <h1 id="modalTitle" class="modal__title" tabindex="2">Contactez-moi</h1>
-               <img src="./assets/icons/close.svg" alt="Fermer le formulaire de contact" class="modal__close modal__close--form" tabindex="12" aria-label="Fermer le formulaire de contact" />
-            </header>
-
-            <form class="form" name="contact" id="formContact">
-               <div class="form__data" data-error-visible="" data-error="" aria-live="assertive">
-                  <label class="form__label" tabindex="3" id="firstNameLabel" for="first">Prénom</label>
-                  <input class="form__text-control" tabindex="4" id="first" name="first" aria-labelledby="firstNameLabel" />
-               </div>
-
-               <div class="form__data" data-error-visible="" data-error="" aria-live="assertive">
-                  <label class="form__label" tabindex="5" id="lastNameLabel" for="last">Nom</label>
-                  <input class="form__text-control" tabindex="6" id="last" name="last" aria-labelledby="lastNameLabel" />
-               </div>
-
-               <div class="form__data" data-error-visible="" data-error="" aria-live="assertive">
-                  <label class="form__label" tabindex="7" id="emailLabel" for="email">Email</label>
-                  <input class="form__text-control" tabindex="8" id="email" name="email" aria-labelledby="emailLabel" />
-               </div>
-
-               <div class="form__data" data-error-visible="" data-error="" aria-live="assertive">
-                  <label class="form__label" tabindex="9" id="messageLabel" for="message">Votre message</label>
-                  <textarea class="form__text-control form__text-control--message" tabindex="10" id="message" name="message" aria-labelledby="messageLabel"></textarea>
-               </div>
-
-               <input class="button button__submit" tabindex="11" type="submit" value="Envoyer" aria-label="Envoyer" />
-            </form>
-         </div>
-      </div>
+      <div id="contactModal" class="contact__modal" role="dialog" tabindex="1" aria-hidden="true" aria-labelledby="modalTitle"></div>
 
       <div id="contactModalValidate" class="contact__modal" tabindex="1" role="dialog" aria-hidden="true" aria-labelledby="messageValidation">
          <div id="modalValidate" class="modal modal__validate">
             <header class="modal__header">
                <p id="messageValidation" class="modal__title modal__title--validate" tabindex="2">
-                  Merci de m'avoir contacté.<br />
-                  <br />
+                  Merci de m'avoir contacté.<br>
+                  <br>
                   Je m'engage à vous répondre dans les plus brefs délais.
                </p>
-               <img src="./assets/icons/close.svg" alt="Fermer le message de validation" class="modal__close modal__close--validate" tabindex="4" aria-label="Fermer le message de validation" />
+               <img src="./assets/icons/close.svg" alt="Fermer le message de validation" class="modal__close modal__close--validate" tabindex="4" aria-label="Fermer le message de validation">
             </header>
 
             <button class="button button__close" tabindex="3">Fermer</button>

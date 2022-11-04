@@ -766,6 +766,7 @@ ul {
   padding: 22.5px 28px 28px 43px;
 }
 .modal__header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
