@@ -94,7 +94,7 @@ async function init() {
    displayDataEncart(photographers);
    displayDataLightboxMedia(photographersMedias);
 
-   // Crée les fonctions pour faire fonctionner la modale de contact
+   // FORMULAIRE DE CONTACT
    /* Ouverture de la modal contact */
    const buttonContact = document.querySelector(".button__contact");
    buttonContact.addEventListener("click", displayModal);
@@ -121,7 +121,7 @@ async function init() {
       },
       true
    );
-
+   // MESSAGE DE VALIDATION
    /* Fermeture de la modal message de validation avec la croix */
    const crossCloseMessage = document.querySelector(".modal__close--validate");
    crossCloseMessage.addEventListener("click", closeModalValidate);
@@ -130,7 +130,26 @@ async function init() {
    const buttonCloseMessage = document.querySelector(".button__close");
    buttonCloseMessage.addEventListener("click", closeModalValidate);
 
-   /* Fermeture de la modal contact avec la touche échap*/
+   /* Fermeture de la modal validation (croix) avec la touch Entrée */
+   buttonCloseMessage.addEventListener(
+      "keydown",
+      function (event) {
+         if (event.defaultPrevented) {
+            return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+         }
+         switch (event.key) {
+            case "Enter":
+               closeModalValidate();
+               // Faire quelque chose pour la touche "esc" pressée.
+               break;
+         }
+         // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+         event.preventDefault();
+      },
+      true
+   );
+
+   /* Fermeture des modals contact et validation avec la touche échap*/
    // const modal = document.querySelectorAll(".contact__modal");
    window.addEventListener(
       "keydown",
@@ -151,13 +170,6 @@ async function init() {
       },
       true
    );
-
-   /* Ajout du nom du photographe */
-   // const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
-   // const nom = params.get("name").toString(); // Je récupère le nom du photographe
-   // const contactPhotographer = document.querySelector(".modal__title");
-   // contactPhotographer.textContent = "Contactez-moi " + nom;
-   // contactPhotographer.setAttribute("aria-labelledby", "Contactez-moi " + nom);
 
    /*WRAPPER*/
    // Ouverture du wrapper
@@ -184,39 +196,43 @@ async function init() {
 
    // Fermeture du wrapper
    const wrapperList = document.querySelectorAll(".wrapper__option");
-   wrapperList.forEach((btn) => btn.addEventListener("click", function(){
-     closeDropdown();
-     const currentOption = this;
-     changeName(currentOption)
-   }));
+   wrapperList.forEach((btn) =>
+      btn.addEventListener("click", function () {
+         closeDropdown();
+         const currentOption = this;
+         changeName(currentOption);
+      })
+   );
 
    // Gérer les événements au clavier
-   wrapperList.forEach((btn) => btn.addEventListener(
-      "keydown",
-      function (event) {
-         // const currentOption = this;
-         if (event.defaultPrevented) {
-            return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
-         }
-         switch (event.key) {
-            case "Enter":
-               closeDropdown();
-               // Faire quelque chose pour la touche "esc" pressée.
-               break;
-         case "ArrowDown": // Lorsque la touche "flèche gauche" pressée, aller à la diapo précédante
-         //    goToPreviousSlide();
-         // currentOption.focus();
-            break;
+   wrapperList.forEach((btn) =>
+      btn.addEventListener(
+         "keydown",
+         function (event) {
+            // const currentOption = this;
+            if (event.defaultPrevented) {
+               return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+            }
+            switch (event.key) {
+               case "Enter":
+                  closeDropdown();
+                  // Faire quelque chose pour la touche "esc" pressée.
+                  break;
+               case "ArrowDown": // Lorsque la touche "flèche gauche" pressée, aller à la diapo précédante
+                  //    goToPreviousSlide();
+                  // currentOption.focus();
+                  break;
 
-         case "ArrowUp": // Lorsque la touche "flèche droite" pressée, aller à la diapo suivante
-            // goToNextSlide();
-            break;
-        }
-         // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
-         // event.preventDefault();
-      },
-      true
-   ));
+               case "ArrowUp": // Lorsque la touche "flèche droite" pressée, aller à la diapo suivante
+                  // goToNextSlide();
+                  break;
+            }
+            // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+            // event.preventDefault();
+         },
+         true
+      )
+   );
 
    /*CARROUSEL*/
    // Crée les events pour faire fonctionner la modale lightbox
@@ -225,27 +241,29 @@ async function init() {
    cardMedia.forEach((btn) => btn.addEventListener("click", displayModalLightbox));
 
    /* Fermeture de la lightbox */
-   const buttonCloseLightbox = document.querySelectorAll(".carrousel__close");
+   const buttonCloseLightbox = document.querySelectorAll(".carrousel__cross");
    buttonCloseLightbox.forEach((btn) => btn.addEventListener("click", closeModalLightbox));
 
    /* Fermeture de la lightbox avec la touch Entrée */
-   buttonCloseLightbox.forEach((btn) => btn.addEventListener(
-      "keydown",
-      function (event) {
-         if (event.defaultPrevented) {
-            return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
-         }
-         switch (event.key) {
-            case "Enter":
-               closeModalLightbox();
-               // Faire quelque chose pour la touche "esc" pressée.
-               break;
-         }
-         // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
-         // event.preventDefault();
-      },
-      true
-   ));
+   buttonCloseLightbox.forEach((btn) =>
+      btn.addEventListener(
+         "keydown",
+         function (event) {
+            if (event.defaultPrevented) {
+               return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+            }
+            switch (event.key) {
+               case "Enter":
+                  closeModalLightbox();
+                  // Faire quelque chose pour la touche "esc" pressée.
+                  break;
+            }
+            // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+            // event.preventDefault();
+         },
+         true
+      )
+   );
    /* Initialisation des medias du carrousel en display none sauf la première diapo */
    const carouselItems = document.querySelectorAll(".carrousel__item");
    const nbCarouselItems = carouselItems.length;
