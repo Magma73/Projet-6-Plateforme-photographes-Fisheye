@@ -851,6 +851,9 @@ ul {
   font-size: 3.5rem;
   z-index: 10;
 }
+.carrousel__controls:hover {
+  cursor: pointer;
+}
 .carrousel__controls--left {
   left: 2.43%;
 }

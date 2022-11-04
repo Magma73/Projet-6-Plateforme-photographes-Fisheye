@@ -22,29 +22,31 @@ function lightboxMediasFactory(photographersMedias) {
       // Création de la div contenant la croix
       const carrouselClose = document.createElement("div");
       carrouselClose.className = "carrousel__close";
-      carrouselClose.setAttribute("aria-label", "Fermer le carrousel");
+      // carrouselClose.setAttribute("aria-label", "Fermer le carrousel");
       // carrouselClose.setAttribute("role", "button");
-      carrouselClose.setAttribute("tabindex", 7);
+      // carrouselClose.setAttribute("tabindex", 7);
 
       // Création de l'icône croix
       const carrouselCross = document.createElement("img");
       carrouselCross.className = "carrousel__cross";
       carrouselCross.setAttribute("src", "./assets/icons/close-red.svg");
+      carrouselCross.setAttribute("tabindex", 6);
       carrouselCross.setAttribute("alt", "Fermer le carrousel");
-      // carrouselCross.setAttribute("tabindex", 7);
+      carrouselCross.setAttribute("aria-label", "Fermer le carrousel");
 
       // CONTRÔLES "PRECENDANTE"
       // Création de la div contenant le bouton de contrôle "Précédante"
       const carrouselControlsLeft = document.createElement("div");
       carrouselControlsLeft.className = "carrousel__controls carrousel__controls--left";
-      // carrouselControlsLeft.setAttribute("role", "button");
+      carrouselControlsLeft.setAttribute("role", "button");
       carrouselControlsLeft.setAttribute("aria-label", "Image précédante");
-      carrouselControlsLeft.setAttribute("tabindex", 5);
+      carrouselControlsLeft.setAttribute("tabindex", 4);
 
       // Création de la span contenant l'icône et le mot "Précédante"
       const carrouselArrowLeft = document.createElement("span");
       carrouselArrowLeft.className = "carrousel__arrow carrousel__arrow--prev";
-      carrouselArrowLeft.setAttribute("aria-label", "Image précédante");
+      // carrouselArrowLeft.setAttribute("aria-label", "Image précédante");
+      carrouselArrowLeft.setAttribute("aria-hidden", "true");
 
       // Création de l'icône flèche précédante
       const carrouselIconLeft = document.createElement("i");
@@ -55,14 +57,16 @@ function lightboxMediasFactory(photographersMedias) {
       // Création de la div contenant le bouton de contrôle "Suivante"
       const carrouselControlsRight = document.createElement("div");
       carrouselControlsRight.className = "carrousel__controls carrousel__controls--right";
-      // carrouselControlsRight.setAttribute("role", "button");
+      carrouselControlsRight.setAttribute("role", "button");
       carrouselControlsRight.setAttribute("aria-label", "Image suivante");
-      carrouselControlsRight.setAttribute("tabindex", 6);
+      carrouselControlsRight.setAttribute("aria-labelledby", "textIndication");
+      carrouselControlsRight.setAttribute("tabindex", 5);
 
       // Création de la span contenant l'icône et le mot "Suivante"
       const carrouselArrowRight = document.createElement("span");
       carrouselArrowRight.className = "carrousel__arrow carrousel__arrow--next";
-      carrouselArrowRight.setAttribute("aria-label", "Image suivante");
+      // carrouselArrowRight.setAttribute("aria-label", "Image suivante");
+      carrouselArrowRight.setAttribute("aria-hidden", "true");
 
       // Création de l'icône flèche précédante
       const carrouselIconRight = document.createElement("i");
@@ -73,29 +77,31 @@ function lightboxMediasFactory(photographersMedias) {
       // Création de la div contenant les médias : image ou vidéo
       const carrouselElement = document.createElement("div");
       carrouselElement.className = "carrousel__element";
-      carrouselElement.setAttribute("tabindex", 2);
+      // carrouselElement.setAttribute("tabindex", 2);
 
       // Création du titre des médias
       const carrouselTitle = document.createElement("h1");
       carrouselTitle.className = "carrousel__title";
       carrouselTitle.textContent = title;
-      carrouselTitle.setAttribute("tabindex", 4);
+      carrouselTitle.setAttribute("tabindex", 3);
 
       // Création du média photo ou video et ajout dans la div mediaElement
       if (video !== undefined) {
          const video = document.createElement("video");
+         video.setAttribute("tabindex", 2);
          video.setAttribute("src", mediaVideo);
          video.setAttribute("alt", title);
-         video.setAttribute("tabindex", 3);
+         video.setAttribute("aria-label", title);
          video.controls = true;
          video.className = "carrousel__media carrousel__media--video";
          carrouselElement.appendChild(video);
          carrouselElement.appendChild(carrouselTitle);
       } else if (image !== undefined) {
          const img = document.createElement("img");
+         img.setAttribute("tabindex", 2);
          img.setAttribute("src", mediaPhoto);
          img.setAttribute("alt", title);
-         img.setAttribute("tabindex", 3);
+         img.setAttribute("aria-label", title);
          img.className = "carrousel__media carrousel__media--img";
          carrouselElement.appendChild(img);
          carrouselElement.appendChild(carrouselTitle);
