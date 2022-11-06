@@ -459,7 +459,7 @@ ul {
 }
 
 .container__sort {
-  padding: 0 72px;
+  padding: 0 5.25%;
 }
 .container__medias {
   display: flex;
@@ -642,6 +642,11 @@ ul {
 .wrapper {
   display: flex;
   align-items: center;
+}
+@media (max-width: 1200px) {
+  .wrapper {
+    justify-content: center;
+  }
 }
 .wrapper__label {
   margin-right: 21px;

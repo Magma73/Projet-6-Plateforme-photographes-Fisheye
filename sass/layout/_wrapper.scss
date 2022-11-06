@@ -1,6 +1,9 @@
 .wrapper{
     display:flex;
     align-items: center;
+    @include desktop1200{
+        justify-content: center;
+    }
     &__label{
         margin-right:21px;
         font-size:1.125rem;
