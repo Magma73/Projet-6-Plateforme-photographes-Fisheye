@@ -1,6 +1,14 @@
 function encartMediasFactory(photographers) {
     const { name, id, city, country, tagline, price, portrait } = photographers;
 
+    // CALCUL DE LA SOMME TOTALE DES LIKES
+    const nbLikes = document.querySelectorAll(".card__media-likes");// Je vais chercher tous les likes
+    let totalLikes = 0; // J'initialise ma variable à 0
+    nbLikes.forEach(function (nbLike) { // Je récupère les likes de chaque média
+      const nbLikeType = parseFloat(nbLike.textContent); // Je transforme ce que j'ai récupéré en un type nombre
+      totalLikes = totalLikes + nbLikeType; // Je fais la somme des likes
+    });
+
     // FACTORY DE L'ENCART : Page photographer.html
 
     function getEncartCardDOM() {
@@ -21,7 +29,7 @@ function encartMediasFactory(photographers) {
     // Création du nombre total de likes
     const nbTotalLikes = document.createElement("p");
     nbTotalLikes.className = "encart__likes--total";
-    nbTotalLikes.textContent = "297 081";
+    nbTotalLikes.textContent = totalLikes;
     nbTotalLikes.setAttribute("tabindex", "0");
 
     // Création de l'icône
