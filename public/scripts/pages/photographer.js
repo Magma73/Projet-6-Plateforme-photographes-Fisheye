@@ -185,6 +185,8 @@ async function init() {
          switch (event.key) {
             case "Enter":
                openDropdown();
+               // const wrapperOption1 = document.querySelector(".wrapper__option--1");
+               // wrapperOption1.focus();
                // Faire quelque chose pour la touche "esc" pressée.
                break;
          }

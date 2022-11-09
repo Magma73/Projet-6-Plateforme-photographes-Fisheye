@@ -1,7 +1,8 @@
 function openDropdown() {
     const wrapperSelect = document.querySelector(".wrapper__select");
     const buttonWrapper = document.querySelector(".button__wrapper");
-    const wrapperList = document.querySelector(".wrapper__list");
+    // const wrapperList = document.querySelector(".wrapper__list");
+    const wrapperOption1 = document.querySelector(".wrapper__option--1");
     const body = document.querySelector("body");
     // const header = document.querySelector(".header");
     // const photographerHeader = document.querySelector(".photographer__header");
@@ -16,6 +17,7 @@ function openDropdown() {
     buttonWrapper.setAttribute("aria-expanded", "true");
     body.classList.add("body--no-scroll");
     // wrapperList.focus();
+    wrapperOption1.focus();
 }
 function closeDropdown() {
     const wrapperSelect = document.querySelector(".wrapper__select");
@@ -30,7 +32,7 @@ function closeDropdown() {
     wrapperSelect.className = "wrapper__select";
     buttonWrapper.setAttribute("aria-expanded","false");
     body.classList.remove("body--no-scroll");
-    // buttonWrapper.focus();
+    buttonWrapper.focus();
 }
 function changeName(currentOption){
     const buttonWrapper = document.querySelector(".button__wrapper");
