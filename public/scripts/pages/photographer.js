@@ -239,7 +239,7 @@ async function init() {
    /*CARROUSEL*/
    // Crée les events pour faire fonctionner la modale lightbox
    /* Ouverture de la lightbox */
-   const cardMedia = document.querySelectorAll(".card__media");
+   const cardMedia = document.querySelectorAll(".card__media-element");
    cardMedia.forEach((btn) => btn.addEventListener("click", displayModalLightbox));
 
    /* Fermeture de la lightbox */
@@ -278,6 +278,18 @@ async function init() {
    const prevBtn = document.querySelectorAll(".carrousel__controls--left");
    nextBtn.forEach((btn) => btn.addEventListener("click", goToNextSlide));
    prevBtn.forEach((btn) => btn.addEventListener("click", goToPreviousSlide));
+
+   // LIKES
+
+   const likesInitial = document.querySelectorAll(".card__media-likes");
+
+   likesInitial.forEach((btn) =>
+      btn.addEventListener("click", function () {
+         const currentCard = this;
+         addClick(currentCard);
+         total();
+      })
+   );
 }
 
 init();
