@@ -225,13 +225,12 @@ async function init() {
                   changeName(currentOption);
                   event.preventDefault();
                   break;
-               case "ArrowDown": // Lorsque la touche "flèche gauche" pressée, aller à la diapo précédante
-                  //    goToPreviousSlide();
-                  // currentOption.focus();
+               case "ArrowDown": // Lorsque la touche "flèche bas" pressée, aller à la prochaine option
+                  goToNextOption();
                   break;
 
-               case "ArrowUp": // Lorsque la touche "flèche droite" pressée, aller à la diapo suivante
-                  // goToNextSlide();
+               case "ArrowUp": // Lorsque la touche "flèche haut" pressée, aller à l'option précédante
+                  goToPreviousOption();
                   break;
             }
             // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
@@ -245,12 +244,14 @@ async function init() {
    // Crée les events pour faire fonctionner la modale lightbox
    /* Ouverture de la lightbox */
    const cardMedia = document.querySelectorAll(".card__media-element");
-   cardMedia.forEach((btn) => btn.addEventListener("click", function(){
-      const idCurrent = this.getAttribute("id");
+   cardMedia.forEach((btn) =>
+      btn.addEventListener("click", function () {
+         const idCurrent = this.getAttribute("id");
 
-      console.log(idCurrent);
-      displayModalLightbox();
-   }));
+         console.log(idCurrent);
+         displayModalLightbox();
+      })
+   );
 
    /* Fermeture de la lightbox */
    const buttonCloseLightbox = document.querySelectorAll(".carrousel__cross");
@@ -290,9 +291,6 @@ async function init() {
    prevBtn.forEach((btn) => btn.addEventListener("click", goToPreviousSlide));
 
    // LIKES
-
-   const likesInitial = document.querySelectorAll(".card__media-likes");
-
    const hearthIcons = document.querySelectorAll(".card__media--icon-heart");
 
    hearthIcons.forEach((btn) =>
