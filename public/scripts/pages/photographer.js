@@ -293,9 +293,11 @@ async function init() {
 
    const likesInitial = document.querySelectorAll(".card__media-likes");
 
-   likesInitial.forEach((btn) =>
+   const hearthIcons = document.querySelectorAll(".card__media--icon-heart");
+
+   hearthIcons.forEach((btn) =>
       btn.addEventListener("click", function () {
-         const currentCard = this;
+         const currentCard = this.previousElementSibling;
          addClick(currentCard);
          total();
       })
