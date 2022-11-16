@@ -253,8 +253,8 @@ async function init() {
       })
    );
 
-      /* Ouverture de la lightbox aavec la touch Entrée */
-      cardMedia.forEach((btn) =>
+   /* Ouverture de la lightbox aavec la touch Entrée */
+   cardMedia.forEach((btn) =>
       btn.addEventListener(
          "keydown",
          function (event) {
@@ -320,6 +320,28 @@ async function init() {
          addClick(currentCard);
          total();
       })
+   );
+
+   /* Ajout des likes avec la touch Entrée */
+   hearthIcons.forEach((btn) =>
+      btn.addEventListener(
+         "keydown",
+         function (event) {
+            const currentCard = this.previousElementSibling;
+            if (event.defaultPrevented) {
+               return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+            }
+            switch (event.key) {
+               case "Enter":
+                  addClick(currentCard);
+                  total();
+                  break;
+            }
+            // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+            // event.preventDefault();
+         },
+         true
+      )
    );
 }
 
