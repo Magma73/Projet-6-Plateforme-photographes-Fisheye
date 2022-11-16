@@ -246,11 +246,32 @@ async function init() {
    const cardMedia = document.querySelectorAll(".card__media-element");
    cardMedia.forEach((btn) =>
       btn.addEventListener("click", function () {
-         const idCurrent = this.getAttribute("id");
+         /*const idCurrent = this.getAttribute("id");
 
-         console.log(idCurrent);
+         console.log(idCurrent);*/
          displayModalLightbox();
       })
+   );
+
+      /* Ouverture de la lightbox aavec la touch Entrée */
+      cardMedia.forEach((btn) =>
+      btn.addEventListener(
+         "keydown",
+         function (event) {
+            if (event.defaultPrevented) {
+               return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+            }
+            switch (event.key) {
+               case "Enter":
+                  displayModalLightbox();
+                  // Faire quelque chose pour la touche "esc" pressée.
+                  break;
+            }
+            // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+            // event.preventDefault();
+         },
+         true
+      )
    );
 
    /* Fermeture de la lightbox */
