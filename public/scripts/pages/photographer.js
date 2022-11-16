@@ -215,7 +215,7 @@ async function init() {
       btn.addEventListener(
          "keydown",
          function (event) {
-            // const currentOption = this;
+            const currentOption = this;
             if (event.defaultPrevented) {
                return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
             }
