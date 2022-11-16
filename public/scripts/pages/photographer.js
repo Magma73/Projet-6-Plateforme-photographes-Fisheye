@@ -50,6 +50,9 @@ async function displayDataMedia(photographersMedias) {
    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
    const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
    const results = photographersMedias.filter((photographersMedia) => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
+   // results.sort(function (a, b) {
+   //    return b.likes - a.likes;
+   //  });
    results.forEach((result) => {
       // Pour chaque média associé à l'url du photographe filtré, je créé la carte MediaCardDom
       const photographerMediaModel = photographerMediasFactory(result);
@@ -63,6 +66,7 @@ async function displayDataLightboxMedia(photographersMedias) {
    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
    const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
    const results = photographersMedias.filter((photographersMedia) => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
+   // const idMedia = document.querySelectorAll("");
    results.forEach((result) => {
       // Pour chaque média associé à l'url du photographe filtré, je créé la carte MediaCardDom
       const carrouselModalModel = lightboxMediasFactory(result);
@@ -218,7 +222,8 @@ async function init() {
             switch (event.key) {
                case "Enter":
                   closeDropdown();
-                  // Faire quelque chose pour la touche "esc" pressée.
+                  changeName(currentOption);
+                  event.preventDefault();
                   break;
                case "ArrowDown": // Lorsque la touche "flèche gauche" pressée, aller à la diapo précédante
                   //    goToPreviousSlide();
@@ -240,7 +245,12 @@ async function init() {
    // Crée les events pour faire fonctionner la modale lightbox
    /* Ouverture de la lightbox */
    const cardMedia = document.querySelectorAll(".card__media-element");
-   cardMedia.forEach((btn) => btn.addEventListener("click", displayModalLightbox));
+   cardMedia.forEach((btn) => btn.addEventListener("click", function(){
+      const idCurrent = this.getAttribute("id");
+
+      console.log(idCurrent);
+      displayModalLightbox();
+   }));
 
    /* Fermeture de la lightbox */
    const buttonCloseLightbox = document.querySelectorAll(".carrousel__cross");
