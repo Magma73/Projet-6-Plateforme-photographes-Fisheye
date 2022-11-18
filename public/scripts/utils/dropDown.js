@@ -28,7 +28,6 @@ function changeName(currentOption){
     const buttonWrapper = document.querySelector(".button__wrapper");
     const optionText = currentOption.textContent;
     buttonWrapper.textContent = optionText;
-    currentOption.classList.toggle("aria-selected");
 }
 
 /********* FUNCTIONS : GESTION DES ÉVÉNEMENTS AU CLAVIER *********/
