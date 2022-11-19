@@ -1,4 +1,4 @@
-/********* FUNCTIONS *********/
+/********* FUNCTIONS : OUVERTURE/FERMETURE FORMULAIRE + VALIDATION DU FORMULAIRE *********/
 /* Function ouverture de la modale */
 function displayModal() {
    const body = document.querySelector("body");
@@ -182,3 +182,99 @@ function checkMessageInput() {
 //       modal.focus();
 //    }
 // });
+
+/********* FUNCTIONS : GESTION DES ÉVÉNEMENTS DU FORMULAIRE *********/
+function manageContactForm() {
+   /* Ouverture de la modal contact */
+   const buttonContact = document.querySelector(".button__contact");
+   buttonContact.addEventListener("click", displayModal);
+
+   /* Fermeture de la modal contact */
+   const buttonClose = document.querySelector(".modal__close--form");
+   buttonClose.addEventListener("click", closeModal);
+
+   /* Fermeture de la modal contact avec la touch Entrée */
+   buttonClose.addEventListener(
+      "keydown",
+      function (event) {
+         if (event.defaultPrevented) {
+            return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+         }
+         switch (event.key) {
+            case "Enter": // Faire quelque chose pour la touche "entrée" pressée.
+               closeModal();
+               break;
+         }
+         // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+         event.preventDefault();
+      },
+      true
+   );
+
+   // MESSAGE DE VALIDATION
+   /* Fermeture de la modal message de validation avec la croix */
+   const crossCloseMessage = document.querySelector(".modal__close--validate");
+   crossCloseMessage.addEventListener("click", closeModalValidate);
+
+   /* Fermeture de la modal message de validation avec le bouton */
+   const buttonCloseMessage = document.querySelector(".button__close");
+   buttonCloseMessage.addEventListener("click", closeModalValidate);
+
+   /* Fermeture de la modal validation (croix) avec la touch Entrée */
+   buttonCloseMessage.addEventListener(
+      "keydown",
+      function (event) {
+         if (event.defaultPrevented) {
+            return;
+         }
+         switch (event.key) {
+            case "Enter":
+               closeModalValidate();
+               break;
+         }
+         event.preventDefault();
+      },
+      true
+   );
+
+   /* Fermeture des modals contact, validation et wrapper avec la touche échap*/
+   window.addEventListener(
+      "keydown",
+      function (event) {
+         if (event.defaultPrevented) {
+            return;
+         }
+         switch (event.key) {
+            case "Escape":
+               closeModal();
+               closeModalValidate();
+               closeDropdown();
+               break;
+         }
+      },
+      true
+   );
+
+   // FUNCTION SUBMIT FORM
+   const buttonSubmit = document.querySelector(".button__submit");
+
+   buttonSubmit.addEventListener("click", (e) => {
+      //on submit, verify if the functions of verification are true
+      console.log("c'est envoyé");
+      e.preventDefault(); // if it's true, the form is reset and closed and the message of validation appears
+      checkFirstNameInput();
+      checkLastNameInput();
+      checkEmailInput();
+      checkMessageInput();
+      if (checkFirstNameInput() && checkLastNameInput() && checkEmailInput() && checkMessageInput() == true) {
+         document.querySelector(".form").reset();
+         closeModal();
+         const modalbgValidate = document.querySelector("#contactModalValidate");
+         modalbgValidate.focus();
+         displayValidationMessage();
+      } else {
+         const modal = document.querySelector("#contactModal");
+         modal.focus();
+      }
+   });
+}
