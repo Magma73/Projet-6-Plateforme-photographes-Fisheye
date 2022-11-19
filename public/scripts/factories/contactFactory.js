@@ -110,7 +110,7 @@ function contactPhotographerFactory(photographersMedias) {
         const formTextControlEmail = document.createElement("input");
         formTextControlEmail.className = "form__text-control";
         formTextControlEmail.setAttribute("tabindex", "8");
-        formTextControlEmail.setAttribute("id", "emailLabel");
+        formTextControlEmail.setAttribute("id", "email");
         formTextControlEmail.setAttribute("name", "email");
         formTextControlEmail.setAttribute("aria-labelledby", "emailLabel");
 

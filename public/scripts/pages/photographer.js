@@ -132,12 +132,29 @@ async function displayDataLightboxMedia(photographersMedias) {
    // const idMedia = document.querySelectorAll("");
 
    // compareLightboxId(results);
-   console.log(results);
-   console.log(results.indexOf("8520927"));
-   const pos = results.map((e) => e.id).indexOf("8520927");
-   console.log(pos);
+   // console.log(results);
+   // console.log(results.indexOf(id));
+   // const pos = results.map((e) => e.id).indexOf("8520927");
+   // console.log(pos);
 
-   results.forEach((result) => {
+   // for(results in result){
+   //    if(result[id] == "8520927"){
+   //       console.log(result);
+   //       return indexOf(id);
+   //    }
+   // }
+   // for (let id of results) {
+   //    console.log(results.id);
+   // }
+
+   //    results.forEach((id, index) => {
+   //    console.log(index + ': ' + id.id);
+   //   });
+
+   results.forEach((result, index) => {
+      // console.log(result);
+      // console.log(index);
+
       // Pour chaque média associé à l'url du photographe filtré, je créé la carte MediaCardDom
       const carrouselModalModel = lightboxMediasFactory(result);
       const carrouselMediaCardDOM = carrouselModalModel.getLightboxMediaCardDOM();
@@ -155,18 +172,7 @@ async function displayDataEncart(photographers) {
    photographersEncartSection.appendChild(photographerEncartCardDOM);
 }
 
-async function init() {
-   // Récupère les datas des photographes
-   const { photographers } = await getPhotographers();
-   displayData(photographers);
-
-   // Récupère les datas medias des photographes
-   const { photographersMedias } = await getPhotographers();
-   displayDataContactPhotographer(photographersMedias);
-   displayDataMedia(photographersMedias);
-   displayDataEncart(photographers);
-   displayDataLightboxMedia(photographersMedias);
-
+async function manageContactForm() {
    // FORMULAIRE DE CONTACT
    /* Ouverture de la modal contact */
    const buttonContact = document.querySelector(".button__contact");
@@ -243,6 +249,45 @@ async function init() {
       },
       true
    );
+
+   // Function submit form
+   const buttonSubmit = document.querySelector(".button__submit");
+
+   buttonSubmit.addEventListener("click", (e) => {
+      //on submit, verify if the functions of verification are true
+      console.log("c'est envoyé");
+      e.preventDefault(); // if it's true, the form is reset and closed and the message of validation appears
+      checkFirstNameInput();
+      checkLastNameInput();
+      checkEmailInput();
+      checkMessageInput();
+      if (checkFirstNameInput() && checkLastNameInput() && checkEmailInput() && checkMessageInput() == true) {
+         document.querySelector(".form").reset();
+         closeModal();
+         const modalbgValidate = document.querySelector("#contactModalValidate");
+         modalbgValidate.focus();
+         displayValidationMessage();
+      } else {
+         const modal = document.querySelector("#contactModal");
+         modal.focus();
+      }
+   });
+}
+
+async function init() {
+   // Récupère les datas des photographes
+   const { photographers } = await getPhotographers();
+   displayData(photographers);
+
+   // Récupère les datas medias des photographes
+   const { photographersMedias } = await getPhotographers();
+   displayDataContactPhotographer(photographersMedias);
+   displayDataMedia(photographersMedias);
+   displayDataEncart(photographers);
+   displayDataLightboxMedia(photographersMedias);
+
+   // Récupère les fonctions de gestion des événements
+   manageContactForm();
 
    /*WRAPPER*/
    // Ouverture du wrapper
@@ -334,7 +379,7 @@ async function init() {
          // console.log(e);
 
          console.log(idCurrent);
-         displayModalLightbox(idCurrent);
+         displayModalLightbox();
       })
    );
 
@@ -411,7 +456,7 @@ async function init() {
    hearthIcons.forEach((btn) =>
       btn.addEventListener("click", function (event) {
          const currentCard = this.previousElementSibling;
-         if("likeClicked" in currentCard.dataset === false){
+         if ("likeClicked" in currentCard.dataset === false) {
             currentCard.dataset.likeClicked = "clicked";
             addClick(currentCard);
             total();
@@ -431,7 +476,7 @@ async function init() {
             }
             switch (event.key) {
                case "Enter":
-                  if("likeClicked" in currentCard.dataset === false){
+                  if ("likeClicked" in currentCard.dataset === false) {
                      currentCard.dataset.likeClicked = "clicked";
                      addClick(currentCard);
                      total();
