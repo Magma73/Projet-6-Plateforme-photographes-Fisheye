@@ -431,8 +431,12 @@ async function init() {
             }
             switch (event.key) {
                case "Enter":
-                  addClick(currentCard);
-                  total();
+                  if("likeClicked" in currentCard.dataset === false){
+                     currentCard.dataset.likeClicked = "clicked";
+                     addClick(currentCard);
+                     total();
+                  } else if ("likeClicked" in currentCard.dataset === true) {
+                  }
                   break;
             }
             // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
