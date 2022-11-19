@@ -409,10 +409,14 @@ async function init() {
    const hearthIcons = document.querySelectorAll(".card__media--icon-heart");
 
    hearthIcons.forEach((btn) =>
-      btn.addEventListener("click", function () {
+      btn.addEventListener("click", function (event) {
          const currentCard = this.previousElementSibling;
-         addClick(currentCard);
-         total();
+         if("likeClicked" in currentCard.dataset === false){
+            currentCard.dataset.likeClicked = "clicked";
+            addClick(currentCard);
+            total();
+         } else if ("likeClicked" in currentCard.dataset === true) {
+         }
       })
    );
 

@@ -13,7 +13,6 @@ function total() {
   likesInitial.forEach(function (likeInit) {
     const numberInit = parseFloat(likeInit.textContent);
     somme = somme + numberInit;
-    console.log(somme);
     totalLikes.textContent = somme;
   });
 }
