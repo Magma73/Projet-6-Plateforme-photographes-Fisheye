@@ -80,6 +80,8 @@ async function displayDataMediaLikes(photographersMedias) {
       const photographerMediaCardDOM = photographerMediaModel.getMediaCardDOM();
       photographersMediasSection.appendChild(photographerMediaCardDOM);
    });
+   manageCarousel();
+   manageCounterLikes();
 }
 
 async function displayDataMediaDate(photographersMedias) {
@@ -96,6 +98,8 @@ async function displayDataMediaDate(photographersMedias) {
       const photographerMediaCardDOM = photographerMediaModel.getMediaCardDOM();
       photographersMediasSection.appendChild(photographerMediaCardDOM);
    });
+   manageCarousel();
+   manageCounterLikes();
 }
 
 async function displayDataMediaTitle(photographersMedias) {
@@ -112,6 +116,8 @@ async function displayDataMediaTitle(photographersMedias) {
       const photographerMediaCardDOM = photographerMediaModel.getMediaCardDOM();
       photographersMediasSection.appendChild(photographerMediaCardDOM);
    });
+   manageCarousel();
+   manageCounterLikes();
 }
 
 async function displayDataLightboxMedia(photographersMedias) {
@@ -141,7 +147,7 @@ async function displayDataLightboxMedia(photographersMedias) {
    //    console.log(index + ': ' + id.id);
    //   });
 
-   results.forEach((result, index) => {
+   results.forEach((result) => {
       // console.log(result);
       // console.log(index);
 
@@ -175,10 +181,11 @@ async function init() {
    displayDataLightboxMedia(photographersMedias);
 
    // Récupère les fonctions de gestion des événements
+
    manageContactForm();
-   manageDropDown(photographersMedias);
    manageCarousel();
    manageCounterLikes();
+   manageDropDown(photographersMedias);
 }
 
 init();

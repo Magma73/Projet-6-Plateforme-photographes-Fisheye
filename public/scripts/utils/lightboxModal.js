@@ -74,11 +74,11 @@ function setNodeAttributes(lastItem, currentItem) {
 }
 
 /********* FUNCTIONS : GESTION DES ÉVÉNEMENTS DU CARROUSEL *********/
-async function manageCarousel() {
+function manageCarousel() {
    /* Ouverture de la lightbox */
    const cardMedia = document.querySelectorAll(".card__media-element");
    cardMedia.forEach((btn) =>
-      btn.addEventListener("click", function (e) {
+      btn.addEventListener("click", function () {
          const idCurrent = this.getAttribute("id");
          // console.log(e);
 
