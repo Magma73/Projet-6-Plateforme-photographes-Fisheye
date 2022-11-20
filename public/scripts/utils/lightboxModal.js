@@ -79,10 +79,10 @@ function manageCarousel() {
    const cardMedia = document.querySelectorAll(".card__media-element");
    cardMedia.forEach((btn) =>
       btn.addEventListener("click", function () {
-         const idCurrent = this.getAttribute("id");
+         // const idCurrent = this.getAttribute("id");
          // console.log(e);
 
-         console.log(idCurrent);
+         // console.log(idCurrent);
          displayModalLightbox();
       })
    );
