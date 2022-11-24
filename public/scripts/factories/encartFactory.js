@@ -35,6 +35,7 @@ function encartMediasFactory(photographers) {
     // Création de l'icône
     const iconTotalLikes = document.createElement("i");
     iconTotalLikes.className = "fas fa-heart encart__likes--heart";
+    iconTotalLikes.setAttribute("aria-label", "Nombre total de likes");
 
     // Création du tarif journalier
     const encartTarifJour = document.createElement("p");
