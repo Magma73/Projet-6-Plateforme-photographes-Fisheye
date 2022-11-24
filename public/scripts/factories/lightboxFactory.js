@@ -45,7 +45,6 @@ function lightboxMediasFactory(photographersMedias) {
       // Création de la span contenant l'icône et le mot "Précédante"
       const carrouselArrowLeft = document.createElement("span");
       carrouselArrowLeft.className = "carrousel__arrow carrousel__arrow--prev";
-      // carrouselArrowLeft.setAttribute("aria-label", "Image précédante");
       carrouselArrowLeft.setAttribute("aria-hidden", "true");
 
       // Création de l'icône flèche précédante
@@ -59,13 +58,11 @@ function lightboxMediasFactory(photographersMedias) {
       carrouselControlsRight.className = "carrousel__controls carrousel__controls--right";
       carrouselControlsRight.setAttribute("role", "button");
       carrouselControlsRight.setAttribute("aria-label", "Image suivante");
-      carrouselControlsRight.setAttribute("aria-labelledby", "textIndication");
       carrouselControlsRight.setAttribute("tabindex", 5);
 
       // Création de la span contenant l'icône et le mot "Suivante"
       const carrouselArrowRight = document.createElement("span");
       carrouselArrowRight.className = "carrousel__arrow carrousel__arrow--next";
-      // carrouselArrowRight.setAttribute("aria-label", "Image suivante");
       carrouselArrowRight.setAttribute("aria-hidden", "true");
 
       // Création de l'icône flèche précédante

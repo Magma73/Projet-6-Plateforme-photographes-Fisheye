@@ -18,12 +18,12 @@ function photographerMediasFactory(photographersMedias) {
       // Création du conteneur article
       const article = document.createElement("article");
       article.className = "card__media";
-      article.setAttribute("id", id);
 
       // Création du conteneur media element
       const mediaElement = document.createElement("div");
       mediaElement.className = "card__media-element";
       mediaElement.setAttribute("tabindex", "0");
+      mediaElement.setAttribute("id", id);
 
     // Création du média photo ou video et ajout dans la div mediaElement
       if(video !== undefined) {
