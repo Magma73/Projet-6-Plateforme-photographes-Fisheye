@@ -30,6 +30,7 @@ function manageCounterLikes() {
             addClick(currentCard);
             total();
          } else if ("likeClicked" in currentCard.dataset === true) {
+            console.log("Déjà cliqué");
          }
       })
    );
