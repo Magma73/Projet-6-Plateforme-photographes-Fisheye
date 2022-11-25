@@ -23,7 +23,7 @@ function manageCounterLikes() {
    const hearthIcons = document.querySelectorAll(".card__media--icon-heart");
 
    hearthIcons.forEach((btn) =>
-      btn.addEventListener("click", function (event) {
+      btn.addEventListener("click", function () {
          const currentCard = this.previousElementSibling;
          if ("likeClicked" in currentCard.dataset === false) {
             currentCard.dataset.likeClicked = "clicked";
