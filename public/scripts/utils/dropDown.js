@@ -84,8 +84,6 @@ function manageDropDown(photographersMedias) {
                openDropdown(); // Faire quelque chose pour la touche "entrée" pressée.
                break;
          }
-         // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
-         // event.preventDefault();
       },
       true
    );
@@ -102,76 +100,69 @@ function manageDropDown(photographersMedias) {
    );
 
    /* Functions de tri : sort */
-function sortLikes(results) {
-   results.sort(function (a, b) {
-      return b.likes - a.likes;
-   });
-}
-function sortTitle(results) {
-   results.sort(function (a, b) {
-      return a.title.localeCompare(b.title);
-   });
-}
-function sortDate(results) {
-   results.sort(function (a, b) {
-      return b.date.localeCompare(a.date);
-   });
-}
+   function sortLikes(results) {
+      results.sort(function (a, b) {
+         return b.likes - a.likes;
+      });
+   }
+   function sortTitle(results) {
+      results.sort(function (a, b) {
+         return a.title.localeCompare(b.title);
+      });
+   }
+   function sortDate(results) {
+      results.sort(function (a, b) {
+         return b.date.localeCompare(a.date);
+      });
+   }
 
-async function displayDataMediaLikes(photographersMedias) {
-   // Fonction appelée lorsqu'on clique sur l'option Priorité du wrapper
-   const photographersMediasSection = document.querySelector(".container__medias");
-   const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
-   const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
-   const results = photographersMedias.filter((photographersMedia) => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
-   photographersMediasSection.innerHTML = ""; // J'efface le contenu de container__medias : je réinitialise pour que ce soit vide
-   sortLikes(results); // Je trie mon tableau en fonction du nb de likes
-   results.forEach((result) => {
-      // Pour chaque média associé à l'url du photographe filtré, je créé la carte MediaCardDom
-      const photographerMediaModel = photographerMediasFactory(result);
-      const photographerMediaCardDOM = photographerMediaModel.getMediaCardDOM();
-      photographersMediasSection.appendChild(photographerMediaCardDOM);
-   });
-   // manageCarousel();
-   // manageCounterLikes();
-}
+   async function displayDataMediaLikes(photographersMedias) {
+      // Fonction appelée lorsqu'on clique sur l'option Priorité du wrapper
+      const photographersMediasSection = document.querySelector(".container__medias");
+      const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
+      const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
+      const results = photographersMedias.filter((photographersMedia) => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
+      photographersMediasSection.innerHTML = ""; // J'efface le contenu de container__medias : je réinitialise pour que ce soit vide
+      sortLikes(results); // Je trie mon tableau en fonction du nb de likes
+      results.forEach((result) => {
+         // Pour chaque média associé à l'url du photographe filtré, je créé la carte MediaCardDom
+         const photographerMediaModel = photographerMediasFactory(result);
+         const photographerMediaCardDOM = photographerMediaModel.getMediaCardDOM();
+         photographersMediasSection.appendChild(photographerMediaCardDOM);
+      });
+   }
 
-async function displayDataMediaDate(photographersMedias) {
-   // Fonction appelée lorsqu'on clique sur l'option Date du wrapper
-   const photographersMediasSection = document.querySelector(".container__medias");
-   const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
-   const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
-   const results = photographersMedias.filter((photographersMedia) => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
-   photographersMediasSection.innerHTML = ""; // J'efface le contenu de container__medias : je réinitialise pour que ce soit vide
-   sortDate(results); // Je trie mon tableau en fonction de la date
-   results.forEach((result) => {
-      // Pour chaque média associé à l'url du photographe filtré, je créé la carte MediaCardDom
-      const photographerMediaModel = photographerMediasFactory(result);
-      const photographerMediaCardDOM = photographerMediaModel.getMediaCardDOM();
-      photographersMediasSection.appendChild(photographerMediaCardDOM);
-   });
-   // manageCarousel();
-   // manageCounterLikes();
-}
+   async function displayDataMediaDate(photographersMedias) {
+      // Fonction appelée lorsqu'on clique sur l'option Date du wrapper
+      const photographersMediasSection = document.querySelector(".container__medias");
+      const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
+      const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
+      const results = photographersMedias.filter((photographersMedia) => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
+      photographersMediasSection.innerHTML = ""; // J'efface le contenu de container__medias : je réinitialise pour que ce soit vide
+      sortDate(results); // Je trie mon tableau en fonction de la date
+      results.forEach((result) => {
+         // Pour chaque média associé à l'url du photographe filtré, je créé la carte MediaCardDom
+         const photographerMediaModel = photographerMediasFactory(result);
+         const photographerMediaCardDOM = photographerMediaModel.getMediaCardDOM();
+         photographersMediasSection.appendChild(photographerMediaCardDOM);
+      });
+   }
 
-async function displayDataMediaTitle(photographersMedias) {
-   // Fonction appelée lorsqu'on clique sur l'option Titre du wrapper
-   const photographersMediasSection = document.querySelector(".container__medias");
-   const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
-   const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
-   const results = photographersMedias.filter((photographersMedia) => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
-   photographersMediasSection.innerHTML = ""; // J'efface le contenu de container__medias : je réinitialise pour que ce soit vide
-   sortTitle(results); // Je trie mon tableau en fonction du titre
-   results.forEach((result) => {
-      // Pour chaque média associé à l'url du photographe filtré, je créé la carte MediaCardDom
-      const photographerMediaModel = photographerMediasFactory(result);
-      const photographerMediaCardDOM = photographerMediaModel.getMediaCardDOM();
-      photographersMediasSection.appendChild(photographerMediaCardDOM);
-   });
-   // manageCarousel();
-   // manageCounterLikes();
-}
-
+   async function displayDataMediaTitle(photographersMedias) {
+      // Fonction appelée lorsqu'on clique sur l'option Titre du wrapper
+      const photographersMediasSection = document.querySelector(".container__medias");
+      const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
+      const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
+      const results = photographersMedias.filter((photographersMedia) => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
+      photographersMediasSection.innerHTML = ""; // J'efface le contenu de container__medias : je réinitialise pour que ce soit vide
+      sortTitle(results); // Je trie mon tableau en fonction du titre
+      results.forEach((result) => {
+         // Pour chaque média associé à l'url du photographe filtré, je créé la carte MediaCardDom
+         const photographerMediaModel = photographerMediasFactory(result);
+         const photographerMediaCardDOM = photographerMediaModel.getMediaCardDOM();
+         photographersMediasSection.appendChild(photographerMediaCardDOM);
+      });
+   }
 
    /* Function test l'option choisie du wrapper */
    function associateOption(currentOption) {
@@ -217,8 +208,6 @@ async function displayDataMediaTitle(photographersMedias) {
                   goToPreviousOption();
                   break;
             }
-            // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
-            // event.preventDefault();
          },
          true
       )
