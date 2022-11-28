@@ -18,6 +18,8 @@ function photographerMediasFactory(photographersMedias) {
       // Création du conteneur article
       const article = document.createElement("article");
       article.className = "card__media";
+      // article.setAttribute("tabindex", "0");
+      // article.setAttribute("id", id);
 
       // Création du conteneur media element
       const mediaElement = document.createElement("div");
