@@ -28,6 +28,7 @@ function changeName(currentOption) {
    const buttonWrapper = document.querySelector(".button__wrapper");
    const optionText = currentOption.textContent;
    buttonWrapper.textContent = optionText;
+   buttonWrapper.dataset.optionClicked = optionText;
 }
 
 /********* FUNCTIONS : GESTION DE LA POSITION DU FOCUS DANS LE WRAPPER *********/
@@ -168,14 +169,17 @@ function manageDropDown(photographersMedias) {
    function associateOption(currentOption) {
       const currentText = currentOption.innerText;
       if (currentText === "Priorité") {
+         // const type = "priorité";
          displayDataMediaLikes(photographersMedias);
          manageCarousel(photographersMedias);
          manageCounterLikes();
       } else if (currentText === "Titre") {
+         // const type = "titre";
          displayDataMediaTitle(photographersMedias);
          manageCarousel(photographersMedias);
          manageCounterLikes();
       } else if (currentText === "Date") {
+         // const type = "date";
          displayDataMediaDate(photographersMedias);
          manageCarousel(photographersMedias);
          manageCounterLikes();

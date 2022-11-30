@@ -27,6 +27,14 @@ function closeModalLightbox() {
    body.classList.remove("body--no-scroll");
    // cardMedia.setAttribute("tab-index", 1);
    // console.log(cardMedia);
+   // const carrouselUlSection = document.querySelector(".carrousel__list");
+   // carrouselUlSection.innerHTML = ""; // J'efface le contenu de carrousel__list : je réinitialise pour que ce soit vide
+
+   const carrouselItems = document.querySelectorAll(".carrousel__item");
+    carrouselItems.foreach((items)=> {
+      items.innerHTML = "";
+    });
+
 
 }
 
@@ -38,39 +46,43 @@ function goToNextSlide() {
    const carouselItems = document.querySelectorAll(".carrousel__item");
    const nbCarouselItems = carouselItems.length;
    carouselItems[0].style.display = "none";
-   if (currentItemPosition +1 >= nbCarouselItems) {
+   if (currentItemPosition + 1 >= nbCarouselItems) {
       // si la currentItemPosition est supérieure au nombre d'items (images) alors on revient  au début du carousel (position 0)*/
       const lastItem = carouselItems[currentItemPosition];
       currentItemPosition = 0;
       const currentItem = carouselItems[currentItemPosition];
-      console.log(currentItem);
       carouselItems[0].style.display = "block";
       setNodeAttributes(lastItem, currentItem);
+      console.log(lastItem);
+      console.log(currentItem);
    } else {
       // sinon on ajoute +1 à la currentItemPosition*/
       currentItemPosition += 1;
       const lastItem = carouselItems[currentItemPosition - 1];
       const currentItem = carouselItems[currentItemPosition];
-
-      console.log(currentItem);
       setNodeAttributes(lastItem, currentItem);
+      console.log(lastItem);
+      console.log(currentItem);
    }
 }
 function goToPreviousSlide() {
    // Revenir à la diapo précédante
    const carouselItems = document.querySelectorAll(".carrousel__item");
    const nbCarouselItems = carouselItems.length;
+   carouselItems[0].style.display = "none";
    if (currentItemPosition - 1 >= 0) {
       // Si currentItemPosition - 1 est supérieure ou égale 0, alors on implémente -1 à la currentItemPosition
       currentItemPosition -= 1;
       const currentItem = carouselItems[currentItemPosition];
       const lastItem = carouselItems[currentItemPosition + 1];
+
       setNodeAttributes(lastItem, currentItem);
    } else {
       // Sinon on revient à la dernière diapo : nombre de médias - 1
       const lastItem = carouselItems[currentItemPosition];
       currentItemPosition = nbCarouselItems - 1;
       const currentItem = carouselItems[currentItemPosition];
+      carouselItems[0].style.display = "block";
       setNodeAttributes(lastItem, currentItem);
    }
 }
@@ -81,23 +93,47 @@ function setNodeAttributes(lastItem, currentItem) {
    currentItem.setAttribute("aria-hidden", "false");
 }
 
-async function displayDataLightboxMedia(photographersMedias, idCurrent) {
-   console.log(photographersMedias);
+async function displayDataLightboxMedia(photographersMedias, idCurrent, type) {
+   // console.log(photographersMedias);
    const carrouselUlSection = document.querySelector(".carrousel__list");
    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
    const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
    const results = photographersMedias.filter((photographersMedia) => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
+
+   if(type ==="Priorité"){
+      results.sort(function (a, b) {
+         return b.likes - a.likes;
+      });
+      // console.log(results);
+   }
+   else if(type ==="Titre"){
+      results.sort(function (a, b) {
+         return a.title.localeCompare(b.title);
+      });
+      // console.log(results);
+   }
+   else if(type ==="Date"){
+      results.sort(function (a, b) {
+         return b.date.localeCompare(a.date);
+      });
+      // console.log(results);
+   }else {
+      // console.log(results);
+      console.log("Initialisation de la lightbox");
+   }
+
    // const idMedia = document.querySelectorAll("");
    carrouselUlSection.innerHTML = ""; // J'efface le contenu de carrousel__list : je réinitialise pour que ce soit vide
    // sortIndex(results, idCurrent) ;
    const idCurrentMedia = parseInt(idCurrent); // Je convertis l'id du currentMedia en nombre
-   // console.log(idCurrentMedia);
+   console.log(idCurrentMedia);
    const isFindMedia = results.find((isId) => isId.id === idCurrentMedia); // Renvoie l'objet qui correspond à l'id que je cherche (idCurrentMedia) dans mon tableau d'objet
    // console.log(isFindMedia);
    const isLargeNumber = (element) => element === isFindMedia; // Je cherche l'objet isFindMedia dans mon tableau
    // console.log(isLargeNumber);
    const positionToFind = results.findIndex(isLargeNumber); // Je trouve l'index qui correspond à l'objet IsFindMedia dans mon tableau
    console.log(positionToFind);
+   console.log(results);
 
    for (let i = positionToFind; i < results.length; i++) {
       // Je créé les cartes de la lightbox depuis la position trouvée
@@ -122,9 +158,6 @@ async function displayDataLightboxMedia(photographersMedias, idCurrent) {
       // console.log(nbCarouselItems);
       carouselItems[i].style.display = "none";
    }
-
-
-
 }
 
 /********* FUNCTIONS : GESTION DES ÉVÉNEMENTS DU CARROUSEL *********/
@@ -137,10 +170,14 @@ function manageCarousel(photographersMedias) {
          // const currentCard = this.children;
          // const currentCard = this.nextElementSibling;
          const idCurrent = this.getAttribute("id");
-         console.log(this);
+         // console.log(this);
          // console.log(currentCard);
-         console.log(idCurrent);
-         displayDataLightboxMedia(photographersMedias, idCurrent);
+         // console.log(idCurrent);
+         const buttonWrapper = document.querySelector(".button__wrapper");
+         const type = buttonWrapper.dataset.optionClicked;
+         console.log(type);
+
+         displayDataLightboxMedia(photographersMedias, idCurrent, type);
          displayModalLightbox();
 
          // /* Gestion des flèches du carrousel au clic */
@@ -172,11 +209,19 @@ function manageCarousel(photographersMedias) {
       btn.addEventListener(
          "keydown",
          function (event) {
+            const idCurrent = this.getAttribute("id");
+         // console.log(this);
+         // console.log(currentCard);
+         // console.log(idCurrent);
+         const buttonWrapper = document.querySelector(".button__wrapper");
+         const type = buttonWrapper.innerText;
+         console.log(type);
             if (event.defaultPrevented) {
                return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
             }
             switch (event.key) {
                case "Enter":
+                  displayDataLightboxMedia(photographersMedias, idCurrent, type);
                   displayModalLightbox();
                   // Faire quelque chose pour la touche "esc" pressée.
                   break;
