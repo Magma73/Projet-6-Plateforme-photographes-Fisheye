@@ -27,10 +27,12 @@ function manageCounterLikes() {
          const currentCard = this.previousElementSibling;
          if ("likeClicked" in currentCard.dataset === false) {
             currentCard.dataset.likeClicked = "clicked";
+            this.setAttribute("aria-label", "Un like ajouté");
             addClick(currentCard);
             total();
          } else if ("likeClicked" in currentCard.dataset === true) {
             console.log("Déjà cliqué");
+            this.setAttribute("aria-label", "Un like ajouté");
          }
       })
    );
@@ -49,10 +51,12 @@ function manageCounterLikes() {
                   if ("likeClicked" in currentCard.dataset === false) {
                      // Si data-like-clicked n'existe pas,
                      currentCard.dataset.likeClicked = "clicked"; // alors je l'ajoute et lui donne la valeur clicked,
+                     this.setAttribute("aria-label", "Un like ajouté");
                      addClick(currentCard); // j'ajoute 1 click
                      total(); // je calcule le total
                   } else if ("likeClicked" in currentCard.dataset === true) {
-                     // Sinon si data-like-clicked existe, alors je ne fais rien
+                     console.log("Déjà cliqué");
+                     this.setAttribute("aria-label", "Un like ajouté");
                   }
                   break;
             }
