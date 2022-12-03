@@ -211,6 +211,10 @@ function manageDropDown(photographersMedias) {
                case "ArrowUp": // Lorsque la touche "flèche haut" pressée, aller à l'option précédante
                   goToPreviousOption();
                   break;
+
+               case "Escape":
+                  closeDropdown();
+                  break;
             }
          },
          true

@@ -241,6 +241,7 @@ function manageContactForm() {
    window.addEventListener(
       "keydown",
       function (event) {
+         const buttonContact = document.querySelector(".button__contact");
          if (event.defaultPrevented) {
             return;
          }
@@ -248,7 +249,6 @@ function manageContactForm() {
             case "Escape":
                closeModal();
                closeModalValidate();
-               closeDropdown();
                break;
          }
       },
