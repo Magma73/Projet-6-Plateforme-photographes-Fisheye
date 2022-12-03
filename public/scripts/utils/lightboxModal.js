@@ -1,3 +1,5 @@
+let currentItemPosition = 0;
+
 /********* FUNCTIONS : OUVERTURE / FERMETURE DE LA LIGHTBOX *********/
 /* Function ouverture de la modale */
 function displayModalLightbox() {
@@ -11,36 +13,28 @@ function displayModalLightbox() {
    modal.setAttribute("aria-hidden", "false");
    body.classList.add("body--no-scroll");
    modal.focus();
+   document.querySelector('[data-card-focused ="focused"]').removeAttribute("data-card-focused");
 }
+
 /* Function fermeture de la modale */
 function closeModalLightbox() {
    const body = document.querySelector("body");
    const header = document.querySelector(".header");
    const main = document.querySelector(".content");
    const modal = document.querySelector("#carrouselModal");
-   // const cardMedia = document.querySelector(".card__media-element");
-   // this.focus();
    modal.style.display = "none";
    header.setAttribute("aria-hidden", "false");
    main.setAttribute("aria-hidden", "false");
    modal.setAttribute("aria-hidden", "true");
    body.classList.remove("body--no-scroll");
-   // cardMedia.setAttribute("tab-index", 1);
-   // console.log(cardMedia);
-   // const carrouselUlSection = document.querySelector(".carrousel__list");
-   // carrouselUlSection.innerHTML = ""; // J'efface le contenu de carrousel__list : je réinitialise pour que ce soit vide
-
-   const carrouselItems = document.querySelectorAll(".carrousel__item");
-    carrouselItems.foreach((items)=> {
-      items.innerHTML = "";
-    });
-
-
+   currentItemPosition = 0;
+   // console.log(currentItemPosition);
+   const cardFocused = document.querySelector('[data-card-focused ="focused"]');
+   // console.log(cardFocused);
+   cardFocused.focus();
 }
 
 /********* FUNCTIONS : GESTION DE LA POSITION DES CARTES DANS LE CARROUSEL *********/
-let currentItemPosition = 0;
-
 function goToNextSlide() {
    // Aller à la prochaine diapo
    const carouselItems = document.querySelectorAll(".carrousel__item");
@@ -53,16 +47,19 @@ function goToNextSlide() {
       const currentItem = carouselItems[currentItemPosition];
       carouselItems[0].style.display = "block";
       setNodeAttributes(lastItem, currentItem);
-      console.log(lastItem);
-      console.log(currentItem);
+      // console.log("lastitem" , lastItem);
+      console.log("lastitem", lastItem, "currentitem", currentItem, "currentitemposition", currentItemPosition);
+      console.log(currentItemPosition);
    } else {
       // sinon on ajoute +1 à la currentItemPosition*/
-      currentItemPosition += 1;
+      currentItemPosition++;
       const lastItem = carouselItems[currentItemPosition - 1];
       const currentItem = carouselItems[currentItemPosition];
       setNodeAttributes(lastItem, currentItem);
-      console.log(lastItem);
-      console.log(currentItem);
+      // console.log(lastItem);
+      // console.log(currentItem);
+      console.log(currentItemPosition);
+      console.log("lastitem", lastItem, "currentitem", currentItem, "currentitemposition", currentItemPosition);
    }
 }
 function goToPreviousSlide() {
@@ -75,6 +72,8 @@ function goToPreviousSlide() {
       currentItemPosition -= 1;
       const currentItem = carouselItems[currentItemPosition];
       const lastItem = carouselItems[currentItemPosition + 1];
+      console.log(currentItemPosition);
+      console.log("lastitem", lastItem, "currentitem", currentItem, "currentitemposition", currentItemPosition);
 
       setNodeAttributes(lastItem, currentItem);
    } else {
@@ -84,6 +83,8 @@ function goToPreviousSlide() {
       const currentItem = carouselItems[currentItemPosition];
       carouselItems[0].style.display = "block";
       setNodeAttributes(lastItem, currentItem);
+      console.log(currentItemPosition);
+      console.log("lastitem", lastItem, "currentitem", currentItem, "currentitemposition", currentItemPosition);
    }
 }
 function setNodeAttributes(lastItem, currentItem) {
@@ -95,49 +96,46 @@ function setNodeAttributes(lastItem, currentItem) {
 
 async function displayDataLightboxMedia(photographersMedias, idCurrent, type) {
    // console.log(photographersMedias);
+
    const carrouselUlSection = document.querySelector(".carrousel__list");
+   carrouselUlSection.innerHTML = ""; // J'efface le contenu de carrousel__list : je réinitialise pour que ce soit vide
    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
    const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
    const results = photographersMedias.filter((photographersMedia) => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
 
-   if(type ==="Priorité"){
+   if (type === "Priorité") {
       results.sort(function (a, b) {
          return b.likes - a.likes;
       });
       // console.log(results);
-   }
-   else if(type ==="Titre"){
+   } else if (type === "Titre") {
       results.sort(function (a, b) {
          return a.title.localeCompare(b.title);
       });
       // console.log(results);
-   }
-   else if(type ==="Date"){
+   } else if (type === "Date") {
       results.sort(function (a, b) {
          return b.date.localeCompare(a.date);
       });
       // console.log(results);
-   }else {
+   } else {
       // console.log(results);
       console.log("Initialisation de la lightbox");
    }
 
-   // const idMedia = document.querySelectorAll("");
-   carrouselUlSection.innerHTML = ""; // J'efface le contenu de carrousel__list : je réinitialise pour que ce soit vide
-   // sortIndex(results, idCurrent) ;
    const idCurrentMedia = parseInt(idCurrent); // Je convertis l'id du currentMedia en nombre
-   console.log(idCurrentMedia);
+   // console.log(idCurrentMedia);
    const isFindMedia = results.find((isId) => isId.id === idCurrentMedia); // Renvoie l'objet qui correspond à l'id que je cherche (idCurrentMedia) dans mon tableau d'objet
    // console.log(isFindMedia);
    const isLargeNumber = (element) => element === isFindMedia; // Je cherche l'objet isFindMedia dans mon tableau
    // console.log(isLargeNumber);
    const positionToFind = results.findIndex(isLargeNumber); // Je trouve l'index qui correspond à l'objet IsFindMedia dans mon tableau
-   console.log(positionToFind);
-   console.log(results);
+   // console.log(positionToFind);
 
    for (let i = positionToFind; i < results.length; i++) {
       // Je créé les cartes de la lightbox depuis la position trouvée
       const result1 = results[i];
+      console.log(result1);
       const carrouselModalModel = lightboxMediasFactory(result1);
       const carrouselMediaCardDOM = carrouselModalModel.getLightboxMediaCardDOM();
       carrouselUlSection.appendChild(carrouselMediaCardDOM);
@@ -146,6 +144,7 @@ async function displayDataLightboxMedia(photographersMedias, idCurrent, type) {
    for (let x = 0; x < positionToFind; x++) {
       // Je créé le reste des cartes de la lightbox depuis 0  à la position trouvée
       const result2 = results[x];
+      console.log(result2);
       const carrouselModalModel = lightboxMediasFactory(result2);
       const carrouselMediaCardDOM = carrouselModalModel.getLightboxMediaCardDOM();
       carrouselUlSection.appendChild(carrouselMediaCardDOM);
@@ -164,21 +163,23 @@ async function displayDataLightboxMedia(photographersMedias, idCurrent, type) {
 function manageCarousel(photographersMedias) {
    /* Ouverture de la lightbox */
    const cardMedia = document.querySelectorAll(".card__media-element");
+   const buttonCloseLightbox = document.querySelectorAll(".carrousel__cross");
+   const modalLightBox = document.querySelector("#carrouselModal");
 
    cardMedia.forEach((btn) =>
       btn.addEventListener("click", function () {
-         // const currentCard = this.children;
-         // const currentCard = this.nextElementSibling;
          const idCurrent = this.getAttribute("id");
-         // console.log(this);
-         // console.log(currentCard);
-         // console.log(idCurrent);
+
          const buttonWrapper = document.querySelector(".button__wrapper");
          const type = buttonWrapper.dataset.optionClicked;
-         console.log(type);
+
+         const currentMedia = document.getElementById(idCurrent);
+         currentMedia.dataset.cardFocused = "focused";
 
          displayDataLightboxMedia(photographersMedias, idCurrent, type);
          displayModalLightbox();
+
+         currentMedia.dataset.cardFocused = "focused";
 
          // /* Gestion des flèches du carrousel au clic */
 
@@ -192,17 +193,34 @@ function manageCarousel(photographersMedias) {
          buttonCloseLightbox.forEach((btn) =>
             btn.addEventListener("click", function () {
                closeModalLightbox();
+               // document.querySelector('[data-card-focused ="focused"]').removeAttribute("data-card-focused");  // je supprime l'attribut data = focused sur la carte cliquée
             })
          );
-         // cardMedia.forEach(element => element.setAttribute("tabindex", 0));
-         // const currentFocus = this.setAttribute("tabindex", 1);
-         // this.focus();
 
+         // /* Fermeture de la lightbox avec la touch Entrée */
 
-
+         // buttonCloseLightbox.forEach((btn) =>
+         //    btn.addEventListener(
+         //       "keydown",
+         //       function (event) {
+         //          if (event.defaultPrevented) {
+         //             return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+         //          }
+         //          switch (event.key) {
+         //             case "Enter":
+         //                closeModalLightbox();
+         //                // document.querySelector('[data-card-focused ="focused"]').removeAttribute("data-card-focused");  // je supprime l'attribut data = focused sur la carte cliquée
+         //                // Faire quelque chose pour la touche "esc" pressée.
+         //                break;
+         //          }
+         //          // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+         //          // event.preventDefault();
+         //       },
+         //       true
+         //    )
+         // );
       })
    );
-
 
    /* Ouverture de la lightbox aavec la touch Entrée */
    cardMedia.forEach((btn) =>
@@ -210,22 +228,41 @@ function manageCarousel(photographersMedias) {
          "keydown",
          function (event) {
             const idCurrent = this.getAttribute("id");
-         // console.log(this);
-         // console.log(currentCard);
-         // console.log(idCurrent);
-         const buttonWrapper = document.querySelector(".button__wrapper");
-         const type = buttonWrapper.innerText;
-         console.log(type);
+            const buttonWrapper = document.querySelector(".button__wrapper");
+            const type = buttonWrapper.dataset.optionClicked;
+            const currentMedia = document.getElementById(idCurrent);
+
+            // console.log(currentCard);
+            // console.log(idCurrent);
+
+            // console.log(type);
             if (event.defaultPrevented) {
                return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
             }
             switch (event.key) {
                case "Enter":
+                  // console.log("currentmedia", currentMedia);
+                  currentMedia.dataset.cardFocused = "focused";
                   displayDataLightboxMedia(photographersMedias, idCurrent, type);
                   displayModalLightbox();
+                  currentMedia.dataset.cardFocused = "focused";
                   // Faire quelque chose pour la touche "esc" pressée.
                   break;
+
+               //    case "ArrowLeft": // Lorsque la touche "flèche gauche" pressée, aller à la diapo précédante
+               //    goToPreviousSlide();
+               //    break;
+
+               // case "ArrowRight": // Lorsque la touche "flèche droite" pressée, aller à la diapo suivante
+               //    goToNextSlide();
+               //    break;
+
+               // case "Escape": // Lorsque la touche "esc" pressée, fermer la lightbox
+               // closeModalLightbox();
+               // document.querySelector('[data="focused"]').removeAttribute("data");
+               // break;
             }
+
             // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
             // event.preventDefault();
          },
@@ -233,47 +270,29 @@ function manageCarousel(photographersMedias) {
       )
    );
 
-   const buttonCloseLightbox = document.querySelectorAll(".carrousel__cross");
-
-   /* Fermeture de la lightbox avec la touch Entrée */
-   buttonCloseLightbox.forEach((btn) =>
-      btn.addEventListener(
-         "keydown",
-         function (event) {
-            if (event.defaultPrevented) {
-               return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
-            }
-            switch (event.key) {
-               case "Enter":
-                  closeModalLightbox();
-                  // Faire quelque chose pour la touche "esc" pressée.
-                  break;
-            }
-            // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
-            // event.preventDefault();
-         },
-         true
-      )
-   );
-
-   /* Gestion du carousel et de la modal avec les touches au clavier  : Échap/Suivante/Précédante */
-   window.addEventListener(
+   modalLightBox.addEventListener(
       "keydown",
       function (event) {
          if (event.defaultPrevented) {
             return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
          }
          switch (event.key) {
-            case "Escape": // Lorsque la touche "esc" pressée, fermer la lightbox
-               closeModalLightbox();
-               break;
-
             case "ArrowLeft": // Lorsque la touche "flèche gauche" pressée, aller à la diapo précédante
                goToPreviousSlide();
+               console.log("test");
+               // modalLightBox.focus();
                break;
 
             case "ArrowRight": // Lorsque la touche "flèche droite" pressée, aller à la diapo suivante
                goToNextSlide();
+               console.log("test");
+               // modalLightBox.focus();
+               break;
+
+            case "Escape": // Lorsque la touche "esc" pressée, fermer la lightbox
+               closeModalLightbox();
+               console.log("test");
+               // document.querySelector('[data-card-focused ="focused"]').removeAttribute("data-card-focused");  // je supprime l'attribut data = focused sur la carte cliquée
                break;
          }
          // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
@@ -281,4 +300,31 @@ function manageCarousel(photographersMedias) {
       },
       true
    );
+
+   /* Gestion du carousel et de la modal avec les touches au clavier  : Échap/Suivante/Précédante */
+   // window.addEventListener(
+   //    "keydown",
+   //    function (event) {
+   //       if (event.defaultPrevented) {
+   //          return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+   //       }
+   //       switch (event.key) {
+   //          case "Escape": // Lorsque la touche "esc" pressée, fermer la lightbox
+   //             closeModalLightbox();
+   //             break;
+
+   //          case "ArrowLeft": // Lorsque la touche "flèche gauche" pressée, aller à la diapo précédante
+   //             goToPreviousSlide();
+   //             break;
+
+   //          case "ArrowRight": // Lorsque la touche "flèche droite" pressée, aller à la diapo suivante
+   //             goToNextSlide();
+   //             console.log("test");
+   //             break;
+   //       }
+   //       // // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+   //       // event.preventDefault();
+   //    },
+   //    true
+   // );
 }
