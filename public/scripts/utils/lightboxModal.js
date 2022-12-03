@@ -28,9 +28,7 @@ function closeModalLightbox() {
    modal.setAttribute("aria-hidden", "true");
    body.classList.remove("body--no-scroll");
    currentItemPosition = 0;
-   // console.log(currentItemPosition);
    const cardFocused = document.querySelector('[data-card-focused ="focused"]');
-   // console.log(cardFocused);
    cardFocused.focus();
 }
 
@@ -47,19 +45,12 @@ function goToNextSlide() {
       const currentItem = carouselItems[currentItemPosition];
       carouselItems[0].style.display = "block";
       setNodeAttributes(lastItem, currentItem);
-      // console.log("lastitem" , lastItem);
-      console.log("lastitem", lastItem, "currentitem", currentItem, "currentitemposition", currentItemPosition);
-      console.log(currentItemPosition);
    } else {
       // sinon on ajoute +1 à la currentItemPosition*/
       currentItemPosition++;
       const lastItem = carouselItems[currentItemPosition - 1];
       const currentItem = carouselItems[currentItemPosition];
       setNodeAttributes(lastItem, currentItem);
-      // console.log(lastItem);
-      // console.log(currentItem);
-      console.log(currentItemPosition);
-      console.log("lastitem", lastItem, "currentitem", currentItem, "currentitemposition", currentItemPosition);
    }
 }
 function goToPreviousSlide() {
@@ -72,9 +63,6 @@ function goToPreviousSlide() {
       currentItemPosition -= 1;
       const currentItem = carouselItems[currentItemPosition];
       const lastItem = carouselItems[currentItemPosition + 1];
-      console.log(currentItemPosition);
-      console.log("lastitem", lastItem, "currentitem", currentItem, "currentitemposition", currentItemPosition);
-
       setNodeAttributes(lastItem, currentItem);
    } else {
       // Sinon on revient à la dernière diapo : nombre de médias - 1
@@ -83,8 +71,6 @@ function goToPreviousSlide() {
       const currentItem = carouselItems[currentItemPosition];
       carouselItems[0].style.display = "block";
       setNodeAttributes(lastItem, currentItem);
-      console.log(currentItemPosition);
-      console.log("lastitem", lastItem, "currentitem", currentItem, "currentitemposition", currentItemPosition);
    }
 }
 function setNodeAttributes(lastItem, currentItem) {
@@ -95,8 +81,6 @@ function setNodeAttributes(lastItem, currentItem) {
 }
 
 async function displayDataLightboxMedia(photographersMedias, idCurrent, type) {
-   // console.log(photographersMedias);
-
    const carrouselUlSection = document.querySelector(".carrousel__list");
    carrouselUlSection.innerHTML = ""; // J'efface le contenu de carrousel__list : je réinitialise pour que ce soit vide
    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
@@ -107,35 +91,26 @@ async function displayDataLightboxMedia(photographersMedias, idCurrent, type) {
       results.sort(function (a, b) {
          return b.likes - a.likes;
       });
-      // console.log(results);
    } else if (type === "Titre") {
       results.sort(function (a, b) {
          return a.title.localeCompare(b.title);
       });
-      // console.log(results);
    } else if (type === "Date") {
       results.sort(function (a, b) {
          return b.date.localeCompare(a.date);
       });
-      // console.log(results);
    } else {
-      // console.log(results);
       console.log("Initialisation de la lightbox");
    }
 
    const idCurrentMedia = parseInt(idCurrent); // Je convertis l'id du currentMedia en nombre
-   // console.log(idCurrentMedia);
    const isFindMedia = results.find((isId) => isId.id === idCurrentMedia); // Renvoie l'objet qui correspond à l'id que je cherche (idCurrentMedia) dans mon tableau d'objet
-   // console.log(isFindMedia);
    const isLargeNumber = (element) => element === isFindMedia; // Je cherche l'objet isFindMedia dans mon tableau
-   // console.log(isLargeNumber);
    const positionToFind = results.findIndex(isLargeNumber); // Je trouve l'index qui correspond à l'objet IsFindMedia dans mon tableau
-   // console.log(positionToFind);
 
    for (let i = positionToFind; i < results.length; i++) {
       // Je créé les cartes de la lightbox depuis la position trouvée
       const result1 = results[i];
-      console.log(result1);
       const carrouselModalModel = lightboxMediasFactory(result1);
       const carrouselMediaCardDOM = carrouselModalModel.getLightboxMediaCardDOM();
       carrouselUlSection.appendChild(carrouselMediaCardDOM);
@@ -144,7 +119,6 @@ async function displayDataLightboxMedia(photographersMedias, idCurrent, type) {
    for (let x = 0; x < positionToFind; x++) {
       // Je créé le reste des cartes de la lightbox depuis 0  à la position trouvée
       const result2 = results[x];
-      console.log(result2);
       const carrouselModalModel = lightboxMediasFactory(result2);
       const carrouselMediaCardDOM = carrouselModalModel.getLightboxMediaCardDOM();
       carrouselUlSection.appendChild(carrouselMediaCardDOM);
@@ -152,9 +126,7 @@ async function displayDataLightboxMedia(photographersMedias, idCurrent, type) {
 
    const carouselItems = document.querySelectorAll(".carrousel__item");
    const nbCarouselItems = carouselItems.length;
-   // console.log(nbCarouselItems);
    for (i = 1; i < nbCarouselItems; i++) {
-      // console.log(nbCarouselItems);
       carouselItems[i].style.display = "none";
    }
 }
@@ -165,15 +137,11 @@ function manageCarousel(photographersMedias) {
    const cardMedia = document.querySelectorAll(".card__media-element");
    const modalLightBox = document.querySelector("#carrouselModal");
 
-   const prevBtn = document.querySelectorAll(".carrousel__controls--left");
-
    cardMedia.forEach((btn) =>
       btn.addEventListener("click", function () {
          const idCurrent = this.getAttribute("id");
-
          const buttonWrapper = document.querySelector(".button__wrapper");
          const type = buttonWrapper.dataset.optionClicked;
-
          const currentMedia = document.getElementById(idCurrent);
          currentMedia.dataset.cardFocused = "focused";
 
@@ -182,25 +150,21 @@ function manageCarousel(photographersMedias) {
 
          currentMedia.dataset.cardFocused = "focused";
 
-         // /* Gestion des flèches du carrousel au clic */
-
+         /* Gestion des flèches du carrousel au clic */
          const nextBtn = document.querySelectorAll(".carrousel__controls--right");
          const prevBtn = document.querySelectorAll(".carrousel__controls--left");
          nextBtn.forEach((btn) => btn.addEventListener("click", goToNextSlide));
          prevBtn.forEach((btn) => btn.addEventListener("click", goToPreviousSlide));
 
-         /* Fermeture de la lightbox */
+         /* Fermeture de la lightbox au clic */
          const buttonCloseLightbox = document.querySelectorAll(".carrousel__cross");
          buttonCloseLightbox.forEach((btn) =>
             btn.addEventListener("click", function () {
                closeModalLightbox();
-               // document.querySelector('[data-card-focused ="focused"]').removeAttribute("data-card-focused");  // je supprime l'attribut data = focused sur la carte cliquée
             })
          );
       })
    );
-   // nextBtn.forEach((btn) => btn.addEventListener("keydown", goToNextSlide));
-   // prevBtn.forEach((btn) => btn.addEventListener("keydown", goToPreviousSlide));
 
    /* Ouverture de la lightbox aavec la touch Entrée */
    cardMedia.forEach((btn) =>
@@ -212,39 +176,19 @@ function manageCarousel(photographersMedias) {
             const type = buttonWrapper.dataset.optionClicked;
             const currentMedia = document.getElementById(idCurrent);
 
-            // console.log(currentCard);
-            // console.log(idCurrent);
-
-            // console.log(type);
             if (event.defaultPrevented) {
                return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
             }
             switch (event.key) {
                case "Enter":
-                  // console.log("currentmedia", currentMedia);
                   currentMedia.dataset.cardFocused = "focused";
                   displayDataLightboxMedia(photographersMedias, idCurrent, type);
                   displayModalLightbox();
                   currentMedia.dataset.cardFocused = "focused";
-                  // Faire quelque chose pour la touche "esc" pressée.
                   break;
-
-               //    case "ArrowLeft": // Lorsque la touche "flèche gauche" pressée, aller à la diapo précédante
-               //    goToPreviousSlide();
-               //    break;
-
-               // case "ArrowRight": // Lorsque la touche "flèche droite" pressée, aller à la diapo suivante
-               //    goToNextSlide();
-               //    break;
-
-               // case "Escape": // Lorsque la touche "esc" pressée, fermer la lightbox
-               // closeModalLightbox();
-               // document.querySelector('[data="focused"]').removeAttribute("data");
-               // break;
             }
 
-            // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
-            // event.preventDefault();
+            /* Gestion des flèches du carrousel avec la touche Entrée*/
             const nextBtn = document.querySelectorAll(".carrousel__controls--right");
             nextBtn.forEach((btn) =>
                btn.addEventListener(
@@ -283,8 +227,8 @@ function manageCarousel(photographersMedias) {
                )
             );
 
+            /* Gestion de la fermeture du carrousel avec la touche Entrée*/
             const buttonCloseLightbox = document.querySelectorAll(".carrousel__cross");
-
             buttonCloseLightbox.forEach((btn) =>
                btn.addEventListener(
                   "keydown",
@@ -295,7 +239,6 @@ function manageCarousel(photographersMedias) {
                      switch (event.key) {
                         case "Enter":
                            closeModalLightbox();
-                           // document.querySelector('[data-card-focused ="focused"]').removeAttribute("data-card-focused");  // je supprime l'attribut data = focused sur la carte cliquée
                            // Faire quelque chose pour la touche "esc" pressée.
                            break;
                      }
@@ -320,22 +263,18 @@ function manageCarousel(photographersMedias) {
          switch (event.key) {
             case "ArrowLeft": // Lorsque la touche "flèche gauche" pressée, aller à la diapo précédante
                goToPreviousSlide();
-               console.log("test");
                modalLightBox.focus();
                event.preventDefault();
                break;
 
             case "ArrowRight": // Lorsque la touche "flèche droite" pressée, aller à la diapo suivante
                goToNextSlide();
-               console.log("test");
                modalLightBox.focus();
                event.preventDefault();
                break;
 
             case "Escape": // Lorsque la touche "esc" pressée, fermer la lightbox
                closeModalLightbox();
-               console.log("test");
-               // document.querySelector('[data-card-focused ="focused"]').removeAttribute("data-card-focused");  // je supprime l'attribut data = focused sur la carte cliquée
                break;
          }
          // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
@@ -343,30 +282,4 @@ function manageCarousel(photographersMedias) {
       },
       true
    );
-
-   // window.addEventListener(
-   //    "keydown",
-   //    function (event) {
-   //       if (event.defaultPrevented) {
-   //          return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
-   //       }
-   //       switch (event.key) {
-   //          case "Escape": // Lorsque la touche "esc" pressée, fermer la lightbox
-   //             closeModalLightbox();
-   //             break;
-
-   //          case "ArrowLeft": // Lorsque la touche "flèche gauche" pressée, aller à la diapo précédante
-   //             goToPreviousSlide();
-   //             break;
-
-   //          case "ArrowRight": // Lorsque la touche "flèche droite" pressée, aller à la diapo suivante
-   //             goToNextSlide();
-   //             console.log("test");
-   //             break;
-   //       }
-   //       // // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
-   //       // event.preventDefault();
-   //    },
-   //    true
-   // );
 }

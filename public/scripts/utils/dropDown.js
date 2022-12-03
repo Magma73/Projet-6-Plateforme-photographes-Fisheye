@@ -169,17 +169,14 @@ function manageDropDown(photographersMedias) {
    function associateOption(currentOption) {
       const currentText = currentOption.innerText;
       if (currentText === "Priorité") {
-         // const type = "priorité";
          displayDataMediaLikes(photographersMedias);
          manageCarousel(photographersMedias);
          manageCounterLikes();
       } else if (currentText === "Titre") {
-         // const type = "titre";
          displayDataMediaTitle(photographersMedias);
          manageCarousel(photographersMedias);
          manageCounterLikes();
       } else if (currentText === "Date") {
-         // const type = "date";
          displayDataMediaDate(photographersMedias);
          manageCarousel(photographersMedias);
          manageCounterLikes();

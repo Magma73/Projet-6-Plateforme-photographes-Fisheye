@@ -4,11 +4,6 @@ function lightboxMediasFactory(photographersMedias) {
    const params = new URL(document.location).searchParams; // Je récupère les paramètres de mon url
    const nom = params.get("name").toString(); // Je récupère le nom du photographe
 
-   // const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
-
-   // const photographerId = idURL;
-   // console.log(photographerId);
-
    const mediaPhoto = `./assets/photographers/${nom}/${image}`;
    const mediaVideo = `./assets/photographers/${nom}/${video}`;
 
@@ -16,15 +11,11 @@ function lightboxMediasFactory(photographersMedias) {
       // Création des li
       const carrouselItem = document.createElement("li");
       carrouselItem.className = "carrousel__item";
-      //   carrouselList.setAttribute("tabindex", "0");
 
       // BOUTON CROIX FERMER
       // Création de la div contenant la croix
       const carrouselClose = document.createElement("div");
       carrouselClose.className = "carrousel__close";
-      // carrouselClose.setAttribute("aria-label", "Fermer le carrousel");
-      // carrouselClose.setAttribute("role", "button");
-      // carrouselClose.setAttribute("tabindex", 7);
 
       // Création de l'icône croix
       const carrouselCross = document.createElement("img");
@@ -74,7 +65,6 @@ function lightboxMediasFactory(photographersMedias) {
       // Création de la div contenant les médias : image ou vidéo
       const carrouselElement = document.createElement("div");
       carrouselElement.className = "carrousel__element";
-      // carrouselElement.setAttribute("tabindex", 2);
 
       // Création du titre des médias
       const carrouselTitle = document.createElement("h1");

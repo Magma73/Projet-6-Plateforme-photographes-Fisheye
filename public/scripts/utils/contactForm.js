@@ -160,29 +160,6 @@ function checkMessageInput() {
    }
 }
 
-// // Function submit form
-
-// addEventListener("submit", (e) => {
-//    //on submit, verify if the functions of verification are true
-//    console.log("c'est envoyé");
-//    e.preventDefault(); // if it's true, the form is reset and closed and the message of validation appears
-//    checkFirstNameInput();
-//    checkLastNameInput();
-//    checkEmailInput();
-//    checkMessageInput();
-//    if (checkFirstNameInput() && checkLastNameInput() && checkEmailInput() && checkMessageInput() == true) {
-//       document.querySelector(".form").reset();
-//       closeModal();
-//       const modalbgValidate = document.querySelector("#contactModalValidate");
-//       modalbgValidate.focus();
-//       displayValidationMessage();
-//    }
-//    else{
-//       const modal = document.querySelector("#contactModal");
-//       modal.focus();
-//    }
-// });
-
 /********* FUNCTIONS : GESTION DES ÉVÉNEMENTS DU FORMULAIRE *********/
 function manageContactForm() {
    /* Ouverture de la modal contact */

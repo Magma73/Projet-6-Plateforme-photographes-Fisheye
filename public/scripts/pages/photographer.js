@@ -69,10 +69,8 @@ async function init() {
    displayDataContactPhotographer(photographersMedias);
    displayDataMedia(photographersMedias);
    displayDataEncart(photographers);
-   // displayDataLightboxMedia(photographersMedias);
 
    // Récupère les fonctions de gestion des événements
-
    manageContactForm();
    manageDropDown(photographersMedias);
    manageCarousel(photographersMedias);
