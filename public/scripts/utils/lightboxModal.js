@@ -163,8 +163,9 @@ async function displayDataLightboxMedia(photographersMedias, idCurrent, type) {
 function manageCarousel(photographersMedias) {
    /* Ouverture de la lightbox */
    const cardMedia = document.querySelectorAll(".card__media-element");
-   const buttonCloseLightbox = document.querySelectorAll(".carrousel__cross");
    const modalLightBox = document.querySelector("#carrouselModal");
+
+   const prevBtn = document.querySelectorAll(".carrousel__controls--left");
 
    cardMedia.forEach((btn) =>
       btn.addEventListener("click", function () {
@@ -196,31 +197,10 @@ function manageCarousel(photographersMedias) {
                // document.querySelector('[data-card-focused ="focused"]').removeAttribute("data-card-focused");  // je supprime l'attribut data = focused sur la carte cliquée
             })
          );
-
-         // /* Fermeture de la lightbox avec la touch Entrée */
-
-         // buttonCloseLightbox.forEach((btn) =>
-         //    btn.addEventListener(
-         //       "keydown",
-         //       function (event) {
-         //          if (event.defaultPrevented) {
-         //             return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
-         //          }
-         //          switch (event.key) {
-         //             case "Enter":
-         //                closeModalLightbox();
-         //                // document.querySelector('[data-card-focused ="focused"]').removeAttribute("data-card-focused");  // je supprime l'attribut data = focused sur la carte cliquée
-         //                // Faire quelque chose pour la touche "esc" pressée.
-         //                break;
-         //          }
-         //          // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
-         //          // event.preventDefault();
-         //       },
-         //       true
-         //    )
-         // );
       })
    );
+   // nextBtn.forEach((btn) => btn.addEventListener("keydown", goToNextSlide));
+   // prevBtn.forEach((btn) => btn.addEventListener("keydown", goToPreviousSlide));
 
    /* Ouverture de la lightbox aavec la touch Entrée */
    cardMedia.forEach((btn) =>
@@ -265,11 +245,72 @@ function manageCarousel(photographersMedias) {
 
             // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
             // event.preventDefault();
+            const nextBtn = document.querySelectorAll(".carrousel__controls--right");
+            nextBtn.forEach((btn) =>
+               btn.addEventListener(
+                  "keydown",
+                  function (event) {
+                     if (event.defaultPrevented) {
+                        return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+                     }
+                     switch (event.key) {
+                        case "Enter": // Lorsque la touche "flèche gauche" pressée, aller à la diapo précédante
+                           goToNextSlide();
+                     }
+                     // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+                     // event.preventDefault();
+                  },
+                  true
+               )
+            );
+
+            const prevBtn = document.querySelectorAll(".carrousel__controls--left");
+            prevBtn.forEach((btn) =>
+               btn.addEventListener(
+                  "keydown",
+                  function (event) {
+                     if (event.defaultPrevented) {
+                        return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+                     }
+                     switch (event.key) {
+                        case "Enter": // Lorsque la touche "flèche gauche" pressée, aller à la diapo précédante
+                           goToPreviousSlide();
+                     }
+                     // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+                     // event.preventDefault();
+                  },
+                  true
+               )
+            );
+
+            const buttonCloseLightbox = document.querySelectorAll(".carrousel__cross");
+
+            buttonCloseLightbox.forEach((btn) =>
+               btn.addEventListener(
+                  "keydown",
+                  function (event) {
+                     if (event.defaultPrevented) {
+                        return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+                     }
+                     switch (event.key) {
+                        case "Enter":
+                           closeModalLightbox();
+                           // document.querySelector('[data-card-focused ="focused"]').removeAttribute("data-card-focused");  // je supprime l'attribut data = focused sur la carte cliquée
+                           // Faire quelque chose pour la touche "esc" pressée.
+                           break;
+                     }
+                     // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+                     // event.preventDefault();
+                  },
+                  true
+               )
+            );
          },
          true
       )
    );
 
+   /* Gestion du carousel et de la modal avec les touches au clavier  : Échap/Suivante/Précédante */
    modalLightBox.addEventListener(
       "keydown",
       function (event) {
@@ -280,13 +321,15 @@ function manageCarousel(photographersMedias) {
             case "ArrowLeft": // Lorsque la touche "flèche gauche" pressée, aller à la diapo précédante
                goToPreviousSlide();
                console.log("test");
-               // modalLightBox.focus();
+               modalLightBox.focus();
+               event.preventDefault();
                break;
 
             case "ArrowRight": // Lorsque la touche "flèche droite" pressée, aller à la diapo suivante
                goToNextSlide();
                console.log("test");
-               // modalLightBox.focus();
+               modalLightBox.focus();
+               event.preventDefault();
                break;
 
             case "Escape": // Lorsque la touche "esc" pressée, fermer la lightbox
@@ -301,7 +344,6 @@ function manageCarousel(photographersMedias) {
       true
    );
 
-   /* Gestion du carousel et de la modal avec les touches au clavier  : Échap/Suivante/Précédante */
    // window.addEventListener(
    //    "keydown",
    //    function (event) {
