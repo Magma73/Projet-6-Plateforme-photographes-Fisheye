@@ -54,7 +54,8 @@ function photographerMediasFactory(photographersMedias) {
       const nbLikes = document.createElement("p");
       nbLikes.className = "card__media-likes";
       nbLikes.textContent = likes;
-      nbLikes.setAttribute("aria-label", "Nombre de likes");
+      const textNbLikes = likes + "likes";
+      nbLikes.setAttribute("aria-label", textNbLikes);
       nbLikes.setAttribute("tabindex", "0");
 
       // Création de l'icône
