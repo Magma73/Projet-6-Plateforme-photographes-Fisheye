@@ -23,6 +23,7 @@ function photographerMediasFactory(photographersMedias) {
          const video = document.createElement("video");
          video.setAttribute("src", mediaVideo);
          video.setAttribute("alt", title);
+         video.setAttribute("aria-label", title);
          video.controls = false;
          video.className = "card__media--video";
          mediaElement.appendChild(video);
