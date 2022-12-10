@@ -23,7 +23,7 @@ function photographerMediasFactory(photographersMedias) {
          const video = document.createElement("video");
          video.setAttribute("src", mediaVideo);
          video.setAttribute("alt", title);
-         video.controls = true;
+         video.controls = false;
          video.className = "card__media--video";
          mediaElement.appendChild(video);
       } else if (image !== undefined) {
