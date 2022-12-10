@@ -87,7 +87,7 @@ async function displayDataLightboxMedia(photographersMedias, idCurrent, type) {
    const idURL = parseInt(params.get("id"), 10); // Je récupère la valeur associée à mon id
    const results = photographersMedias.filter((photographersMedia) => photographersMedia.photographerId === idURL); // Je filtre mon tableau d'objet grâce à l'id récupérée
 
-   if (type === "Priorité") {
+   if (type === "Popularité") {
       results.sort(function (a, b) {
          return b.likes - a.likes;
       });

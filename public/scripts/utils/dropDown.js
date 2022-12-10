@@ -168,7 +168,7 @@ function manageDropDown(photographersMedias) {
    /* Function test l'option choisie du wrapper */
    function associateOption(currentOption) {
       const currentText = currentOption.innerText;
-      if (currentText === "Priorité") {
+      if (currentText === "Popularité") {
          displayDataMediaLikes(photographersMedias);
          manageCarousel(photographersMedias);
          manageCounterLikes();
