@@ -28,6 +28,9 @@ La base des maquettes a été créée via [Figma](https://www.figma.com/file/Q3y
 ### Formulaire d'inscription
 ![Maquette Fisheye Formulaire](/public/assets/Maquette_Formulaire_Fisheye.png)
 
+### Lightbox
+![Maquette Fisheye Lightbox](/public/assets/Maquette_Lightbox_Fisheye.png)
+
 
 ## Notes et contraintes du projet
 
