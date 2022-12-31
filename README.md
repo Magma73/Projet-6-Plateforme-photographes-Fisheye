@@ -1,21 +1,19 @@
 # Créer un site accessible pour une plateforme de photographes
-Accéder au site [Fisheye](https://magma73.github.io/Projet-6-Plateforme-photographes-Fisheye/public/)
 ## Contexte du projet
 Techasite est une société de conseil spécialisée dans le développement de sites web et d'applications mobiles.
 Son client, FishEye est l’un des plus grands sites de photographie en freelance, avec un énorme réseau de photographes. Leur site est devenu obsolète et ils ont fait appel à Techasite pour le mettre à jour, et notamment le rendre accessible.
 
 ## Mission du projet
-La mission principale pour ce projet était :
+La mission principale pour ce projet était de :
 * Construire un prototype fonctionnel du nouveau site web
 * Fournir tout le HTML, le CSS et le JavaScript nécessaires au prototype
 
 ## Technologies utilisées
-* VS Code : HTML5, CSS3 et Javascript
-* Préprocesseur Sass
-* NVDA : lecteur d’écran pour vérifier l’accessibilité du site
+* VS Code : HTML5, CSS3 et Javascript et préprocesseur SASS
+* Lecteur d'écran NVDA : vérifier l’accessibilité du site
 * Github et github pages : versionner le code et avoir une version en ligne
 * Prettier : mettre en forme le code
-* ESLint : pour garantir que le code est robuste
+* ESLint : garantir que le code est robuste
 * [Regex101.com](https://regex101.com/) : générer des regex
 
 ## Maquettes à respecter
@@ -56,11 +54,12 @@ La base des maquettes a été créée via [Figma](https://www.figma.com/file/Q3y
 * Langages à utiliser : HTML5, CSS3 et Javascript (Vanilla)
 * Frameworks autorisés : non
 * Approche : desktop first
-* Maquette mobile : à improviser
-* Maquette tablette : à improviser
 * Maquette desktop : oui
+* Maquette tablette : à improviser
+* Maquette mobile : à improviser
 * Validation W3C HTML et CSS : à passer, warning autorisés
-* Compatibilité : Dernières versions de Chrome et Firefox
+* Pas d'erreur dans la console
+* Le code devrait passer les tests AChecker sans “known issue”
 
 
 Accéder au repo d'origine : ![repository initial](https://github.com/OpenClassrooms-Student-Center/Front-End-Fisheye)
