@@ -49,20 +49,25 @@ La base des maquettes a été créée via [Figma](https://www.figma.com/file/Q3y
 
 **Contraintes :**
 
-* Travailler sur un repo GitHub forké
-* Utiliser des fichiers séparés pour le HTML, le CSS et le JavaScript
-* Respecter les exigences en terme d’accessibilité
-* Utiliser des fonctionnalités à jour (non obsolètes)
-* Avoir un code lisible (commenté lorsqu’il y a besoin)
-* Langages à utiliser : HTML5, CSS3 et Javascript (Vanilla)
-* Frameworks autorisés : non
-* Approche : desktop first
-* Maquette desktop : oui
-* Maquette tablette : à improviser
-* Maquette mobile : à improviser
-* Validation W3C HTML et CSS : à passer, warning autorisés
-* Pas d'erreur dans la console
-* Le code devrait passer les tests AChecker sans “known issue”
+* Techniques/langages
+    * Travailler sur un repo GitHub forké
+    * Utiliser des fichiers séparés pour le HTML, le CSS et le JavaScript
+    * Respecter les exigences en terme d’accessibilité
+    * Utiliser des fonctionnalités à jour (non obsolètes)
+    * Avoir un code lisible (commenté lorsqu’il y a besoin)
+    * Langages à utiliser : HTML5, CSS3 et Javascript (Vanilla)
+    * Frameworks autorisés : non
+
+* Approche et maquettes
+    * Approche : desktop first
+    * Maquette desktop : oui
+    * Maquette tablette : à improviser
+    * Maquette mobile : à improviser
+
+* Validateurs
+    * Validation W3C HTML et CSS : à passer, warning autorisés
+    * Pas d'erreur dans la console
+    * Le code doit passer les tests AChecker sans “known issue”
 
 
 Accéder au repo d'origine : ![repository initial](https://github.com/OpenClassrooms-Student-Center/Front-End-Fisheye)
